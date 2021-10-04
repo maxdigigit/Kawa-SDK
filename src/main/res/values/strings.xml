@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kawa Space SDk</string>
+    <string name="kawa_api_key">kawa_RLkNIPN-z3TeWb8AWv089w</string>
+    <string name="user_location_permission_explanation">Allow Permission to access Location</string>
+    <string name="user_location_permission_not_granted">No Permssion</string>
+    <string name="Error_General">Oops, something went wrong. Please try again later.</string>
+</resources>

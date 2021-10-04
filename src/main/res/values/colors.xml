@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mapbox colors -->
+    <color name="colorPrimary">@color/mapboxGray</color>
+    <color name="colorPrimaryDark">@color/mapboxGrayDark10</color>
+    <color name="mapboxWhite">#FFFFFF</color>
+    <color name="mapboxBlack">#000</color>
+    <color name="mapboxBlue">#477df6</color>
+    <color name="mapboxGrayDark10">#476483</color>
+    <color name="mapboxGray">#607d9c</color>
+    <color name="mapboxGrayLight">#c6d2e1</color>
+    <color name="mapboxPink">#ee4e8b</color>
+    <!-- FAB menu colors -->
+    <color name="halfBlack">#808080</color>
+    <color name="whitePressed">#f1f1f1</color>
+</resources>

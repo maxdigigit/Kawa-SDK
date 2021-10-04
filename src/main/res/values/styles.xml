@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MaterialButton" parent="Theme.Kawasdk">
+        <item name="colorAccent">@color/mapboxBlue</item>
+        <item name="colorButtonNormal">@color/mapboxWhite</item>
+    </style>
+    <style name="MaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:theme">@style/Theme.MaterialButton</item>
+    </style>
+</resources>
