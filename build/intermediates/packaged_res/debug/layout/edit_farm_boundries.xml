@@ -28,6 +28,32 @@
             android:textAlignment="center"
             android:textColor="#FFF" />
 
+        <LinearLayout
+            android:id="@+id/farm_mark_messagebox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/accentcyan"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_check_small"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:text="@string/farm_mark_successfully"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/discardEditBtn"
             android:layout_width="wrap_content"
@@ -37,11 +63,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:backgroundTint="@color/mapboxWhite"
-            android:foreground="@drawable/riipleeffectbuttons"
             android:drawableLeft="@drawable/ic_discard"
+            android:foreground="@drawable/riipleeffectbuttons"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Discard Edit"
+            android:text="@string/discard_edit"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -54,12 +80,12 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/discardEditBtn"
             android:backgroundTint="@color/mapboxWhite"
-            android:foreground="@drawable/riipleeffectbuttons"
             android:drawableLeft="@drawable/ic_back"
+            android:foreground="@drawable/riipleeffectbuttons"
             android:paddingHorizontal="10dp"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Back"
+            android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -77,7 +103,7 @@
             android:paddingHorizontal="10dp"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Start Over"
+            android:text="@string/start_over"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -132,7 +158,7 @@
             android:foreground="@drawable/riipleeffectbuttons"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Add More Plots"
+            android:text="@string/add_more_plots"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -144,7 +170,8 @@
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
-            android:text="Save Edits"
+            android:foreground="@drawable/riipleeffectbuttons"
+            android:text="@string/save_edit"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#000000" />
@@ -156,7 +183,8 @@
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
-            android:text="Complete Marking"
+            android:foreground="@drawable/riipleeffectbuttons"
+            android:text="@string/complete_marking"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/mapboxWhite"
@@ -169,11 +197,28 @@
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
-            android:text="Save Details"
+            android:text="@string/save_details"
+            android:foreground="@drawable/riipleeffectbuttons"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/mapboxWhite"
             app:layout_constraintBottom_toBottomOf="@id/mapView" />
+
+        <Button
+            android:id="@+id/markAnotherBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="-7dp"
+            android:backgroundTint="@color/mapboxBlue"
+            android:foreground="@drawable/riipleeffectbuttons"
+            android:text="@string/mark_another"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/mapboxWhite"
+            app:layout_constraintBottom_toBottomOf="@id/mapView" />
+
+
 
     </LinearLayout>
 
@@ -245,7 +290,7 @@
             android:foreground="@drawable/riipleeffectbuttons"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="Correct Boundry"
+            android:text="@string/correct_boundery"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -266,7 +311,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:text="Farm Details"
+            android:text="@string/farm_details"
             android:textAlignment="center"
             android:textColor="@color/mapboxWhite"
             android:textSize="20sp" />
@@ -294,26 +339,171 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:text="Farm marked successfully"
+            android:text="@string/farm_saved_successfully"
             android:textAlignment="center"
             android:textColor="@color/mapboxWhite"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/markAnotherBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_below="@+id/messgeBox"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/mapboxWhite"
-            android:drawableLeft="@drawable/ic_start_over"
-            android:paddingHorizontal="10dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:text="Mark Another"
-            android:textAllCaps="false"
-            android:textColor="@color/mapboxBlack" />
+        <!--        <Button-->
+        <!--            android:id="@+id/markAnotherBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="45dp"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:backgroundTint="@color/mapboxWhite"-->
+        <!--            android:drawableLeft="@drawable/ic_start_over"-->
+        <!--            android:paddingHorizontal="10dp"-->
+        <!--            android:paddingTop="0dp"-->
+        <!--            android:paddingBottom="0dp"-->
+        <!--            android:text="Mark Another"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="@color/mapboxBlack" />-->
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/farmDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#90000000"
+        android:gravity="bottom"
+        android:layout_above="@+id/footerLeftLinearLayout"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="30dp"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/farmDetailsTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_details"
+            android:paddingVertical="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/mapboxWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/areaLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/areaiconIv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_area" />
+
+            <TextView
+                android:id="@+id/areaTv"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/area"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/totalAreaTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textStyle="bold"
+                android:text=" 19.45"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/dootedLineFirst"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@drawable/dottedline" />
+
+        <LinearLayout
+            android:id="@+id/seedsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+
+            <ImageView
+                android:id="@+id/seediconIv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_seeds" />
+
+            <TextView
+                android:id="@+id/seedsTv"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/seeds_require"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/totalseedsTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="17 KG"
+                android:textStyle="bold"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dootedLineSecond"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@drawable/dottedline" />
+
+
+        <LinearLayout
+            android:id="@+id/locationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/locationiconIv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/locationTv"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/your_locality"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/addressTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginLeft="10dp"
+                android:text="India"
+                android:textStyle="bold"
+                android:textColor="@color/mapboxWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

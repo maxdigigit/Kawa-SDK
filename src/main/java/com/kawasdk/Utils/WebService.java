@@ -11,6 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface WebService {
     @POST("missions")
@@ -38,5 +39,12 @@ public interface WebService {
             @Header("x-api-key") String x_api_key, @Header("android-version") String android_version,
             @Body JsonObject geoJson
     );
+
+    @GET("reverse/")
+    Call<JsonObject> getAddress(
+            @Query("format") String json, @Query("lat") String lat, @Query("lon") String lon
+
+    );
+
 }
 

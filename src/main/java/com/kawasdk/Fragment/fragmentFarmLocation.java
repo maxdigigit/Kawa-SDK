@@ -1,6 +1,7 @@
 package com.kawasdk.Fragment;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -69,7 +70,6 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
 
     Intent intent;
     private Common COMACT;
-
     private MapboxMap MAPBOXMAP;
     private MapView MAPVIEW;
     Button getFarmBtn, zoomOutBtn, zoomInBtn, dropPinFab;
@@ -79,13 +79,19 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
     InterfaceKawaEvents interfaceKawaEvents;
     int firstTimecnt = 0;
     private ActivityResultLauncher<String> MPERMISSIONRESULT;
-   // Boolean firstTime = true;
 
+    // Boolean firstTime = true;
     @Override
     public void onAttach(@NonNull @NotNull Context context) {
         super.onAttach(context);
         interfaceKawaEvents = (InterfaceKawaEvents) context;
         interfaceKawaEvents.initKawaMap(KawaMap.isValidKawaAPiKey);
+//        Smartlook.setUserIdentifier("KAWA SDK");
+//        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("627da9d9178be1e4d7e3b5e54404d34f3bbf1877")
+//                .setFps(2)
+//                .setExperimental(true)
+//                .setActivity(null);
+//        Smartlook.setupAndStartRecording(builder.build());
     }
 
     @Override
@@ -98,6 +104,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        COMACT.setLocale((Activity) getContext()); // Change Langurage
         return inflater.inflate(R.layout.select_farm_location, container, false);
     }
 
@@ -133,7 +140,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         zoomOutBtn.setOnClickListener(viewV -> COMACT.setZoomLevel(-1, MAPBOXMAP));
 
         SEARCHRESULT = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                    COMACT.MAPZOOM=17.0;
+                    COMACT.MAPZOOM = 17.0;
                     firstTimecnt = 1;
                     if (result.getResultCode() == AppCompatActivity.RESULT_OK) {
                         displaySerachRegion(result.getData());
@@ -159,13 +166,13 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                                 return;
                             }
                             locationComponent.setLocationComponentEnabled(true);
-                           // locationComponent.setCameraMode(CameraMode.TRACKING);
+                            // locationComponent.setCameraMode(CameraMode.TRACKING);
                             Log.e("COMACTZOOM", String.valueOf(COMACT.MAPZOOM));
                             locationComponent.setCameraMode(
                                     CameraMode.TRACKING_GPS,
-                                    750L ,
-                                    16.0 ,
-                                    null ,
+                                    750L,
+                                    16.0,
+                                    null,
                                     null,
                                     null);
 
@@ -195,6 +202,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
 
     public void getAllFarms() {
         COMACT.showLoader("isScanner");
+
         ServiceManager.getInstance().getKawaService().getFarms(KawaMap.KAWA_API_KEY, Common.SDK_VERSION, getCornerLatLng())
                 .enqueue(new Callback<DeviveBounderyModel>() {
                     @Override
@@ -225,7 +233,13 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                                 if (response.errorBody() != null) {
                                     JSONObject jsonObj = new JSONObject(response.errorBody().string());
                                     Log.e("RESP", jsonObj.getString("error"));
-                                    Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();
+                                    String errorMsg = jsonObj.getString("error");
+                                    if (errorMsg.equals("Could not validate request: the area chosen is too large, please choose coordinates enclosing a smaller area"))
+                                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_large_area), Toast.LENGTH_LONG).show();
+                                    else if (errorMsg.equals("Could not validate request: The coordinates given are out of bounds for the recipe farm_boundaries, please check developers.kawa.space for the coordinate bounds for the recipe"))
+                                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_farmnot_available), Toast.LENGTH_LONG).show();
+                                    else
+                                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
                                 }
 
                             }
@@ -312,12 +326,11 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
     public void onResume() {
         super.onResume();
         MAPVIEW.onResume();
-        if (firstTimecnt == 0){
+        if (firstTimecnt == 0) {
             // do something
             Log.e("onStart_if", String.valueOf(firstTimecnt));
             firstTimecnt = 2;
-        }
-        else if (firstTimecnt == 2){
+        } else if (firstTimecnt == 2) {
             Log.e("onStart_else", String.valueOf(firstTimecnt));
             //MPERMISSIONRESULT.launch(Manifest.permission.ACCESS_FINE_LOCATION);
             new android.os.Handler(Looper.getMainLooper()).postDelayed(
@@ -329,7 +342,6 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                         }
                     },
                     1000);
-
 
         }
 

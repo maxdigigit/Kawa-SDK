@@ -13,4 +13,5 @@
     <!-- FAB menu colors -->
     <color name="halfBlack">#808080</color>
     <color name="whitePressed">#f1f1f1</color>
+    <color name="accentcyan">#02C9A6</color>
 </resources>

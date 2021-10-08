@@ -1,7 +1,9 @@
 package com.kawasdk.Utils;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -43,6 +45,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.fillColor;
@@ -61,15 +64,20 @@ public class Common extends AppCompatActivity {
     public static double MAXZOOM = 22.00;
     public static double MINZOOM = 5.00;
     public static double MAPZOOM = 17.00;
+    public static String LANGUAGE = "en"; // use in fo bahasha lanuage.
     public static ProgressBar PROGRESSBAR;
     public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoia2F3YS1hZG1pbiIsImEiOiJja3RqcmN3N2kwNWEyMzJueWQzd2J0Znk1In0.WK1trBUr51BifsBNRX5ekw"; // MAPBOX TOKEN
     //public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicnVwZXNoamFpbiIsImEiOiJja3JwdmdneGU1NHlxMnpwODN6bzFpbnkwIn0.UgSIBr9ChJFyrAKxtdNf9w"; // OLd MAPBOX TOKEN
     public static final String BASE_URL = "https://data.kawa.space/"; // live url
+    public static final String ADRESS_URL = "https://nominatim.openstreetmap.org/"; // live url
     //public static final String BASE_URL = "https://data-staging.kawa.space/"; // test url
     public static final String SDK_VERSION = android.os.Build.VERSION.SDK;
 
     public static String FARMS_FETCHED_AT = "";
     public static InterfaceKawaEvents interfaceKawaEvents;
+//    public static String PHASERSTR = "1"; // for all functnality with edit
+//    public static String PHASERSTR = "2";// for avoid merge and submit api call
+    public static String PHASERSTR = "3";
 
     public Common(Context context) {
         this.context = context;
@@ -155,17 +163,13 @@ public class Common extends AppCompatActivity {
 
     public static void setZoomLevel(float val, MapboxMap MAPBOXMAP) {
         CameraPosition cameraPosition = MAPBOXMAP.getCameraPosition();
-
-        int zoomleval = (int) cameraPosition.zoom;
+        double zoomleval = cameraPosition.zoom;
         Log.e("zoomleval", String.valueOf(zoomleval));
-        if (zoomleval < 3) {
-            MAPZOOM = 3;
-            MAPBOXMAP.animateCamera(CameraUpdateFactory.newLatLngZoom(cameraPosition.target, 3), 1000);
-        } else {
-            if (zoomleval > 2) {
-                MAPZOOM = zoomleval + val;
-                MAPBOXMAP.animateCamera(CameraUpdateFactory.newLatLngZoom(cameraPosition.target, zoomleval + val), 1000);
-            }
+        if (val == 1.0 && zoomleval >= 2 && zoomleval < 3) {
+            zoomleval = 3.1;
+        }
+        if (zoomleval > 3) {
+            MAPBOXMAP.animateCamera(CameraUpdateFactory.newLatLngZoom(cameraPosition.target, zoomleval + val), 1000);
         }
     }
 
@@ -249,5 +253,17 @@ public class Common extends AppCompatActivity {
         } catch (Exception e) {
 
         }
+    }
+
+    public void setLocale(Activity context) {
+        Log.e("TAG", "setLocale: ");
+
+        String languageToLoad = LANGUAGE; // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        context.getBaseContext().getResources().updateConfiguration(config,
+                context.getBaseContext().getResources().getDisplayMetrics());
     }
 }

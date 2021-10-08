@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@color/mapboxBlue"
             android:padding="5dp"
-            android:text="Search for a Place to Get Started"
+            android:text="@string/search_place_toget_started"
             android:textAlignment="center"
             android:textColor="#FFF" />
 
@@ -38,12 +38,14 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/style_rounded_corner_large"
             android:elevation="8dp"
-            android:gravity="center"
+            android:gravity="left"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_search"
             android:maxLines="1"
             android:paddingHorizontal="20dp"
             android:paddingVertical="15dp"
-            android:text="Seach places, coordinates, localities..."
-            android:textColor="@color/mapboxGrayLight"
+            android:text="@string/searchStr"
+            android:textColor="#4F4F4F"
             app:backgroundTint="@color/mapboxWhite"
             app:layout_constraintStart_toStartOf="@id/messageBox"
             app:layout_constraintTop_toTopOf="@id/messageBox" />
@@ -106,7 +108,7 @@
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
             android:foreground="@drawable/riipleeffectbuttons"
-            android:text="Get Farm Boundaries for this Region"
+            android:text="@string/getFarmStr"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#000000" />

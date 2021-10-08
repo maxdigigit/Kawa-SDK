@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kawasdk.Model.MergeModel;
 import com.kawasdk.R;
+import com.kawasdk.Utils.AddressServiceManager;
 import com.kawasdk.Utils.Common;
 import com.kawasdk.Utils.InterfaceKawaEvents;
 import com.kawasdk.Utils.KawaMap;
@@ -77,11 +79,13 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
     private View VIEW;
     private MapView MAPVIEW;
     private MapboxMap MAPBOXMAP;
-
+    String TAG = "KAWA";
     String STRID = "";
 
     private List<List<LatLng>> LNGLAT = new ArrayList<>();
     private List<List<LatLng>> LNGLATEDIT = new ArrayList<>();
+    ArrayList POLYGONAREA = new ArrayList<>();
+
     private static Integer LAYERINDEX;
     private static List<SymbolManager> SYMBOLSET = new ArrayList<>();
     private static Symbol SYMBOLACTIVE;
@@ -90,11 +94,13 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
 
     Button correctBoundryBtn, saveEditBtn, completeMarkingBtn, saveDetailBtn, startOverBtn, addMoreBtn, discardEditBtn, zoomOutBtn, zoomInBtn, backBtn, markAnotherBtn;
     ImageButton downBtn, upBtn, leftBtn, rightBtn;
-    LinearLayout detailsForm, thankyouLinearLayout;
+    LinearLayout detailsForm, thankyouLinearLayout, farmDetailsLayout;
+    TextView totalAreaTv, totalseedsTv, addressTv;
 
     JSONArray farm_fields_array;
     EditText[] myTextViews = null;
     TextView messageBox;
+    LinearLayout farm_mark_messagebox;
     Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
@@ -126,6 +132,8 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         MAPVIEW.getMapAsync(this);
 
         LNGLATEDIT = (List<List<LatLng>>) getArguments().getSerializable("data");
+        POLYGONAREA = (ArrayList) getArguments().getSerializable("polygonarea");
+        Log.e(TAG, "POLYGONAREA: " + POLYGONAREA);
 
         STRID = getArguments().getString("id");
         Common.CAMERALAT = getArguments().getDouble("lat", 0.00);
@@ -133,6 +141,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         Common.MAPZOOM = getArguments().getDouble("zoom", 17.00);
 
         messageBox = view.findViewById(R.id.messageBox);
+        farm_mark_messagebox = view.findViewById(R.id.farm_mark_messagebox);
         messageBox.setBackgroundColor(KawaMap.headerBgColor);
         messageBox.setTextColor(KawaMap.headerTextColor);
 
@@ -454,6 +463,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         markAnotherBtn = VIEW.findViewById(R.id.markAnotherBtn);
         detailsForm = VIEW.findViewById(R.id.detailsForm);
         thankyouLinearLayout = VIEW.findViewById(R.id.thankyouLinearLayout);
+        farmDetailsLayout = VIEW.findViewById(R.id.farmDetailsLayout);
 
         completeMarkingBtn.setOnClickListener(viewV -> completeMarking());
         correctBoundryBtn.setOnClickListener(viewV -> correctBoundry());
@@ -504,7 +514,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         footerButtons = new Button[]{
                 saveEditBtn,
                 completeMarkingBtn,
-                saveDetailBtn
+                saveDetailBtn,markAnotherBtn
         };
         KawaMap.setFooterButtonColor(footerButtons);
 
@@ -514,7 +524,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
                 startOverBtn,
                 backBtn,
                 addMoreBtn,
-                correctBoundryBtn
+                correctBoundryBtn,
         };
         KawaMap.setInnerButtonColor(innerButtons);
     }
@@ -548,7 +558,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         addMoreBtn.setVisibility(VIEW.GONE);
         backBtn.setVisibility(VIEW.GONE);
         discardEditBtn.setVisibility(VIEW.GONE);
-
+        markAnotherBtn.setVisibility(View.GONE);
         upBtn.setVisibility(VIEW.GONE);
         downBtn.setVisibility(VIEW.GONE);
         leftBtn.setVisibility(VIEW.GONE);
@@ -564,14 +574,19 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         Log.e("Called", "onFarmsLoaded");
         hideAllBtn();
         addMoreBtn.setVisibility(VIEW.VISIBLE);
-        //backBtn.setVisibility(VIEW.VISIBLE);
-        correctBoundryBtn.setVisibility(VIEW.VISIBLE);
-        completeMarkingBtn.setVisibility(VIEW.VISIBLE);
+        if (Common.PHASERSTR.equals("1")) {
+            correctBoundryBtn.setVisibility(VIEW.VISIBLE);
+            completeMarkingBtn.setVisibility(VIEW.VISIBLE);
+        } else if (Common.PHASERSTR.equals("2") || Common.PHASERSTR.equals("3")) {
+            saveDetailBtn.setVisibility(VIEW.VISIBLE);
+        }
+
+
         EDITON = false;
         SYMBOLACTIVE = null;
         LAYERINDEX = -1;
-        // messageBox.setText("Click Correct Boundry if you want edit");
-        messageBox.setText("Tap correct boundary to edit farms");
+      //  messageBox.setText(getResources().getString(R.string.tap_correct_boundery));
+        messageBox.setVisibility(View.GONE);
     }
 
     private void correctBoundry() {
@@ -581,7 +596,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         EDITON = true;
         SYMBOLACTIVE = null;
         LAYERINDEX = -1;
-        messageBox.setText("Select a plot to edit");
+        messageBox.setText(getResources().getString(R.string.select_plot_toedit));
     }
 
     private void onFarmSelected() {
@@ -594,7 +609,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         discardEditBtn.setVisibility(VIEW.VISIBLE);
         //saveEditBtn.setEnabled(true);
         //EDITON = true;
-        messageBox.setText("Select a pont to edit");
+        messageBox.setText(getResources().getString(R.string.select_point_toedit));
     }
 
     private void onSymbolSelected() {
@@ -609,7 +624,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
         discardEditBtn.setVisibility(VIEW.VISIBLE);
         saveEditBtn.setVisibility(VIEW.VISIBLE);
         EDITON = true;
-        messageBox.setText("Drag the point or use the joystick");
+        messageBox.setText(getResources().getString(R.string.drag_point_joystic));
     }
 
     private void discardEdit() {
@@ -660,77 +675,126 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
 
     private void saveDetail() {
         hideAllBtn();
-        detailsForm.setVisibility(View.GONE);
+        // detailsForm.setVisibility(View.GONE);
 
-        Log.e("Called", "saveDetail");
+        if (Common.PHASERSTR.equals("1")) {
+            Log.e("Called", "saveDetail");
 
-        List<Point> llPts = new ArrayList<>();
+            List<Point> llPts = new ArrayList<>();
 
-        for (int i = 0; i < LNGLATEDIT.size(); i++) {
-            for (int j = 0; j < LNGLATEDIT.get(i).size(); j++) {
-                llPts.add(Point.fromLngLat(LNGLATEDIT.get(i).get(j).getLongitude(), LNGLATEDIT.get(i).get(j).getLatitude()));
-            }
-        }
-
-        List<List<Point>> llPtsA = new ArrayList<>();
-        llPtsA.add(llPts);
-        Feature multiPointFeature = Feature.fromGeometry(Polygon.fromLngLats(llPtsA));
-
-        List<String> listFeatures = new ArrayList<>();
-        listFeatures.add(multiPointFeature.toJson());
-
-        JSONObject filedsObject = new JSONObject();
-        try {
-            if (farm_fields_array != null) {
-                for (int i = 0; i < farm_fields_array.length(); i++) {
-                    filedsObject.put(String.valueOf(myTextViews[i].getTag()), myTextViews[i].getText().toString());
+            for (int i = 0; i < LNGLATEDIT.size(); i++) {
+                for (int j = 0; j < LNGLATEDIT.get(i).size(); j++) {
+                    llPts.add(Point.fromLngLat(LNGLATEDIT.get(i).get(j).getLongitude(), LNGLATEDIT.get(i).get(j).getLatitude()));
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        String strSubmit = "{\"farms_fetched_at\":" + "\"" + Common.FARMS_FETCHED_AT + "\"" + ",\"recipe_id\":\"farm_boundaries\",\"aois\":" + String.valueOf(listFeatures) + "}";
-        JsonObject submitJsonObject = JsonParser.parseString(strSubmit).getAsJsonObject();
+            List<List<Point>> llPtsA = new ArrayList<>();
+            llPtsA.add(llPts);
+            Feature multiPointFeature = Feature.fromGeometry(Polygon.fromLngLats(llPtsA));
 
-        //String strJsonWrite = "{“farm_boundaries”: "++", “metadata”: { “farm_name”: "++" } }";
-        String strJsonWrite = "{\"farm_boundaries\":" + "\"" + listFeatures + "\"" + ",\"metadata\":" + "\"" + filedsObject + "}";
-        Log.e("strJsonWrite", strJsonWrite);
+            List<String> listFeatures = new ArrayList<>();
+            listFeatures.add(multiPointFeature.toJson());
 
-        Common.showLoader("isCircle");
-        ServiceManager.getInstance().getKawaService().sumbitPoints(KawaMap.KAWA_API_KEY, Common.SDK_VERSION, submitJsonObject).enqueue(new Callback<MergeModel>() {
-            @Override
-            public void onResponse(@NonNull Call<MergeModel> call, @NonNull Response<MergeModel> response) {
-                Common.hideLoader();
-                try {
-                    if (response.isSuccessful()) {
-                        if (response.body() != null) {
-                            Log.e("TAG", "onResponse: " + response.body().getStatus());
-                            startOverBtn.setVisibility(View.GONE);
-                            thankyouLinearLayout.setVisibility(VIEW.VISIBLE);
-                            interfaceKawaEvents.onkawaSubmit(strJsonWrite);
-                        }
-                    } else {
-                        Common.hideLoader();
-                        if (response.errorBody() != null) {
-                            JSONObject jsonObj = new JSONObject(response.errorBody().string());
-                            Log.e("RESP", jsonObj.getString("error"));
-                            Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();// this will tell you why your api doesnt work most of time
-                        }
+            JSONObject filedsObject = new JSONObject();
+            try {
+                if (farm_fields_array != null) {
+                    for (int i = 0; i < farm_fields_array.length(); i++) {
+                        filedsObject.put(String.valueOf(myTextViews[i].getTag()), myTextViews[i].getText().toString());
                     }
-                } catch (Exception e) {
-                    Common.hideLoader();
-                    e.printStackTrace();
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
-            @Override
-            public void onFailure(@NonNull Call<MergeModel> call, @NonNull Throwable t) {
-                Common.hideLoader();
-                //  String errorBody = t.getMessage();
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
+            String strSubmit = "{\"farms_fetched_at\":" + "\"" + Common.FARMS_FETCHED_AT + "\"" + ",\"recipe_id\":\"farm_boundaries\",\"aois\":" + String.valueOf(listFeatures) + "}";
+            JsonObject submitJsonObject = JsonParser.parseString(strSubmit).getAsJsonObject();
+
+            //String strJsonWrite = "{“farm_boundaries”: "++", “metadata”: { “farm_name”: "++" } }";
+            String strJsonWrite = "{\"farm_boundaries\":" + "\"" + listFeatures + "\"" + ",\"metadata\":" + "\"" + filedsObject + "}";
+            Log.e("strJsonWrite", strJsonWrite);
+
+            Common.showLoader("isCircle");
+            ServiceManager.getInstance().getKawaService().sumbitPoints(KawaMap.KAWA_API_KEY, Common.SDK_VERSION, submitJsonObject).enqueue(new Callback<MergeModel>() {
+                @Override
+                public void onResponse(@NonNull Call<MergeModel> call, @NonNull Response<MergeModel> response) {
+                    Common.hideLoader();
+                    try {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                Log.e("TAG", "onResponse: " + response.body().getStatus());
+                                startOverBtn.setVisibility(View.GONE);
+                                markAnotherBtn.setVisibility(View.VISIBLE);
+                                thankyouLinearLayout.setVisibility(VIEW.VISIBLE);
+                                //farmDetailsLayout.setVisibility(VIEW.VISIBLE);
+
+                                //interfaceKawaEvents.onkawaSubmit(strJsonWrite);
+                            }
+                        } else {
+                            Common.hideLoader();
+                            if (response.errorBody() != null) {
+                                JSONObject jsonObj = new JSONObject(response.errorBody().string());
+                                Log.e("RESP", jsonObj.getString("error"));
+                                Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();// this will tell you why your api doesnt work most of time
+                            }
+                        }
+                    } catch (Exception e) {
+                        Common.hideLoader();
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<MergeModel> call, @NonNull Throwable t) {
+                    Common.hideLoader();
+                    //  String errorBody = t.getMessage();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
+                }
+            });
+        } else if (Common.PHASERSTR.equals("2")) {
+            totalAreaTv = VIEW.findViewById(R.id.totalAreaTv);
+            totalseedsTv = VIEW.findViewById(R.id.totalseedsTv);
+            addressTv = VIEW.findViewById(R.id.addressTv);
+            Float totalArea = 0.0f;
+            for (int i = 0; i < POLYGONAREA.size(); i++) {
+                totalArea = totalArea + Float.valueOf((Float) POLYGONAREA.get(i));
             }
-        });
+            float hectares = (float) (totalArea / 2.47105);
+            float seedrequired = hectares * 17 ;
+            String hectaresStr = String.format("%.2f", hectares);
+            String seedrequiredStr = String.format("%.2f", seedrequired);
+            totalAreaTv.setText(hectaresStr + " "+getResources().getString(R.string.hectares));
+            totalseedsTv.setText(seedrequiredStr + " KG");
+            getAddress();
+        }
+        else if (Common.PHASERSTR.equals("3")) {
+            totalAreaTv = VIEW.findViewById(R.id.totalAreaTv);
+            totalseedsTv = VIEW.findViewById(R.id.totalseedsTv);
+            addressTv = VIEW.findViewById(R.id.addressTv);
+            ImageView dootedLineFirst = VIEW.findViewById(R.id.dootedLineFirst);
+            ImageView dootedLineSecond = VIEW.findViewById(R.id.dootedLineSecond);
+            LinearLayout seedsLayout = VIEW.findViewById(R.id.seedsLayout);
+            LinearLayout locationLayout = VIEW.findViewById(R.id.locationLayout);
+
+            Float totalArea = 0.0f;
+            for (int i = 0; i < POLYGONAREA.size(); i++) {
+                totalArea = totalArea + Float.valueOf((Float) POLYGONAREA.get(i));
+            }
+            String areaStr = String.format("%.2f", totalArea);
+            totalAreaTv.setText(areaStr + " Acres");
+            totalseedsTv.setVisibility(View.GONE);
+            addressTv.setVisibility(View.GONE);
+
+            farmDetailsLayout.setVisibility(VIEW.VISIBLE);
+            markAnotherBtn.setVisibility(View.VISIBLE);
+            startOverBtn.setVisibility(View.GONE);
+            messageBox.setVisibility(View.GONE);
+            dootedLineFirst.setVisibility(View.GONE);
+            dootedLineSecond.setVisibility(View.GONE);
+            seedsLayout.setVisibility(View.GONE);
+            locationLayout.setVisibility(View.GONE);
+
+            farm_mark_messagebox.setVisibility(View.VISIBLE);
+        }
     }
 
     private void startOver() {
@@ -750,10 +814,7 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
                 farm_fields_array = obj.getJSONArray("farm_fields");
                 Log.e("TAG", "farm_fields_array: " + farm_fields_array);
                 if (farm_fields_array != null && farm_fields_array.length() > 0) {
-
-
                     detailsForm.setVisibility(VIEW.VISIBLE);
-
                     ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
                     HashMap<String, String> m_li;
                     myTextViews = new EditText[farm_fields_array.length()]; // create an empty array;
@@ -808,6 +869,65 @@ public class fragmentEditFarmBoundries extends Fragment implements OnMapReadyCal
             return "";
         }
         return json;
+    }
+
+    public void getAddress() {
+        LatLng mapLatLng;
+        double mapLat, mapLong;
+        if (POLYGONAREA.size() == 1) {
+            Log.e(TAG, "getAddress:IF "+POLYGONAREA );
+            mapLat = LNGLATEDIT.get(0).get(0).getLatitude();
+            mapLong = LNGLATEDIT.get(0).get(0).getLongitude();
+        } else {
+            Log.e(TAG, "getAddress:else "+POLYGONAREA );
+            mapLatLng = MAPBOXMAP.getCameraPosition().target;
+            mapLat = mapLatLng.getLatitude();
+            mapLong = mapLatLng.getLongitude();
+        }
+
+
+        Common.showLoader("isCircle");
+
+        AddressServiceManager.getInstance().getKawaService().getAddress("json", String.valueOf(mapLat), String.valueOf(mapLong))
+                .enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
+                        Common.hideLoader();
+                        try {
+                            if (response.isSuccessful() && response.body() != null) {
+                                JSONObject jsonObj = new JSONObject(response.body().toString());
+                                addressTv.setText(jsonObj.getString("display_name"));
+
+                            } else {
+                                if (response.errorBody() != null) {
+                                    JSONObject jsonObj = new JSONObject(response.errorBody().string());
+                                    Log.e("RESP", jsonObj.getString("error"));
+                                    Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        farmDetailsLayout.setVisibility(VIEW.VISIBLE);
+                        markAnotherBtn.setVisibility(View.VISIBLE);
+                        startOverBtn.setVisibility(View.GONE);
+                        messageBox.setVisibility(View.GONE);
+
+                        farm_mark_messagebox.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Common.hideLoader();
+                        farmDetailsLayout.setVisibility(VIEW.VISIBLE);
+                        //String errorBody = t.getMessage();
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
     }
 
     @Override
