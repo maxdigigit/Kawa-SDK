@@ -64,7 +64,7 @@ public class Common extends AppCompatActivity {
     public static double MAXZOOM = 22.00;
     public static double MINZOOM = 5.00;
     public static double MAPZOOM = 17.00;
-    public static String LANGUAGE = "en"; // use in fo bahasha lanuage.
+    public static String LANGUAGE = "in"; // use in for bahasha & en for english lanuage.
     public static ProgressBar PROGRESSBAR;
     public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoia2F3YS1hZG1pbiIsImEiOiJja3RqcmN3N2kwNWEyMzJueWQzd2J0Znk1In0.WK1trBUr51BifsBNRX5ekw"; // MAPBOX TOKEN
     //public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicnVwZXNoamFpbiIsImEiOiJja3JwdmdneGU1NHlxMnpwODN6bzFpbnkwIn0.UgSIBr9ChJFyrAKxtdNf9w"; // OLd MAPBOX TOKEN

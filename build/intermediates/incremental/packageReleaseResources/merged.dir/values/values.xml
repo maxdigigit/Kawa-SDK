@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="accentcyan">#02C9A6</color>
+    <color name="colorPrimary">@color/mapboxGray</color>
+    <color name="colorPrimaryDark">@color/mapboxGrayDark10</color>
+    <color name="halfBlack">#808080</color>
+    <color name="mapboxBlack">#000</color>
+    <color name="mapboxBlue">#477df6</color>
+    <color name="mapboxGray">#607d9c</color>
+    <color name="mapboxGrayDark10">#476483</color>
+    <color name="mapboxGrayLight">#c6d2e1</color>
+    <color name="mapboxPink">#ee4e8b</color>
+    <color name="mapboxWhite">#FFFFFF</color>
+    <color name="whitePressed">#f1f1f1</color>
+    <string name="Error_General">Something went wrong.</string>
+    <string name="add_more_plots">Add More Plots</string>
+    <string name="app_name">Kawa Space SDk</string>
+    <string name="area">Area</string>
+    <string name="back">Back</string>
+    <string name="complete_marking">Complete Marking</string>
+    <string name="correct_boundery">Correct Boundry</string>
+    <string name="discard_edit">Discard Edit</string>
+    <string name="drag_point_joystic">Drag the point or use the joystick</string>
+    <string name="error_farmnot_available">Farm boundaries are not yet available for this region.</string>
+    <string name="error_large_area">The area chosen is too large. Please zoom in a little and try again</string>
+    <string name="farm">Farm</string>
+    <string name="farm_details">Farm Details</string>
+    <string name="farm_mark_successfully">Farm marked successfully</string>
+    <string name="farm_saved_successfully">Farms saved successfully</string>
+    <string name="getFarmStr">Get Farm Boundaries for this Region</string>
+    <string name="hectares">Hectares</string>
+    <string name="kawa_api_key">kawa_RLkNIPN-z3TeWb8AWv089w</string>
+    <string name="mark_another">Mark Another Farm</string>
+    <string name="next">Next</string>
+    <string name="no_farm_detected">No farms were detected for your location. Please try again.</string>
+    <string name="save_details">Save Details</string>
+    <string name="save_edit">Save Edits</string>
+    <string name="searchStr">Search places</string>
+    <string name="search_place_toget_started">Search for a Place to Get Started</string>
+    <string name="seeds_require">Seeds Required for   your farm</string>
+    <string name="select_farm_to_merge">Please select farms to merge</string>
+    <string name="select_plot_toedit">Select a plot to edit</string>
+    <string name="select_point_toedit">Select a point to edit</string>
+    <string name="selected">selected</string>
+    <string name="start_kawa_map">Start Kawa Map</string>
+    <string name="start_over">Start Over</string>
+    <string name="start_selecting_label">Start Selecting your Plots</string>
+    <string name="tap_correct_boundery">Tap correct boundary to edit farms</string>
+    <string name="user_location_permission_explanation">Allow Permission to access Location</string>
+    <string name="user_location_permission_not_granted">No Permssion</string>
+    <string name="welcome">Welcome</string>
+    <string name="your_locality">Your locality/address</string>
+    <style name="MaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:theme">@style/Theme.MaterialButton</item>
+    </style>
+    <style name="Theme.Kawasdk" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/whitePressed</item>
+        
+        <item name="colorSecondary">@color/design_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/design_default_color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/halfBlack</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.MaterialButton" parent="Theme.Kawasdk">
+        <item name="colorAccent">@color/mapboxBlue</item>
+        <item name="colorButtonNormal">@color/mapboxWhite</item>
+    </style>
+</resources>

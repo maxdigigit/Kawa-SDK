@@ -54,6 +54,7 @@ import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.PlaceAutocomplete;
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+import com.smartlook.sdk.smartlook.Smartlook;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -86,12 +87,12 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         super.onAttach(context);
         interfaceKawaEvents = (InterfaceKawaEvents) context;
         interfaceKawaEvents.initKawaMap(KawaMap.isValidKawaAPiKey);
-//        Smartlook.setUserIdentifier("KAWA SDK");
-//        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("627da9d9178be1e4d7e3b5e54404d34f3bbf1877")
-//                .setFps(2)
-//                .setExperimental(true)
-//                .setActivity(null);
-//        Smartlook.setupAndStartRecording(builder.build());
+       Smartlook.setUserIdentifier("KAWA SDK");
+        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("627da9d9178be1e4d7e3b5e54404d34f3bbf1877")
+                .setFps(2)
+                .setExperimental(true)
+                .setActivity(null);
+        Smartlook.setupAndStartRecording(builder.build());
     }
 
     @Override

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/xml/standalone_badge_gravity_bottom_start.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/xml/standalone_badge_gravity_bottom_start.xml"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/xml/standalone_badge_offset.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/xml/standalone_badge_offset.xml"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/xml/standalone_badge_gravity_bottom_end.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/xml/standalone_badge_gravity_bottom_end.xml"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/xml/standalone_badge.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/xml/standalone_badge.xml"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/xml/standalone_badge_gravity_top_start.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/xml/standalone_badge_gravity_top_start.xml"
+    }
+]

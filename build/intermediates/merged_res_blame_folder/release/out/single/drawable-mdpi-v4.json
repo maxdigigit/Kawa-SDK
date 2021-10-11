@@ -1,0 +1,322 @@
+[
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_chip.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_chip.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_mylocation_icon_default.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_mylocation_icon_default.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_progress_bar_indeterminate.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_progress_bar_indeterminate.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_image_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_image_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_map_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_map_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_progress_bar_determinate.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_progress_bar_determinate.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_mylocation_icon_bearing.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_mylocation_icon_bearing.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_user_icon_stale.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_user_icon_stale.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_marker_icon_default.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_marker_icon_default.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_ad_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_ad_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_user_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_user_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_surface_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_surface_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_text_select_handle_right_mtrl.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_text_select_handle_right_mtrl.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_user_puck_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_user_puck_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_video_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_video_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_user_stroke_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_user_stroke_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_seek_bar.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_seek_bar.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_text_select_handle_left_mtrl.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_text_select_handle_left_mtrl.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/fab_bg_mini.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/5c622d28bb1ed0e553c3251be9a72c96/floatingactionbutton-1.10.1/res/drawable-mdpi-v4/fab_bg_mini.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_pattern_sensitive_overlay.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_pattern_sensitive_overlay.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_image_button.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_image_button.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_focused_holo.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_spinner.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_spinner.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_markerview_icon_default.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_markerview_icon_default.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_text_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_text_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/map_default_map_marker_shadow.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/077058812c97ac7b3330ff8a42394543/mapbox-android-plugin-places-v9-0.12.0/res/drawable-mdpi-v4/map_default_map_marker_shadow.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_info_icon_default.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_info_icon_default.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_calendar_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_calendar_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_info_icon_selected.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_info_icon_selected.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_rating_bar.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_rating_bar.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_search_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_search_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/notification_bg_normal.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/map_default_map_marker.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/077058812c97ac7b3330ff8a42394543/mapbox-android-plugin-places-v9-0.12.0/res/drawable-mdpi-v4/map_default_map_marker.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_texture_view.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_texture_view.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_logo_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_logo_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_compass_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_compass_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_radio_button.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_radio_button.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_fab.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_fab.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_list_longpressed_holo.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_toggle_button.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_toggle_button.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_chip_group.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_chip_group.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_user_bearing_icon.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_user_bearing_icon.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/fab_bg_normal.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/5c622d28bb1ed0e553c3251be9a72c96/floatingactionbutton-1.10.1/res/drawable-mdpi-v4/fab_bg_normal.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_button.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_button.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/mapbox_logo_helmet.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/b457aae39822468c45bc85da0870235f/mapbox-android-sdk-9.6.2/res/drawable-mdpi-v4/mapbox_logo_helmet.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/71dca0b1796f015dcf899aabb3e1464a/appcompat-1.3.1/res/drawable-mdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_switch.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_switch.png"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/drawable-mdpi-v4/smartlook_ic_webview.png",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/3a94d56ef1fba55b83cfb8dfc3b0ca9c/app-1.8.6-native/res/drawable-mdpi-v4/smartlook_ic_webview.png"
+    }
+]

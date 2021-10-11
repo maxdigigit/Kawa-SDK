@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/messageBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mapboxBlue"
+            android:padding="5dp"
+            android:text="@string/search_place_toget_started"
+            android:textAlignment="center"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/searchTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/messageBox"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/style_rounded_corner_large"
+            android:elevation="8dp"
+            android:gravity="left"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_search"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="15dp"
+            android:text="@string/searchStr"
+            android:textColor="#4F4F4F"
+            app:backgroundTint="@color/mapboxWhite"
+            app:layout_constraintStart_toStartOf="@id/messageBox"
+            app:layout_constraintTop_toTopOf="@id/messageBox" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/zoomInBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/style_rounded_corner_top"
+            android:drawableTop="@drawable/ic_add"
+            android:paddingLeft="15dp"
+            android:paddingTop="6dp"
+            android:textColor="@color/mapboxWhite"
+            app:backgroundTint="@color/mapboxBlack" />
+
+        <Button
+            android:id="@+id/zoomOutBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/style_rounded_corner_bottom"
+            android:drawableTop="@drawable/ic_minus"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/mapboxWhite"
+            app:backgroundTint="@color/mapboxBlack" />
+
+        <Button
+            android:id="@+id/goCurrentLocBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@+id/getFarmBtn"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/style_circle"
+            android:drawableTop="@drawable/ic_mylocation"
+            android:paddingTop="-25dp"
+            app:backgroundTint="@color/mapboxPink"
+            app:tint="@android:color/white" />
+
+        <Button
+            android:id="@+id/getFarmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="-7dp"
+            android:backgroundTint="@color/mapboxBlue"
+            android:foreground="@drawable/riipleeffectbuttons"
+            android:text="@string/getFarmStr"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+    </LinearLayout>
+</RelativeLayout>
