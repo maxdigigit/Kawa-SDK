@@ -2147,6 +2147,8 @@ drawable smartlook_ic_video_view
 drawable smartlook_ic_webview
 drawable smartlook_pattern_sensitive_overlay
 drawable style_circle
+drawable style_edittext_rounded_border
+drawable style_rounded_corner
 drawable style_rounded_corner_bottom
 drawable style_rounded_corner_large
 drawable style_rounded_corner_small
@@ -2160,6 +2162,7 @@ drawable zoomin
 drawable zoomout
 id BOTTOM_END
 id BOTTOM_START
+id GET_FARMSBtn
 id NO_DEBUG
 id SHOW_ALL
 id SHOW_PATH
@@ -2226,6 +2229,7 @@ id activity_chooser_view_content
 id add
 id addMoreBtn
 id addressTv
+id addressTxt
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2250,6 +2254,7 @@ id barrier
 id baseline
 id bestChoice
 id blocking
+id border2
 id bottom
 id bottom_sheet_header
 id bounce
@@ -2359,7 +2364,6 @@ id forever
 id fragment_container
 id fragment_container_view_tag
 id frost
-id getFarmBtn
 id ghost_view
 id ghost_view_holder
 id goCurrentLocBtn
@@ -2474,6 +2478,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nameTxt
 id navigation_bar_item_icon_view
 id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
@@ -2505,11 +2510,13 @@ id path
 id pathRelative
 id percent
 id pin
+id placeName
 id place_chosen_button
 id place_picker_app_bar_layout
 id place_picker_toolbar
 id place_picker_toolbar_primary_text_view
 id place_picker_toolbar_secondary_text_view
+id place_recyclerView
 id position
 id postLayout
 id progress_bar_place
@@ -2544,6 +2551,7 @@ id scroll_drop_shadow
 id scroll_view_results
 id scrollable
 id searchHistoryResultsView
+id searchResultTxt
 id searchResultView
 id searchTxt
 id searchView
@@ -2847,6 +2855,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout search_cutom_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -2872,6 +2881,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string Error_General
+string GET_FARMSStr
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2912,6 +2922,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string add_more_plots
+string address
 string app_name
 string appbar_scrolling_view_behavior
 string area
@@ -2948,6 +2959,7 @@ string complete_marking
 string correct_boundery
 string discard_edit
 string drag_point_joystic
+string enter_details
 string error_farmnot_available
 string error_icon_content_description
 string error_large_area
@@ -2959,7 +2971,6 @@ string farm_details
 string farm_mark_successfully
 string farm_saved_successfully
 string fcm_fallback_notification_channel_label
-string getFarmStr
 string hectares
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
@@ -3057,6 +3068,7 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string name
 string next
 string no_farm_detected
 string password_toggle_content_description

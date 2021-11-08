@@ -23,9 +23,17 @@ public class KawaMap extends AppCompatActivity {
     public static Integer headerTextColor = Color.BLACK;
     public static boolean isValidKawaAPiKey;
     public static String KAWA_API_KEY = "";
+    public static boolean isMergeEnable = false ;
+    public static boolean isEditEnable  = false ;
+    public static boolean isFormEnable  = false ;
+    public static boolean isFarmDetailsEnable  = false  ;
+    public static boolean isOtherFarmDetailsEnable  = false  ;
+    public static boolean isSaveResultEnable   = false ;
+    public static boolean isBahasaEnable = true ;
     public KawaMap(Context context) {
         this.context = context;
     }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,4 +79,5 @@ public class KawaMap extends AppCompatActivity {
             innerButtons[i].setBackgroundColor(innerBtnBgColor);
         }
     }
+
 }

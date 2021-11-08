@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 public interface WebService {
     @POST("missions")
-    Call<DeviveBounderyModel> getFarms(
+    Call<DeviveBounderyModel> GET_FARMSs(
             @Header("x-api-key") String x_api_key, @Header("android-version") String android_version,
             @Body JsonObject geoJson
     );

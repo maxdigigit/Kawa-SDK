@@ -13,7 +13,9 @@
     <color name="mapboxWhite">#FFFFFF</color>
     <color name="whitePressed">#f1f1f1</color>
     <string name="Error_General">Something went wrong.</string>
+    <string name="GET_FARMSStr">Get Farm Boundaries for this Region</string>
     <string name="add_more_plots">Add More Plots</string>
+    <string name="address">Address</string>
     <string name="app_name">Kawa Space SDk</string>
     <string name="area">Area</string>
     <string name="back">Back</string>
@@ -21,21 +23,22 @@
     <string name="correct_boundery">Correct Boundry</string>
     <string name="discard_edit">Discard Edit</string>
     <string name="drag_point_joystic">Drag the point or use the joystick</string>
+    <string name="enter_details">Enter Details</string>
     <string name="error_farmnot_available">Farm boundaries are not yet available for this region.</string>
     <string name="error_large_area">The area chosen is too large. Please zoom in a little and try again</string>
     <string name="farm">Farm</string>
     <string name="farm_details">Farm Details</string>
     <string name="farm_mark_successfully">Farm marked successfully</string>
     <string name="farm_saved_successfully">Farms saved successfully</string>
-    <string name="getFarmStr">Get Farm Boundaries for this Region</string>
     <string name="hectares">Hectares</string>
     <string name="kawa_api_key">kawa_RLkNIPN-z3TeWb8AWv089w</string>
     <string name="mark_another">Mark Another Farm</string>
+    <string name="name">Name</string>
     <string name="next">Next</string>
     <string name="no_farm_detected">No farms were detected for your location. Please try again.</string>
     <string name="save_details">Save Details</string>
     <string name="save_edit">Save Edits</string>
-    <string name="searchStr">Search places</string>
+    <string name="searchStr">Search places and coordinates</string>
     <string name="search_place_toget_started">Search for a Place to Get Started</string>
     <string name="seeds_require">Seeds Required for   your farm</string>
     <string name="select_farm_to_merge">Please select farms to merge</string>
@@ -54,17 +57,17 @@
         <item name="android:theme">@style/Theme.MaterialButton</item>
     </style>
     <style name="Theme.Kawasdk" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/whitePressed</item>
-        
+        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/design_default_color_secondary</item>
         <item name="colorSecondaryVariant">@color/design_default_color_secondary_variant</item>
         <item name="colorOnSecondary">@color/halfBlack</item>
-        
+        <!-- Status bar color. -->
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        
+        <!-- Customize your theme here. -->
     </style>
     <style name="Theme.MaterialButton" parent="Theme.Kawasdk">
         <item name="colorAccent">@color/mapboxBlue</item>

@@ -2146,6 +2146,8 @@ int drawable smartlook_ic_video_view 0x0
 int drawable smartlook_ic_webview 0x0
 int drawable smartlook_pattern_sensitive_overlay 0x0
 int drawable style_circle 0x0
+int drawable style_edittext_rounded_border 0x0
+int drawable style_rounded_corner 0x0
 int drawable style_rounded_corner_bottom 0x0
 int drawable style_rounded_corner_large 0x0
 int drawable style_rounded_corner_small 0x0
@@ -2159,6 +2161,7 @@ int drawable zoomin 0x0
 int drawable zoomout 0x0
 int id BOTTOM_END 0x0
 int id BOTTOM_START 0x0
+int id GET_FARMSBtn 0x0
 int id NO_DEBUG 0x0
 int id SHOW_ALL 0x0
 int id SHOW_PATH 0x0
@@ -2225,6 +2228,7 @@ int id activity_chooser_view_content 0x0
 int id add 0x0
 int id addMoreBtn 0x0
 int id addressTv 0x0
+int id addressTxt 0x0
 int id adjust_height 0x0
 int id adjust_width 0x0
 int id alertTitle 0x0
@@ -2249,6 +2253,7 @@ int id barrier 0x0
 int id baseline 0x0
 int id bestChoice 0x0
 int id blocking 0x0
+int id border2 0x0
 int id bottom 0x0
 int id bottom_sheet_header 0x0
 int id bounce 0x0
@@ -2358,7 +2363,6 @@ int id forever 0x0
 int id fragment_container 0x0
 int id fragment_container_view_tag 0x0
 int id frost 0x0
-int id getFarmBtn 0x0
 int id ghost_view 0x0
 int id ghost_view_holder 0x0
 int id goCurrentLocBtn 0x0
@@ -2473,6 +2477,7 @@ int id mtrl_picker_text_input_range_start 0x0
 int id mtrl_picker_title_text 0x0
 int id mtrl_view_tag_bottom_padding 0x0
 int id multiply 0x0
+int id nameTxt 0x0
 int id navigation_bar_item_icon_view 0x0
 int id navigation_bar_item_labels_group 0x0
 int id navigation_bar_item_large_label_view 0x0
@@ -2504,11 +2509,13 @@ int id path 0x0
 int id pathRelative 0x0
 int id percent 0x0
 int id pin 0x0
+int id placeName 0x0
 int id place_chosen_button 0x0
 int id place_picker_app_bar_layout 0x0
 int id place_picker_toolbar 0x0
 int id place_picker_toolbar_primary_text_view 0x0
 int id place_picker_toolbar_secondary_text_view 0x0
+int id place_recyclerView 0x0
 int id position 0x0
 int id postLayout 0x0
 int id progress_bar_place 0x0
@@ -2543,6 +2550,7 @@ int id scroll_drop_shadow 0x0
 int id scroll_view_results 0x0
 int id scrollable 0x0
 int id searchHistoryResultsView 0x0
+int id searchResultTxt 0x0
 int id searchResultView 0x0
 int id searchTxt 0x0
 int id searchView 0x0
@@ -2846,6 +2854,7 @@ int layout notification_template_media 0x0
 int layout notification_template_media_custom 0x0
 int layout notification_template_part_chronometer 0x0
 int layout notification_template_part_time 0x0
+int layout search_cutom_view 0x0
 int layout select_dialog_item_material 0x0
 int layout select_dialog_multichoice_material 0x0
 int layout select_dialog_singlechoice_material 0x0
@@ -2871,6 +2880,7 @@ int mipmap ic_launcher 0x0
 int mipmap ic_launcher_round 0x0
 int plurals mtrl_badge_content_description 0x0
 int string Error_General 0x0
+int string GET_FARMSStr 0x0
 int string abc_action_bar_home_description 0x0
 int string abc_action_bar_up_description 0x0
 int string abc_action_menu_overflow_description 0x0
@@ -2911,6 +2921,7 @@ int string abc_shareactionprovider_share_with 0x0
 int string abc_shareactionprovider_share_with_application 0x0
 int string abc_toolbar_collapse_description 0x0
 int string add_more_plots 0x0
+int string address 0x0
 int string app_name 0x0
 int string appbar_scrolling_view_behavior 0x0
 int string area 0x0
@@ -2947,6 +2958,7 @@ int string complete_marking 0x0
 int string correct_boundery 0x0
 int string discard_edit 0x0
 int string drag_point_joystic 0x0
+int string enter_details 0x0
 int string error_farmnot_available 0x0
 int string error_icon_content_description 0x0
 int string error_large_area 0x0
@@ -2958,7 +2970,6 @@ int string farm_details 0x0
 int string farm_mark_successfully 0x0
 int string farm_saved_successfully 0x0
 int string fcm_fallback_notification_channel_label 0x0
-int string getFarmStr 0x0
 int string hectares 0x0
 int string hide_bottom_view_on_scroll_behavior 0x0
 int string icon_content_description 0x0
@@ -3056,6 +3067,7 @@ int string mtrl_picker_toggle_to_calendar_input_mode 0x0
 int string mtrl_picker_toggle_to_day_selection 0x0
 int string mtrl_picker_toggle_to_text_input_mode 0x0
 int string mtrl_picker_toggle_to_year_selection 0x0
+int string name 0x0
 int string next 0x0
 int string no_farm_detected 0x0
 int string password_toggle_content_description 0x0

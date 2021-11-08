@@ -3,6 +3,7 @@ package com.kawasdk.Utils;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,10 +17,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.kawasdk.R;
 import com.mapbox.android.gestures.MoveGestureDetector;
 import com.mapbox.geojson.Feature;
@@ -40,7 +44,11 @@ import com.mapbox.mapboxsdk.style.layers.LineLayer;
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+import com.segment.analytics.Analytics;
+import com.segment.analytics.Properties;
+import com.smartlook.sdk.smartlook.Smartlook;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -64,7 +72,6 @@ public class Common extends AppCompatActivity {
     public static double MAXZOOM = 22.00;
     public static double MINZOOM = 5.00;
     public static double MAPZOOM = 17.00;
-    public static String LANGUAGE = "in"; // use in for bahasha & en for english lanuage.
     public static ProgressBar PROGRESSBAR;
     public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoia2F3YS1hZG1pbiIsImEiOiJja3RqcmN3N2kwNWEyMzJueWQzd2J0Znk1In0.WK1trBUr51BifsBNRX5ekw"; // MAPBOX TOKEN
     //public static final String MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicnVwZXNoamFpbiIsImEiOiJja3JwdmdneGU1NHlxMnpwODN6bzFpbnkwIn0.UgSIBr9ChJFyrAKxtdNf9w"; // OLd MAPBOX TOKEN
@@ -72,12 +79,21 @@ public class Common extends AppCompatActivity {
     public static final String ADRESS_URL = "https://nominatim.openstreetmap.org/"; // live url
     //public static final String BASE_URL = "https://data-staging.kawa.space/"; // test url
     public static final String SDK_VERSION = android.os.Build.VERSION.SDK;
-
+    private static final int PERMISSION_REQUEST_CODE = 100;
     public static String FARMS_FETCHED_AT = "";
     public static InterfaceKawaEvents interfaceKawaEvents;
-//    public static String PHASERSTR = "1"; // for all functnality with edit
-//    public static String PHASERSTR = "2";// for avoid merge and submit api call
-    public static String PHASERSTR = "3";
+    public static String SEGMENT_KEY = "IKuQjAPnvs0jDZtAj2z52b7yuDrjM1Zm";
+    public static String USER_NAME; // for avoid submit api call
+    public static String USER_ADDRESS; // for avoid submit api call
+
+    //1 - for all functnality with edit
+    // 2 - for avoid merge and submit api call
+    // 3 - for avoid submit api call
+    // 4 - for merge api and address api
+    public static String APP_PHASE = "4";
+    // 'in' for bahasha lanuage.
+    // 'en' for english lanuage.
+    public static String LANGUAGE = "en";
 
     public Common(Context context) {
         this.context = context;
@@ -164,13 +180,36 @@ public class Common extends AppCompatActivity {
     public static void setZoomLevel(float val, MapboxMap MAPBOXMAP) {
         CameraPosition cameraPosition = MAPBOXMAP.getCameraPosition();
         double zoomleval = cameraPosition.zoom;
+        double previouszoomleval = zoomleval;
+        double previousLat = CAMERALAT;
+        double previousLng = CAMERALNG;
+        String previousvisibleRegion = getVisibleRegion(MAPBOXMAP);
+        String visibleRegion = "";
+        Properties properties = new Properties();
+
         Log.e("zoomleval", String.valueOf(zoomleval));
         if (val == 1.0 && zoomleval >= 2 && zoomleval < 3) {
             zoomleval = 3.1;
         }
         if (zoomleval > 3) {
             MAPBOXMAP.animateCamera(CameraUpdateFactory.newLatLngZoom(cameraPosition.target, zoomleval + val), 1000);
+            visibleRegion = getVisibleRegion(MAPBOXMAP);
+            zoomleval = zoomleval + val;
         }
+        String jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Zoom leval saved" + "\"" + ",\"previousCoordinates\":{\"lat\":" + "\"" +
+                previousLat + "\"" + ",\"long\":" + "\"" + previousLng + "\"" + "},\"currentCoordinates\":{\"lat\":" + "\"" +
+                CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"previousViewport\": " +
+                previousvisibleRegion + ", \"currentViewport\": " + visibleRegion + ",\"previousZoom\": " + previouszoomleval + ",\"currentZoom\": " + zoomleval + "}}";
+        JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
+        properties.putValue("data", jsonObject);
+        Log.e("TAG", "segmentInit: " + properties);
+        String zoomType = "";
+        if (val == 1.0) {
+            zoomType = "Zoom in";
+        } else {
+            zoomType = "Zoom out";
+        }
+        Analytics.with(context).track(zoomType, properties);
     }
 
     public static void lockZoom(MapboxMap MAPBOXMAP) {
@@ -184,7 +223,6 @@ public class Common extends AppCompatActivity {
                                 .include(BOUND_CORNER_NW)
                                 .include(BOUND_CORNER_SE)
                                 .build();
-
                         MAPBOXMAP.setLatLngBoundsForCameraTarget(RESTRICTED_BOUNDS_AREA);
                         MAPBOXMAP.setMinZoomPreference(MAPZOOM);
                     }
@@ -257,8 +295,11 @@ public class Common extends AppCompatActivity {
 
     public void setLocale(Activity context) {
         Log.e("TAG", "setLocale: ");
-
-        String languageToLoad = LANGUAGE; // your language
+        String languageToLoad = "en";
+        if (KawaMap.isBahasaEnable) {
+            languageToLoad = "in";
+        }
+        // your language
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -266,4 +307,102 @@ public class Common extends AppCompatActivity {
         context.getBaseContext().getResources().updateConfiguration(config,
                 context.getBaseContext().getResources().getDisplayMetrics());
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.e("value", "Permission Granted, Now you can use local drive .");
+                } else {
+                    Log.e("value", "Permission Denied, You cannot use local drive .");
+                    Toast.makeText(context, "Cannot save farms.", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+    public static void smartlookEvent(String eventName) {
+        JSONObject props = new JSONObject();
+
+        try {
+            props.put("Lat", CAMERALAT);
+            props.put("Long", CAMERALNG);
+            props.put("zoom", MAPZOOM);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Smartlook.trackCustomEvent(eventName, props);
+    }
+
+    public static String getVisibleRegion(MapboxMap mapboxMap) {
+        VisibleRegion vRegion = mapboxMap.getProjection().getVisibleRegion();
+        String vRegionStr = "{  \"type\": \"Feature\", \"geometry\": { \"type\": \"Polygon\", \"coordinates\": " +
+                "[[[" + vRegion.farLeft.getLongitude() + ", " + vRegion.farLeft.getLatitude() + "], " +
+                "[" + vRegion.nearLeft.getLongitude() + ", " + vRegion.nearLeft.getLatitude() + "], " +
+                "[" + vRegion.nearRight.getLongitude() + ", " + vRegion.nearRight.getLatitude() + "], " +
+                "[" + vRegion.farRight.getLongitude() + ", " + vRegion.farRight.getLatitude() + "], " +
+                "[" + vRegion.farLeft.getLongitude() + "," + vRegion.farLeft.getLatitude() + "]]]} }";
+        return vRegionStr;
+    }
+
+    public static void segmentEvents(Context context, String eventname, String message, MapboxMap mapboxMap, String responsemsg, String eventType) {
+        String jString = "";
+        Properties properties = new Properties();
+        String visibleRegion = getVisibleRegion(mapboxMap);
+        switch (eventType) {
+            case "CURRENT_LOC":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ", \"viewport\": "
+                        + visibleRegion + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}}  }";
+                break;
+            case "SEARCH":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"query\":" + "\"" + responsemsg + "\"" + ", \"tappedResult\":{ \"name\":" +
+                        "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}}  }}";
+                break;
+            case "GET_FARMS":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + ",\"response\":" + "\"" + responsemsg + "\"}}";
+                break;
+            case "FARMS_SELECTION":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "boundary selection saved " + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + ",\"coordinates\":" + responsemsg + ",\"eventType\":" + message + "}}";
+                break;
+            case "SAVE_ON_SUCCESS":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data save on success\",\"response\":" + responsemsg + "}}}";
+                break;
+            case "SAVE_ON_FAILURE":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data saved on failure\",\"error\":" + responsemsg + "}}}";
+                break;
+            case "ADD_MORE_PLOTS":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + "}}";
+                break;
+            case "SAVE_DETAILS":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                        visibleRegion + ",\"resultantFarms\":" + responsemsg + "}}";
+                break;
+            case "START_OVER":
+            case "MARK_ANOTHER_PLOTS":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + "}}";
+                break;
+            case "GET_ALL_POLYGON_DATA":
+                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"api_response\":" + responsemsg + "}}";
+                break;
+        }
+        Log.e("TAG", "segmentInit: " + jString);
+//        try {
+//            JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
+//            properties.putValue("data", jsonObject);
+//            Log.e("TAG", "segmentInit: " + properties);
+//            Analytics.with(context).track(eventname, properties);
+//        } catch (Exception e) {
+//            Toast.makeText(context, String.valueOf(e.getMessage()), Toast.LENGTH_LONG).show();
+//        }
+    }
 }
+

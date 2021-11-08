@@ -7,8 +7,8 @@
     <string name="user_location_permission_not_granted">No Permssion</string>
     <string name="Error_General">Something went wrong.</string>
     <string name="search_place_toget_started">Search for a Place to Get Started</string>
-    <string name="getFarmStr" >Get Farm Boundaries for this Region</string>
-    <string name="searchStr">Search places</string>
+    <string name="GET_FARMSStr">Get Farm Boundaries for this Region</string>
+    <string name="searchStr">Search places and coordinates</string>
     <string name="start_selecting_label">Start Selecting your Plots</string>
     <string name="start_over">Start Over</string>
     <string name="next">Next</string>
@@ -34,7 +34,10 @@
     <string name="selected">selected</string>
     <string name="error_large_area">The area chosen is too large. Please zoom in a little and try again</string>
     <string name="error_farmnot_available">Farm boundaries are not yet available for this region.</string>
-    <string name="select_farm_to_merge" >Please select farms to merge</string>
+    <string name="select_farm_to_merge">Please select farms to merge</string>
     <string name="no_farm_detected">No farms were detected for your location. Please try again.</string>
     <string name="hectares">Hectares</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
 </resources>

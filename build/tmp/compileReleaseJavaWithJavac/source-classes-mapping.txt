@@ -28,6 +28,9 @@ com/kawasdk/Fragment/fragmentFarmLocation.java
  com.kawasdk.Fragment.fragmentFarmLocation$1
  com.kawasdk.Fragment.fragmentFarmLocation$2
  com.kawasdk.Fragment.fragmentFarmLocation$3
+ com.kawasdk.Fragment.fragmentFarmLocation$4
+ com.kawasdk.Fragment.fragmentFarmLocation$5
+ com.kawasdk.Fragment.fragmentFarmLocation$6
 com/kawasdk/Utils/KawaMap.java
  com.kawasdk.Utils.KawaMap
 com/kawasdk/Model/Geometry.java
@@ -54,3 +57,7 @@ com/kawasdk/Utils/ServiceManager.java
  com.kawasdk.Utils.ServiceManager
 com/kawasdk/Model/Geojson.java
  com.kawasdk.Model.Geojson
+com/kawasdk/Utils/LocationSearchAdapter.java
+ com.kawasdk.Utils.LocationSearchAdapter
+ com.kawasdk.Utils.LocationSearchAdapter$ItemClickListener
+ com.kawasdk.Utils.LocationSearchAdapter$ViewHolder

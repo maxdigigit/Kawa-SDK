@@ -30,6 +30,22 @@
     </issue>
 
     <issue
+        id="TextViewEdits"
+        severity="Warning"
+        message="Attribute `android:inputType` should not be used with `&lt;TextView>`: Change element type to `&lt;EditText>` ?"
+        category="Correctness"
+        priority="7"
+        summary="TextView should probably be an EditText instead"
+        explanation="Using a `&lt;TextView>` to input text is generally an error, you should be using `&lt;EditText>` instead.  `EditText` is a subclass of `TextView`, and some of the editing support is provided by `TextView`, so it&apos;s possible to set some input-related properties on a `TextView`. However, using a `TextView` along with input attributes is usually a cut &amp; paste error. To input text you should be using `&lt;EditText>`.&#xA;&#xA;This check also checks subclasses of `TextView`, such as `Button` and `CheckBox`, since these have the same issue: they should not be used with editable attributes."
+        errorLine1="            android:inputType=&quot;text&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="71"
+            column="13"/>
+    </issue>
+
+    <issue
         id="DefaultLocale"
         severity="Warning"
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
@@ -43,7 +59,7 @@
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="763"
+            line="786"
             column="34"/>
     </issue>
 
@@ -61,7 +77,7 @@
         errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="764"
+            line="787"
             column="38"/>
     </issue>
 
@@ -79,8 +95,24 @@
         errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="782"
+            line="792"
             column="30"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="        android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="56"
+            column="9"/>
     </issue>
 
     <issue
@@ -111,7 +143,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="84"
+            line="86"
             column="13"/>
     </issue>
 
@@ -127,7 +159,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="102"
+            line="104"
             column="13"/>
     </issue>
 
@@ -143,7 +175,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="158"
+            line="163"
             column="13"/>
     </issue>
 
@@ -159,7 +191,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="173"
+            line="180"
             column="13"/>
     </issue>
 
@@ -175,7 +207,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="186"
+            line="194"
             column="13"/>
     </issue>
 
@@ -191,7 +223,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="201"
+            line="210"
             column="13"/>
     </issue>
 
@@ -207,7 +239,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="214"
+            line="224"
             column="13"/>
     </issue>
 
@@ -223,7 +255,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="290"
+            line="304"
             column="13"/>
     </issue>
 
@@ -239,7 +271,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="110"
+            line="149"
             column="13"/>
     </issue>
 
@@ -289,7 +321,7 @@
         errorLine2="                                                                              ~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="213"
+            line="251"
             column="79"/>
     </issue>
 
@@ -358,6 +390,22 @@
     </issue>
 
     <issue
+        id="GradleDynamicVersion"
+        severity="Warning"
+        message="Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.segment.analytics.android:analytics:4.+)"
+        category="Correctness"
+        priority="4"
+        summary="Gradle Dynamic Version"
+        explanation="Using `+` in dependencies lets you automatically pick up the latest available version rather than a specific, named version. However, this is not recommended; your builds are not repeatable; you may have tested with a slightly different version than what the build server used. (Using a dynamic version as the major version number is more problematic than using it in the minor version position.)"
+        errorLine1="    implementation &apos;com.segment.analytics.android:analytics:4.+&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
+            line="54"
+            column="20"/>
+    </issue>
+
+    <issue
         id="UseCompatTextViewDrawableXml"
         severity="Warning"
         message="Use `app:drawableStartCompat` instead of `android:drawableStart`"
@@ -385,7 +433,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="43"
+            line="66"
             column="13"/>
     </issue>
 
@@ -417,7 +465,23 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="167"
+            line="190"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;segmentInit: &quot; + properties);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="205"
             column="9"/>
     </issue>
 
@@ -433,7 +497,55 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="259"
+            line="297"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                    Log.e(&quot;value&quot;, &quot;Permission Granted, Now you can use local drive .&quot;);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="318"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                    Log.e(&quot;value&quot;, &quot;Permission Denied, You cannot use local drive .&quot;);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="320"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;segmentInit: &quot; + jString);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="397"
             column="9"/>
     </issue>
 
@@ -641,7 +753,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="556"
+            line="563"
             column="9"/>
     </issue>
 
@@ -657,7 +769,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="574"
+            line="581"
             column="9"/>
     </issue>
 
@@ -673,7 +785,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="593"
+            line="600"
             column="9"/>
     </issue>
 
@@ -689,7 +801,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="603"
+            line="610"
             column="9"/>
     </issue>
 
@@ -705,7 +817,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="616"
+            line="623"
             column="9"/>
     </issue>
 
@@ -721,7 +833,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="663"
+            line="670"
             column="9"/>
     </issue>
 
@@ -733,28 +845,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="            Log.e(&quot;Called&quot;, &quot;saveDetail&quot;);"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="        Log.e(&quot;Called&quot;, &quot;saveDetail&quot;);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="681"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="LogNotTimber"
-        severity="Warning"
-        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
-        category="Correctness:Messages"
-        priority="5"
-        summary="Logging call to Log instead of Timber"
-        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="            Log.e(&quot;strJsonWrite&quot;, strJsonWrite);"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="714"
-            column="13"/>
+            line="689"
+            column="9"/>
     </issue>
 
     <issue
@@ -769,23 +865,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="724"
-            column="33"/>
-    </issue>
-
-    <issue
-        id="LogNotTimber"
-        severity="Warning"
-        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
-        category="Correctness:Messages"
-        priority="5"
-        summary="Logging call to Log instead of Timber"
-        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                                Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
-        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="736"
+            line="733"
             column="33"/>
     </issue>
 
@@ -801,7 +881,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="812"
+            line="830"
             column="13"/>
     </issue>
 
@@ -817,7 +897,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="815"
+            line="833"
             column="17"/>
     </issue>
 
@@ -833,7 +913,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="859"
+            line="877"
             column="13"/>
     </issue>
 
@@ -849,7 +929,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="878"
+            line="896"
             column="13"/>
     </issue>
 
@@ -865,7 +945,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="882"
+            line="900"
             column="13"/>
     </issue>
 
@@ -881,7 +961,7 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="904"
+            line="922"
             column="37"/>
     </issue>
 
@@ -897,7 +977,7 @@
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="156"
+            line="209"
             column="25"/>
     </issue>
 
@@ -913,7 +993,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="158"
+            line="211"
             column="29"/>
     </issue>
 
@@ -929,7 +1009,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="164"
+            line="217"
             column="33"/>
     </issue>
 
@@ -945,7 +1025,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="170"
+            line="223"
             column="29"/>
     </issue>
 
@@ -961,24 +1041,8 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="182"
+            line="233"
             column="29"/>
-    </issue>
-
-    <issue
-        id="LogNotTimber"
-        severity="Warning"
-        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
-        category="Correctness:Messages"
-        priority="5"
-        summary="Logging call to Log instead of Timber"
-        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                                Log.e(&quot;getAllFarms MAPZOOM&quot;, String.valueOf(COMACT.MAPZOOM));"
-        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="216"
-            column="33"/>
     </issue>
 
     <issue
@@ -993,8 +1057,40 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="235"
+            line="289"
             column="37"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                                    Log.e(&quot;getAllFarms&quot;, errorMsg);"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="291"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                        Log.e(&quot;TAG&quot;, &quot;onFailure: &quot; + errorBody);"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="312"
+            column="25"/>
     </issue>
 
     <issue
@@ -1009,8 +1105,88 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="270"
+            line="328"
             column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                                        Log.e(&quot;Geocoding Failure: &quot;, throwable.getMessage());"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="450"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                            Log.e(&quot;Error geocoding: &quot;, servicesException.toString());"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="457"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                Log.e(&quot;TAG&quot;, &quot;makeGeocodeearch: &quot; + PLACEARRAY);"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="463"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                                Log.d(&quot;TAG&quot;, &quot;onResponse: &quot; + results.get(0).placeName());"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="481"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                            Log.d(&quot;TAG&quot;, &quot;onResponse: No result found&quot;);"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="491"
+            column="29"/>
     </issue>
 
     <issue
@@ -1025,7 +1201,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="331"
+            line="536"
             column="13"/>
     </issue>
 
@@ -1041,8 +1217,24 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="334"
+            line="539"
             column="13"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;hideKeyboard: &quot;);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="556"
+            column="9"/>
     </issue>
 
     <issue
@@ -1057,7 +1249,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="105"
+            line="106"
             column="9"/>
     </issue>
 
@@ -1073,7 +1265,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="106"
+            line="107"
             column="9"/>
     </issue>
 
@@ -1089,7 +1281,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="112"
+            line="113"
             column="9"/>
     </issue>
 
@@ -1105,7 +1297,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="148"
+            line="149"
             column="13"/>
     </issue>
 
@@ -1121,7 +1313,7 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="229"
+            line="236"
             column="37"/>
     </issue>
 
@@ -1137,7 +1329,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="270"
+            line="277"
             column="29"/>
     </issue>
 
@@ -1149,11 +1341,11 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                Log.e(&quot;selectedFarms:&quot;, String.valueOf(selectedFarms));"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                Log.e(&quot;TAG&quot;, &quot;errorBody: &quot;+errorBody );"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="310"
+            line="291"
             column="17"/>
     </issue>
 
@@ -1165,12 +1357,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                                    Log.e(&quot;resposnebody&quot;, String.valueOf(responseKawa.size()));"
-        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="        Log.e(&quot;strMerge&lt;&lt;&lt;&lt;&quot;, strMerge );"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="322"
-            column="37"/>
+            line="349"
+            column="9"/>
     </issue>
 
     <issue
@@ -1181,12 +1373,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                                    Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
-        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="        Log.e(&quot;selectedFarms:&quot;, String.valueOf(selectedFarms));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="345"
-            column="37"/>
+            line="385"
+            column="9"/>
     </issue>
 
     <issue
@@ -1197,12 +1389,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                        Log.e(&quot;onResponse:Failure &quot;, errorBody);"
-        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                            Log.e(&quot;resposnebody&quot;, new Gson().toJson(response.body()));"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="359"
-            column="25"/>
+            line="397"
+            column="29"/>
     </issue>
 
     <issue
@@ -1213,11 +1405,27 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                Log.e(&quot;LNGLAT&quot;, String.valueOf(LNGLAT));"
+        errorLine1="                            Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            line="422"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                Log.e(&quot;onResponse:Failure &quot;, errorBody);"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="366"
+            line="438"
             column="17"/>
     </issue>
 
@@ -1229,12 +1437,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                    Log.e(&quot;POLYSELECTED:&quot;, String.valueOf(POLYSELECTED.get(i)));"
-        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="        Log.e(&quot;LNGLAT&quot;, String.valueOf(LNGLAT));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="370"
-            column="21"/>
+            line="446"
+            column="9"/>
     </issue>
 
     <issue
@@ -1245,12 +1453,28 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                Log.e(&quot;lngLat-b&quot;, String.valueOf(lngLat) + &quot; polygonarea :&quot; + POLYGONAREA);"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="            Log.e(&quot;POLYSELECTED:&quot;, String.valueOf(POLYSELECTED.get(i)));"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="375"
-            column="17"/>
+            line="450"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;lngLat-b&quot;, String.valueOf(lngLat) + &quot; polygonarea :&quot; + POLYGONAREA);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            line="454"
+            column="9"/>
     </issue>
 
     <issue
@@ -1281,7 +1505,23 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="36"
+            line="37"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `LinearLayout`: `layout_below`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="            android:layout_below=&quot;@+id/messageBox&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="62"
             column="13"/>
     </issue>
 
@@ -1293,11 +1533,11 @@
         priority="6"
         summary="Obsolete layout params"
         explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
-        errorLine1="            android:layout_above=&quot;@+id/getFarmBtn&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="            android:layout_above=&quot;@+id/GET_FARMSBtn&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="93"
+            line="132"
             column="13"/>
     </issue>
 
@@ -1325,7 +1565,7 @@
         errorLine2="           ~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="58"
+            line="66"
             column="12"/>
     </issue>
 
@@ -1341,7 +1581,7 @@
         errorLine2="           ~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="59"
+            line="67"
             column="12"/>
     </issue>
 
@@ -1357,7 +1597,7 @@
         errorLine2="           ~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="68"
+            line="75"
             column="12"/>
     </issue>
 
@@ -1453,7 +1693,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="92"
+            line="131"
             column="13"/>
     </issue>
 
@@ -1542,20 +1782,56 @@
     </issue>
 
     <issue
-        id="ContentDescription"
+        id="Autofill"
         severity="Warning"
-        message="Missing `contentDescription` attribute on image"
-        category="Accessibility"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
         priority="3"
-        summary="Image without `contentDescription`"
-        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`."
-        url="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
-        urls="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
-        errorLine1="        &lt;ImageButton"
-        errorLine2="         ~~~~~~~~~~~">
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="    &lt;EditText"
+        errorLine2="     ~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="235"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="17"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        severity="Warning"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
+        priority="3"
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="    &lt;EditText"
+        errorLine2="     ~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="33"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        severity="Warning"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
+        priority="3"
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="33"
             column="10"/>
     </issue>
 
@@ -1573,7 +1849,7 @@
         errorLine2="         ~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="248"
+            line="245"
             column="10"/>
     </issue>
 
@@ -1591,7 +1867,7 @@
         errorLine2="         ~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="260"
+            line="259"
             column="10"/>
     </issue>
 
@@ -1609,7 +1885,25 @@
         errorLine2="         ~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="271"
+            line="272"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`."
+        url="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
+        urls="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
+        errorLine1="        &lt;ImageButton"
+        errorLine2="         ~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="284"
             column="10"/>
     </issue>
 
@@ -1627,7 +1921,7 @@
         errorLine2="         ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="332"
+            line="347"
             column="10"/>
     </issue>
 
@@ -1645,7 +1939,7 @@
         errorLine2="             ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="396"
+            line="411"
             column="14"/>
     </issue>
 
@@ -1663,7 +1957,7 @@
         errorLine2="         ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="425"
+            line="440"
             column="10"/>
     </issue>
 
@@ -1681,7 +1975,7 @@
         errorLine2="             ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="439"
+            line="454"
             column="14"/>
     </issue>
 
@@ -1699,7 +1993,7 @@
         errorLine2="         ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="466"
+            line="481"
             column="10"/>
     </issue>
 
@@ -1717,7 +2011,7 @@
         errorLine2="             ~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="480"
+            line="495"
             column="14"/>
     </issue>
 
@@ -1771,7 +2065,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="765"
+            line="788"
             column="33"/>
     </issue>
 
@@ -1789,7 +2083,7 @@
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="766"
+            line="789"
             column="34"/>
     </issue>
 
@@ -1807,7 +2101,7 @@
         errorLine2="                                                   ~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="766"
+            line="789"
             column="52"/>
     </issue>
 
@@ -1825,7 +2119,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="783"
+            line="793"
             column="33"/>
     </issue>
 
@@ -1843,7 +2137,7 @@
         errorLine2="                                          ~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="783"
+            line="793"
             column="43"/>
     </issue>
 
@@ -1861,8 +2155,40 @@
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
-            line="201"
+            line="205"
             column="32"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;MAXDIGI&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;MAXDIGI&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="25"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Nashik&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;Nashik&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="41"
+            column="9"/>
     </issue>
 
     <issue
@@ -1909,7 +2235,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="418"
+            line="433"
             column="17"/>
     </issue>
 
@@ -1925,7 +2251,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="460"
+            line="475"
             column="17"/>
     </issue>
 
@@ -1941,24 +2267,24 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="502"
+            line="517"
             column="17"/>
     </issue>
 
     <issue
-        id="RelativeOverlap"
+        id="HardcodedText"
         severity="Warning"
-        message="`@id/correctBoundryBtn` can overlap `@id/leftBtn` if @string/correct_boundery grows due to localized text expansion"
+        message="Hardcoded string &quot;First Exam&quot;, should use `@string` resource"
         category="Internationalization"
-        priority="3"
-        summary="Overlapping items in RelativeLayout"
-        explanation="If relative layout has text or button items aligned to left and right sides they can overlap each other due to localized text expansion unless they have mutual constraints like `toEndOf`/`toStartOf`."
-        errorLine1="        &lt;Button"
-        errorLine2="         ~~~~~~">
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;First Exam&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="282"
-            column="10"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/search_cutom_view.xml"
+            line="15"
+            column="9"/>
     </issue>
 
     <issue
@@ -1973,7 +2299,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="131"
+            line="134"
             column="13"/>
     </issue>
 
@@ -1989,7 +2315,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="144"
+            line="148"
             column="13"/>
     </issue>
 
@@ -2005,7 +2331,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="71"
+            line="110"
             column="13"/>
     </issue>
 
@@ -2021,8 +2347,40 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="84"
+            line="123"
             column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:gravity=&quot;left&quot;"
+        errorLine2="                         ~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="23"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:gravity=&quot;left&quot;"
+        errorLine2="                         ~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="39"
+            column="26"/>
     </issue>
 
     <issue
@@ -2101,7 +2459,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="79"
+            line="80"
             column="13"/>
     </issue>
 
@@ -2117,7 +2475,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="81"
+            line="82"
             column="13"/>
     </issue>
 
@@ -2133,7 +2491,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="83"
+            line="85"
             column="13"/>
     </issue>
 
@@ -2149,7 +2507,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="97"
+            line="99"
             column="13"/>
     </issue>
 
@@ -2165,7 +2523,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="99"
+            line="101"
             column="13"/>
     </issue>
 
@@ -2181,7 +2539,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="101"
+            line="103"
             column="13"/>
     </issue>
 
@@ -2197,7 +2555,7 @@
         errorLine2="                                ~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="119"
+            line="122"
             column="33"/>
     </issue>
 
@@ -2213,7 +2571,7 @@
         errorLine2="                         ~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="120"
+            line="123"
             column="26"/>
     </issue>
 
@@ -2229,7 +2587,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="127"
+            line="130"
             column="13"/>
     </issue>
 
@@ -2245,7 +2603,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="131"
+            line="134"
             column="13"/>
     </issue>
 
@@ -2261,7 +2619,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="140"
+            line="144"
             column="13"/>
     </issue>
 
@@ -2277,7 +2635,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="144"
+            line="148"
             column="13"/>
     </issue>
 
@@ -2293,7 +2651,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="154"
+            line="159"
             column="13"/>
     </issue>
 
@@ -2309,7 +2667,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="228"
+            line="238"
             column="9"/>
     </issue>
 
@@ -2325,7 +2683,7 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="230"
+            line="240"
             column="33"/>
     </issue>
 
@@ -2341,7 +2699,7 @@
         errorLine2="                         ~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="232"
+            line="242"
             column="26"/>
     </issue>
 
@@ -2357,7 +2715,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="240"
+            line="251"
             column="13"/>
     </issue>
 
@@ -2373,7 +2731,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="242"
+            line="253"
             column="13"/>
     </issue>
 
@@ -2389,7 +2747,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="252"
+            line="263"
             column="13"/>
     </issue>
 
@@ -2405,7 +2763,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="254"
+            line="265"
             column="13"/>
     </issue>
 
@@ -2421,7 +2779,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="264"
+            line="276"
             column="13"/>
     </issue>
 
@@ -2437,7 +2795,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="265"
+            line="277"
             column="13"/>
     </issue>
 
@@ -2453,7 +2811,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="275"
+            line="288"
             column="13"/>
     </issue>
 
@@ -2469,7 +2827,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="287"
+            line="301"
             column="13"/>
     </issue>
 
@@ -2485,7 +2843,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="406"
+            line="421"
             column="17"/>
     </issue>
 
@@ -2501,7 +2859,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="449"
+            line="464"
             column="17"/>
     </issue>
 
@@ -2517,7 +2875,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="490"
+            line="505"
             column="17"/>
     </issue>
 
@@ -2533,8 +2891,24 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="501"
+            line="516"
             column="17"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:drawableLeft` with `android:drawableStart=&quot;@drawable/ic_search&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:drawableLeft=&quot;@drawable/ic_search&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="41"
+            column="13"/>
     </issue>
 
     <issue
@@ -2549,7 +2923,7 @@
         errorLine2="                             ~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="41"
+            line="45"
             column="30"/>
     </issue>
 
@@ -2565,8 +2939,24 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="43"
+            line="66"
             column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:gravity=&quot;left&quot;"
+        errorLine2="                             ~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="69"
+            column="30"/>
     </issue>
 
     <issue
@@ -2581,7 +2971,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="67"
+            line="106"
             column="13"/>
     </issue>
 
@@ -2597,7 +2987,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="71"
+            line="110"
             column="13"/>
     </issue>
 
@@ -2613,7 +3003,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="80"
+            line="119"
             column="13"/>
     </issue>
 
@@ -2629,7 +3019,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="84"
+            line="123"
             column="13"/>
     </issue>
 
@@ -2645,7 +3035,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="94"
+            line="133"
             column="13"/>
     </issue>
 

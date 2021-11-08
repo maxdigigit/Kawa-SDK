@@ -23,7 +23,7 @@ public class Data {
         this.boundaries = boundaries;
     }
 
-    public String getFarms_fetched_at() {
+    public String GET_FARMSs_fetched_at() {
         return farms_fetched_at;
     }
 

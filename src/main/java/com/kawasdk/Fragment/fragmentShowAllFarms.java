@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kawasdk.Model.Boundary;
@@ -149,7 +150,6 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
             MAPBOXMAP.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(latLng).zoom(Common.MAPZOOM).build()), 1000);
             Common.initMarker(style, MAPBOXMAP, MAPVIEW);
 
-
             new android.os.Handler(Looper.getMainLooper()).postDelayed(
                     new Runnable() {
                         public void run() {
@@ -178,15 +178,19 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
                                 if (POLYSELECTED.contains(i)) {
                                     flg = 1;
                                     POLYSELECTED.remove((Integer) i);
+                                    Common.segmentEvents(getActivity(), "Farm boundary Selection",
+                                            "deselect", MAPBOXMAP, "null", "FARMS_SELECTION");
                                 }
                             }
 
                             if (flg == 0) {
                                 POLYSELECTED.add(i);
                                 lineLayer.setProperties(PropertyFactory.lineOpacity(1f));
+                                Common.segmentEvents(getActivity(), "Farm boundary Selection",
+                                        "select", MAPBOXMAP, getSelectedLatLng(), "FARMS_SELECTION");
+
                             } else {
                                 lineLayer.setProperties(PropertyFactory.lineOpacity(0f));
-
                             }
                         }
                         break;
@@ -213,8 +217,11 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
                     if (response.isSuccessful()) {
                         Common.hideLoader();
                         if (response.body() != null) {
+
+                            Common.segmentEvents(getActivity(), "Farm Boundary Response",
+                                    "Farm Boundary Response", MAPBOXMAP, String.valueOf(new Gson().toJson(response.body())), "GET_ALL_POLYGON_DATA");
                             //Log.e("RESPONSE", String.valueOf(response.body()));
-                            Common.FARMS_FETCHED_AT = response.body().getData().getFarms_fetched_at();
+                            Common.FARMS_FETCHED_AT = response.body().getData().GET_FARMSs_fetched_at();
                             //Log.e("FARMS_FETCHED_AT", Common.FARMS_FETCHED_AT );
                             List<Boundary> newListBoundry = response.body().getData().getBoundaries();
                             if (newListBoundry.size() > 0) {
@@ -280,7 +287,8 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
             @Override
             public void onFailure(@NonNull Call<PolygonModel> call, @NonNull Throwable t) {
                 Common.hideLoader();
-                //String errorBody = t.getMessage();
+                String errorBody = t.getMessage();
+                Log.e("TAG", "errorBody: "+errorBody );
                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
             }
         });
@@ -288,96 +296,13 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
 
     private void getMergedCordinates() throws JSONException {
         if (POLYSELECTED.size() > 0) {
-            if (Common.PHASERSTR.equals("1") || Common.PHASERSTR.equals("3")) {
-                List<String> listFeatures = new ArrayList<>();
-                for (int i = 0; i < POLYSELECTED.size(); i++) {
-                    List<List<Point>> llPtsA = new ArrayList<>();
-                    List<Point> llPts = new ArrayList<>();
-                    POLYGONAREA = new ArrayList<>();
-                    for (int j = 0; j < LNGLAT.get(POLYSELECTED.get(i)).size(); j++) {
-                        List<LatLng> ll = LNGLAT.get(POLYSELECTED.get(i));
-                        llPts.add(Point.fromLngLat(ll.get(j).getLongitude(), ll.get(j).getLatitude()));
-                        POLYGONAREA.add(AREAARRAY.get(POLYSELECTED.get(i)));
-                        // Log.e("POLYSELECTED", ll.toString() );
-                    }
-                    llPtsA.add(llPts);
-                    Feature multiPointFeature = Feature.fromGeometry(Polygon.fromLngLats(llPtsA));
-                    listFeatures.add(multiPointFeature.toJson());
-                }
-
-                String strMerge = "{\"farms_fetched_at\":" + "\"" + Common.FARMS_FETCHED_AT + "\"" + ",\"recipe_id\":\"farm_boundaries\",\"aois\":" + String.valueOf(listFeatures) + "}";
-                JsonObject selectedFarms = JsonParser.parseString(strMerge).getAsJsonObject();
-                Log.e("selectedFarms:", String.valueOf(selectedFarms));
-                interfaceKawaEvents.onkawaSelect(selectedFarms);
-                //Phase second
-                Common.showLoader("isCircle");
-                ServiceManager.getInstance().getKawaService().getMergedPoints(KawaMap.KAWA_API_KEY, Common.SDK_VERSION, selectedFarms).enqueue(new Callback<MergeModel>() {
-                    @Override
-                    public void onResponse(@NonNull Call<MergeModel> call, @NonNull Response<MergeModel> response) {
-                        Common.hideLoader();
-                        try {
-                            if (response.isSuccessful()) {
-                                if (response.body() != null) {
-                                    List<ResponseKawa> responseKawa = response.body().getResponse();
-                                    Log.e("resposnebody", String.valueOf(responseKawa.size()));
-                                    List<List<LatLng>> lngLat = new ArrayList<>();
-
-                                    if (responseKawa.size() > 0) {
-                                        for (int i = 0; i < responseKawa.size(); i++) {
-                                            List<LatLng> ll = new ArrayList<>();
-                                            List<List<Float>> cordinates = responseKawa.get(i).getGeometry().getCoordinates().get(0);
-                                            if (cordinates.size() > 0) {
-                                                for (int j = 0; j < cordinates.size(); j++) {
-                                                    ll.add(new LatLng(cordinates.get(j).get(1), cordinates.get(j).get(0)));
-                                                }
-                                                lngLat.add(ll);
-                                            }
-                                        }
-                                        gotoEditPolygon(lngLat);
-                                    }
-                                    //Log.e("lngLat-a", String.valueOf(lngLat));
-                                }
-                            } else {
-                                Common.hideLoader();
-                                //assert response.errorBody() != null;
-                                if (response.errorBody() != null) {
-                                    JSONObject jsonObj = new JSONObject(response.errorBody().string());
-                                    Log.e("RESP", jsonObj.getString("error"));
-                                    Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        } catch (Exception e) {
-                            Common.hideLoader();
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<MergeModel> call, @NonNull Throwable t) {
-                        Common.hideLoader();
-                        String errorBody = t.getMessage();
-                        Log.e("onResponse:Failure ", errorBody);
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getActivity(), "onResponse:Failure " + errorBody, Toast.LENGTH_LONG).show(); // this will tell you why your api doesnt work most of time
-                    }
-                });
-            } else if (Common.PHASERSTR.equals("2")) {
-
-                Log.e("LNGLAT", String.valueOf(LNGLAT));
-                List<List<LatLng>> lngLat = new ArrayList<>();
-                POLYGONAREA = new ArrayList<>();
-                for (int i = 0; i < POLYSELECTED.size(); i++) {
-                    Log.e("POLYSELECTED:", String.valueOf(POLYSELECTED.get(i)));
-
-                    lngLat.add(LNGLAT.get(POLYSELECTED.get(i)));
-                    POLYGONAREA.add(AREAARRAY.get(POLYSELECTED.get(i)));
-                }
-                Log.e("lngLat-b", String.valueOf(lngLat) + " polygonarea :" + POLYGONAREA);
-                gotoEditPolygon(lngLat); // Will be removed once service call is used
-
+           // if (Common.APP_PHASE.equals("1") || Common.APP_PHASE.equals("3")|| Common.APP_PHASE.equals("4")) {
+            if (KawaMap.isMergeEnable) {
+                apiCallForMergeSelectedPolygon();
+            } else {
+                getCoordinatesOfSelectedPolygon();
             }
         } else {
-            Toast.makeText(getActivity(), R.string.user_location_permission_explanation, Toast.LENGTH_LONG).show();
             Toast.makeText(getActivity(), R.string.select_farm_to_merge, Toast.LENGTH_LONG).show();
         }
     }
@@ -403,13 +328,132 @@ public class fragmentShowAllFarms extends Fragment implements OnMapReadyCallback
         fragmentTransaction.commit();
     }
 
+    private String getSelectedLatLng() {
+        List<String> listFeatures = new ArrayList<>();
+        for (int i = 0; i < POLYSELECTED.size(); i++) {
+            List<List<Point>> llPtsA = new ArrayList<>();
+            List<Point> llPts = new ArrayList<>();
+            POLYGONAREA = new ArrayList<>();
+            for (int j = 0; j < LNGLAT.get(POLYSELECTED.get(i)).size(); j++) {
+                List<LatLng> ll = LNGLAT.get(POLYSELECTED.get(i));
+                llPts.add(Point.fromLngLat(ll.get(j).getLongitude(), ll.get(j).getLatitude()));
+                POLYGONAREA.add(AREAARRAY.get(POLYSELECTED.get(i)));
+                // Log.e("POLYSELECTED", ll.toString() );
+            }
+            llPtsA.add(llPts);
+            Feature multiPointFeature = Feature.fromGeometry(Polygon.fromLngLats(llPtsA));
+            listFeatures.add(multiPointFeature.toJson());
+        }
+
+        String strMerge =  String.valueOf(listFeatures) ;
+        Log.e("strMerge<<<<", strMerge );
+        return strMerge;
+    }
+
+
     private void startOver() {
+        Common.segmentEvents(getActivity(), "Start Over",
+                "user clicked on Start over", MAPBOXMAP, "", "START_OVER");
         fragmentFarmLocation fragmentFarmLocation = new fragmentFarmLocation();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.kawaMapView, fragmentFarmLocation);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    public void apiCallForMergeSelectedPolygon()
+    {
+        List<String> listFeatures = new ArrayList<>();
+        for (int i = 0; i < POLYSELECTED.size(); i++) {
+            List<List<Point>> llPtsA = new ArrayList<>();
+            List<Point> llPts = new ArrayList<>();
+            POLYGONAREA = new ArrayList<>();
+            for (int j = 0; j < LNGLAT.get(POLYSELECTED.get(i)).size(); j++) {
+                List<LatLng> ll = LNGLAT.get(POLYSELECTED.get(i));
+                llPts.add(Point.fromLngLat(ll.get(j).getLongitude(), ll.get(j).getLatitude()));
+                POLYGONAREA.add(AREAARRAY.get(POLYSELECTED.get(i)));
+                // Log.e("POLYSELECTED", ll.toString() );
+            }
+            llPtsA.add(llPts);
+            Feature multiPointFeature = Feature.fromGeometry(Polygon.fromLngLats(llPtsA));
+            listFeatures.add(multiPointFeature.toJson());
+        }
+
+        String strMerge = "{\"farms_fetched_at\":" + "\"" + Common.FARMS_FETCHED_AT + "\"" + ",\"recipe_id\":\"farm_boundaries\",\"aois\":" + String.valueOf(listFeatures) + "}";
+        JsonObject selectedFarms = JsonParser.parseString(strMerge).getAsJsonObject();
+        Log.e("selectedFarms:", String.valueOf(selectedFarms));
+        interfaceKawaEvents.onkawaSelect(selectedFarms);
+        //Phase second
+        Common.showLoader("isCircle");
+        ServiceManager.getInstance().getKawaService().getMergedPoints(KawaMap.KAWA_API_KEY, Common.SDK_VERSION, selectedFarms).enqueue(new Callback<MergeModel>() {
+            @Override
+            public void onResponse(@NonNull Call<MergeModel> call, @NonNull Response<MergeModel> response) {
+                Common.hideLoader();
+                try {
+                    if (response.isSuccessful()) {
+                        if (response.body() != null) {
+                            List<ResponseKawa> responseKawa = response.body().getResponse();
+                            Log.e("resposnebody", new Gson().toJson(response.body()));
+                            List<List<LatLng>> lngLat = new ArrayList<>();
+
+                            if (responseKawa.size() > 0) {
+                                for (int i = 0; i < responseKawa.size(); i++) {
+                                    List<LatLng> ll = new ArrayList<>();
+                                    List<List<Float>> cordinates = responseKawa.get(i).getGeometry().getCoordinates().get(0);
+                                    if (cordinates.size() > 0) {
+                                        for (int j = 0; j < cordinates.size(); j++) {
+                                            ll.add(new LatLng(cordinates.get(j).get(1), cordinates.get(j).get(0)));
+                                        }
+                                        lngLat.add(ll);
+                                    }
+                                }
+                                Common.segmentEvents(getActivity(), "Save Selection",
+                                        String.valueOf(selectedFarms), MAPBOXMAP, String.valueOf(new Gson().toJson(response.body())), "SAVE_ON_SUCCESS");
+                                gotoEditPolygon(lngLat);
+                            }
+                            //Log.e("lngLat-a", String.valueOf(lngLat));
+                        }
+                    } else {
+                        Common.hideLoader();
+                        //assert response.errorBody() != null;
+                        if (response.errorBody() != null) {
+                            JSONObject jsonObj = new JSONObject(response.errorBody().string());
+                            Log.e("RESP", jsonObj.getString("error"));
+                            Common.segmentEvents(getActivity(), "Save Selection",
+                                    String.valueOf(selectedFarms), MAPBOXMAP, jsonObj.getString("error"), "SAVE_ON_FAILURE");
+                            Toast.makeText(getApplicationContext(), jsonObj.getString("error"), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (Exception e) {
+                    Common.hideLoader();
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<MergeModel> call, @NonNull Throwable t) {
+                Common.hideLoader();
+                String errorBody = t.getMessage();
+                Log.e("onResponse:Failure ", errorBody);
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(), "onResponse:Failure " + errorBody, Toast.LENGTH_LONG).show(); // this will tell you why your api doesnt work most of time
+            }
+        });
+    }
+
+    private void getCoordinatesOfSelectedPolygon() {
+        Log.e("LNGLAT", String.valueOf(LNGLAT));
+        List<List<LatLng>> lngLat = new ArrayList<>();
+        POLYGONAREA = new ArrayList<>();
+        for (int i = 0; i < POLYSELECTED.size(); i++) {
+            Log.e("POLYSELECTED:", String.valueOf(POLYSELECTED.get(i)));
+            lngLat.add(LNGLAT.get(POLYSELECTED.get(i)));
+            POLYGONAREA.add(AREAARRAY.get(POLYSELECTED.get(i)));
+        }
+        Log.e("lngLat-b", String.valueOf(lngLat) + " polygonarea :" + POLYGONAREA);
+        gotoEditPolygon(lngLat); // Will be removed once service call is used
+
     }
 
     @Override

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:mapbox="http://schemas.android.com/tools"
     android:layout_gravity="center">
 
     <com.mapbox.mapboxsdk.maps.MapView
@@ -29,7 +30,7 @@
             android:textAlignment="center"
             android:textColor="#FFF" />
 
-        <TextView
+        <EditText
             android:id="@+id/searchTxt"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -37,18 +38,56 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="10dp"
             android:background="@drawable/style_rounded_corner_large"
-            android:elevation="8dp"
-            android:gravity="left"
-            android:drawablePadding="10dp"
             android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:elevation="8dp"
+            android:inputType="text"
+            android:gravity="left"
+            android:hint="@string/searchStr"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:maxLines="1"
             android:paddingHorizontal="20dp"
             android:paddingVertical="15dp"
-            android:text="@string/searchStr"
-            android:textColor="#4F4F4F"
+            android:textColor="@color/mapboxBlack"
+            android:textColorHint="#4F4F4F"
             app:backgroundTint="@color/mapboxWhite"
             app:layout_constraintStart_toStartOf="@id/messageBox"
             app:layout_constraintTop_toTopOf="@id/messageBox" />
+
+        <TextView
+            android:id="@+id/searchResultTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/messageBox"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/style_rounded_corner_large"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:elevation="8dp"
+            android:gravity="left"
+            android:hint="@string/searchStr"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="15dp"
+            android:textColor="@color/mapboxBlack"
+            android:textColorHint="#4F4F4F"
+            android:visibility="gone"
+            app:backgroundTint="@color/mapboxWhite"
+            app:layout_constraintStart_toStartOf="@id/messageBox"
+            app:layout_constraintTop_toTopOf="@id/messageBox" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/place_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/style_rounded_corner_large"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -90,7 +129,7 @@
             android:id="@+id/goCurrentLocBtn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_above="@+id/getFarmBtn"
+            android:layout_above="@+id/GET_FARMSBtn"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
@@ -101,14 +140,14 @@
             app:tint="@android:color/white" />
 
         <Button
-            android:id="@+id/getFarmBtn"
+            android:id="@+id/GET_FARMSBtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
             android:foreground="@drawable/riipleeffectbuttons"
-            android:text="@string/getFarmStr"
+            android:text="@string/GET_FARMSStr"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#000000" />

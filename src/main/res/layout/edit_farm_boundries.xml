@@ -67,6 +67,7 @@
             android:foreground="@drawable/riipleeffectbuttons"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
+            android:visibility="gone"
             android:text="@string/discard_edit"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
@@ -79,6 +80,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/discardEditBtn"
+            android:visibility="gone"
             android:backgroundTint="@color/mapboxWhite"
             android:drawableLeft="@drawable/ic_back"
             android:foreground="@drawable/riipleeffectbuttons"
@@ -102,6 +104,7 @@
             android:foreground="@drawable/riipleeffectbuttons"
             android:paddingHorizontal="10dp"
             android:paddingTop="0dp"
+            android:visibility="gone"
             android:paddingBottom="0dp"
             android:text="@string/start_over"
             android:textAllCaps="false"
@@ -131,6 +134,7 @@
             android:paddingLeft="15dp"
             android:paddingTop="6dp"
             android:textColor="@color/mapboxWhite"
+            android:visibility="gone"
             app:backgroundTint="@color/mapboxBlack" />
 
         <Button
@@ -142,6 +146,7 @@
             android:background="@drawable/style_rounded_corner_bottom"
             android:drawableTop="@drawable/ic_minus"
             android:paddingLeft="16dp"
+            android:visibility="gone"
             android:paddingTop="8dp"
             android:textColor="@color/mapboxWhite"
             app:backgroundTint="@color/mapboxBlack" />
@@ -159,6 +164,7 @@
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:text="@string/add_more_plots"
+            android:visibility="gone"
             android:textAllCaps="false"
             android:textColor="@color/mapboxBlack" />
 
@@ -168,6 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="-5dp"
+            android:visibility="gone"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
             android:foreground="@drawable/riipleeffectbuttons"
@@ -180,6 +187,7 @@
             android:id="@+id/completeMarkingBtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:visibility="gone"
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
@@ -194,6 +202,7 @@
             android:id="@+id/saveDetailBtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:visibility="gone"
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
@@ -209,6 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="-5dp"
+            android:visibility="gone"
             android:layout_marginBottom="-7dp"
             android:backgroundTint="@color/mapboxBlue"
             android:foreground="@drawable/riipleeffectbuttons"
@@ -237,6 +247,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_above="@+id/downBtn"
+            android:visibility="gone"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_toLeftOf="@+id/rightBtn"
@@ -254,6 +265,7 @@
             android:layout_toLeftOf="@+id/downBtn"
             android:background="@drawable/rippleeffectjoysticbtn"
             android:src="@drawable/ic_arrow_left"
+            android:visibility="gone"
             android:textColor="@color/mapboxBlack"
             app:backgroundTint="@color/mapboxWhite" />
 
@@ -265,6 +277,7 @@
             android:layout_toLeftOf="@+id/rightBtn"
             android:background="@drawable/rippleeffectjoysticbtn"
             android:src="@drawable/ic_arrow_down"
+            android:visibility="gone"
             android:textColor="@color/mapboxBlack"
             app:backgroundTint="@color/mapboxWhite" />
 
@@ -274,6 +287,7 @@
             android:layout_height="40dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:visibility="gone"
             android:background="@drawable/rippleeffectjoysticbtn"
             android:src="@drawable/ic_arrow_right"
             android:textColor="@color/mapboxBlack"
@@ -289,6 +303,7 @@
             android:backgroundTint="@color/mapboxWhite"
             android:foreground="@drawable/riipleeffectbuttons"
             android:paddingTop="0dp"
+            android:visibility="gone"
             android:paddingBottom="0dp"
             android:text="@string/correct_boundery"
             android:textAllCaps="false"

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Error_General">Terjadi kesalahan.</string>
+    <string name="GET_FARMSStr">Dapatkan batas lahan untuk daerah ini</string>
     <string name="add_more_plots">Tambah lahan lain</string>
+    <string name="address">Address</string>
     <string name="app_name">Kawa Space SDK</string>
     <string name="area">Area</string>
     <string name="back">Kembali</string>
@@ -9,16 +11,17 @@
     <string name="correct_boundery">Correct Boundry</string>
     <string name="discard_edit">Discard Edit</string>
     <string name="drag_point_joystic">Drag the point or use the joystick</string>
+    <string name="enter_details">Enter Details</string>
     <string name="error_farmnot_available">Batas lahan belum tersedia untuk daerah ini.</string>
     <string name="error_large_area">Area yang dipilih terlalu besar. Silakan perbesar sedikit dan coba lagi.</string>
     <string name="farm">lahan</string>
     <string name="farm_details">Detail Lahan</string>
     <string name="farm_mark_successfully">Lahan sukses tersimpan</string>
     <string name="farm_saved_successfully">Lahan sukses tersimpan</string>
-    <string name="getFarmStr">Dapatkan batas lahan untuk daerah ini</string>
     <string name="hectares">Hektar</string>
     <string name="kawa_api_key">kawa_RLkNIPN-z3TeWb8AWv089w</string>
     <string name="mark_another">Tandai Lahan Lain</string>
+    <string name="name">Name</string>
     <string name="next">Selanjutnya</string>
     <string name="no_farm_detected">Tidak ada lahan yang terdeteksi untuk lokasi Anda. Silakan coba lagi.</string>
     <string name="save_details">Simpan detail</string>
