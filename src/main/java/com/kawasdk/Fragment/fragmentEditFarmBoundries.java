@@ -714,8 +714,11 @@ ImageView dootedLineFirst,dootedLineSecond;
             e.printStackTrace();
         }
 
-        String strSubmit = " { \"type\": \"FeatureCollection\", \"features\": " + String.valueOf(listFeatures) + "}";
+//        String strSubmit = " { \"type\": \"FeatureCollection\", \"features\": " + String.valueOf(listFeatures) + "}";
+//        JsonObject submitJsonObject = JsonParser.parseString(strSubmit).getAsJsonObject();
+        String strSubmit = "{\"farms_fetched_at\":" + "\"" + Common.FARMS_FETCHED_AT + "\"" + ",\"recipe_id\":\"farm_boundaries\",\"aois\":" + String.valueOf(listFeatures) + "}";
         JsonObject submitJsonObject = JsonParser.parseString(strSubmit).getAsJsonObject();
+
         Common.segmentEvents(getActivity(), "Save Details",
                 "Data saved on save details", MAPBOXMAP, strSubmit, "SAVE_DETAILS");
         String strJsonWrite = "{\"farm_boundaries\":" + "\"" + listFeatures + "\"" + ",\"metadata\":" + "\"" + filedsObject + "}";
@@ -733,7 +736,7 @@ ImageView dootedLineFirst,dootedLineSecond;
                                 Log.e("TAG", "onResponse: " + response.body().getStatus());
                                 startOverBtn.setVisibility(View.GONE);
                                 markAnotherBtn.setVisibility(View.VISIBLE);
-                                thankyouLinearLayout.setVisibility(VIEW.VISIBLE);
+                                //thankyouLinearLayout.setVisibility(VIEW.VISIBLE);
                                 //farmDetailsLayout.setVisibility(VIEW.VISIBLE);
 
                                 //interfaceKawaEvents.onkawaSubmit(strJsonWrite);
@@ -816,6 +819,7 @@ ImageView dootedLineFirst,dootedLineSecond;
             Common.segmentEvents(getActivity(), "Start Over",
                     "user clicked on Start over", MAPBOXMAP, "", "START_OVER");
         }
+
         fragmentFarmLocation fragmentFarmLocation = new fragmentFarmLocation();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -890,6 +894,7 @@ ImageView dootedLineFirst,dootedLineSecond;
     }
 
     public void getAddress() {
+
         LatLng mapLatLng;
         double mapLat, mapLong;
         if (POLYGONAREA.size() == 1) {
@@ -910,7 +915,7 @@ ImageView dootedLineFirst,dootedLineSecond;
                 .enqueue(new Callback<JsonObject>() {
                     @Override
                     public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
-                        Common.hideLoader();
+
                         try {
                             if (response.isSuccessful() && response.body() != null) {
                                 JSONObject jsonObj = new JSONObject(response.body().toString());
@@ -931,9 +936,8 @@ ImageView dootedLineFirst,dootedLineSecond;
                         markAnotherBtn.setVisibility(View.VISIBLE);
                         startOverBtn.setVisibility(View.GONE);
                         messageBox.setVisibility(View.GONE);
-
                         farm_mark_messagebox.setVisibility(View.VISIBLE);
-
+                        Common.hideLoader();
                     }
 
                     @Override

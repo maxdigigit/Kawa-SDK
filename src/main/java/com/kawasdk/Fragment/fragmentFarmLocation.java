@@ -6,7 +6,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.Editable;
@@ -26,6 +28,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -36,22 +39,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kawasdk.Model.DeviveBounderyModel;
+import com.kawasdk.Model.LocationModel.LocationModel;
 import com.kawasdk.R;
 import com.kawasdk.Utils.Common;
 import com.kawasdk.Utils.InterfaceKawaEvents;
 import com.kawasdk.Utils.KawaMap;
-import com.kawasdk.Utils.LocationSearchAdapter;
+import com.kawasdk.Utils.LocationAdapter;
+import com.kawasdk.Utils.PlaceSearchAdapter;
 import com.kawasdk.Utils.ServiceManager;
 import com.mapbox.api.geocoding.v5.GeocodingCriteria;
 import com.mapbox.api.geocoding.v5.MapboxGeocoding;
 import com.mapbox.api.geocoding.v5.models.CarmenFeature;
 import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
 import com.mapbox.core.exceptions.ServicesException;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.FeatureCollection;
+import com.mapbox.geojson.LineString;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.geometry.VisibleRegion;
 import com.mapbox.mapboxsdk.location.LocationComponent;
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
@@ -60,7 +69,9 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-import com.smartlook.sdk.smartlook.Smartlook;
+import com.mapbox.mapboxsdk.style.layers.LineLayer;
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
+import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -70,6 +81,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,50 +90,48 @@ import retrofit2.Response;
 
 import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
 
-public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback, LocationSearchAdapter.ItemClickListener {
+public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback, PlaceSearchAdapter.PlaceSearchItemClickListener, LocationAdapter.LocationItemClickListener, MapboxMap.OnMapClickListener {
 
     Intent intent;
     private Common COMACT;
     private MapboxMap MAPBOXMAP;
     private MapView MAPVIEW;
-    Button GET_FARMSBtn, zoomOutBtn, zoomInBtn, dropPinFab;
+    Button GET_FARMSBtn, zoomOutBtn, zoomInBtn, dropPinFab, dropdownBtn;
     EditText searchTxt;
-    TextView messageBox, searchResultTxt;
+    TextView messageBox;
     ActivityResultLauncher<Intent> SEARCHRESULT;
     InterfaceKawaEvents interfaceKawaEvents;
     int firstTimecnt = 0;
     private ActivityResultLauncher<String> MPERMISSIONRESULT;
 
-    RecyclerView place_recyclerView;
-    LocationSearchAdapter locationSearchAdapter;
+    RecyclerView place_recyclerView, locationlist_recyclerView;
+    LocationAdapter locationAdapter;
+    PlaceSearchAdapter placeSearchAdapter;
     ArrayList<String> PLACEARRAY;
     ArrayList<LatLng> PLACELATLNGARRAY;
     ArrayList<String> LATLNGARRAY;
     LatLng PLACELATLNG;
     LatLng PLACELNGLAT;
-
+    ArrayList<String> cityname = new ArrayList<String>();
+    boolean searchEnable = true;
+    private List<List<LatLng>> LNGLAT = new ArrayList<>();
+    List<Point> llPts = new ArrayList<>();
+    List<LocationModel> LocationList;
     // 434573882bf2d7079548eeb5344cd61e82131e76 kawa smartlook
     // 81ab38327bb3cbabb3f67fca628c0849d034aec0 maxdigi smartlook
+    int clicckCount = 0;
 
     @Override
     public void onAttach(@NonNull @NotNull Context context) {
         super.onAttach(context);
         interfaceKawaEvents = (InterfaceKawaEvents) context;
         interfaceKawaEvents.initKawaMap(KawaMap.isValidKawaAPiKey);
-        Smartlook.setUserIdentifier("KAWA SDK");
-        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("434573882bf2d7079548eeb5344cd61e82131e76")
-                .setFps(2)
-                .setExperimental(true)
-                .setActivity(null);
-        Smartlook.setupAndStartRecording(builder.build());
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(getActivity(), Common.MAPBOX_ACCESS_TOKEN);
-
-
         COMACT = new Common(getActivity());
         COMACT.showLoader("isScanner");
     }
@@ -135,6 +146,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         super.onCreate(savedInstanceState);
+
 
         final LocationManager manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -151,8 +163,9 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         GET_FARMSBtn = view.findViewById(R.id.GET_FARMSBtn);
         dropPinFab = view.findViewById(R.id.goCurrentLocBtn);
         searchTxt = view.findViewById(R.id.searchTxt);
-        searchResultTxt = view.findViewById(R.id.searchResultTxt);
+        // searchResultTxt = view.findViewById(R.id.searchResultTxt);
         messageBox = view.findViewById(R.id.messageBox);
+        dropdownBtn = view.findViewById(R.id.dropdownBtn);
         messageBox.setBackgroundColor(KawaMap.headerBgColor);
         messageBox.setTextColor(KawaMap.headerTextColor);
         GET_FARMSBtn.setTextColor(KawaMap.footerBtnTextColor);
@@ -162,21 +175,31 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         LATLNGARRAY = new ArrayList<>();
         PLACELATLNGARRAY = new ArrayList<>();
         place_recyclerView = view.findViewById(R.id.place_recyclerView);
+        locationlist_recyclerView = view.findViewById(R.id.locationlist_recyclerView);
+
         place_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        locationSearchAdapter = new LocationSearchAdapter(getActivity(), PLACEARRAY);
-        locationSearchAdapter.setClickListener(this);
-        place_recyclerView.setAdapter(locationSearchAdapter);
+        placeSearchAdapter = new PlaceSearchAdapter(getActivity(), PLACEARRAY);
+        placeSearchAdapter.setClickListener(this);
+        place_recyclerView.setAdapter(placeSearchAdapter);
+        getAllLocation();
+        locationlist_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        locationAdapter = new LocationAdapter(getActivity(), cityname);
+        locationAdapter.setClickListener(this);
+        locationlist_recyclerView.setAdapter(locationAdapter);
+        if (KawaMap.isFlyToLocationEnable)
+            dropdownBtn.setVisibility(View.VISIBLE);
+        dropdownBtn.setOnClickListener(viewV -> flytoLocation());
 
-        searchResultTxt.setOnClickListener(viewV -> searchRegion());
+
         searchTxt.addTextChangedListener(new TextWatcher() {
-
             public void afterTextChanged(Editable s) {
-                try {
-                    makeGeocodeSearch(searchTxt.getText().toString());
-                    place_recyclerView.setVisibility(View.VISIBLE);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+//                if (searchEnable) {
+//                    try {
+//                        makeGeocodeSearch(searchTxt.getText().toString().trim());
+//                    } catch (ParseException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
             }
 
             public void beforeTextChanged(CharSequence s, int start,
@@ -185,12 +208,12 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
 
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                // startGeocodeButton.setVisibility(View.GONE);
-                try {
-                    makeGeocodeSearch(searchTxt.getText().toString());
-                    place_recyclerView.setVisibility(View.VISIBLE);
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                if (searchEnable) {
+                    try {
+                        makeGeocodeSearch(searchTxt.getText().toString());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
 
 
@@ -200,7 +223,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         GET_FARMSBtn.setOnClickListener(viewV -> getAllFarms());
         zoomInBtn.setOnClickListener(viewV -> COMACT.setZoomLevel(1, MAPBOXMAP));
         zoomOutBtn.setOnClickListener(viewV -> COMACT.setZoomLevel(-1, MAPBOXMAP));
-
+        searchTxt.setOnClickListener(viewV -> searchView());
         MPERMISSIONRESULT = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 new ActivityResultCallback<Boolean>() {
@@ -209,6 +232,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                         Log.e("PERMISSIONSTATUS", String.valueOf(result));
                         if (result) {
                             Log.e("TAG", "onActivityResult: PERMISSION GRANTED");
+
                             Style loadedMapStyle = MAPBOXMAP.getStyle();
                             //MAPBOXMAP.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().zoom(Common.MAPZOOM).build()), 100);
                             LocationComponent locationComponent = MAPBOXMAP.getLocationComponent();
@@ -246,6 +270,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         MAPBOXMAP.setStyle(Style.SATELLITE_STREETS, style -> {
             COMACT.hideLoader();
             COMACT.initMarker(style, MAPBOXMAP, MAPVIEW);
+            MAPBOXMAP.addOnMapClickListener(this);
             dropPinFab.setOnClickListener(viewV -> getCurrentLocation());
             MPERMISSIONRESULT.launch(Manifest.permission.ACCESS_FINE_LOCATION);
         });
@@ -329,12 +354,29 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         return jsonObject;
     }
 
-    private void searchRegion() {
+    private void flytoLocation() {
+        place_recyclerView.setVisibility(View.GONE);
+        dropdownBtn.setVisibility(View.GONE);
+        locationlist_recyclerView.setVisibility(View.VISIBLE);
+        ViewGroup.LayoutParams params = locationlist_recyclerView.getLayoutParams();
+        Log.e("cityname", "flytoLocation: " + cityname.size());
+        if (cityname.size() >= 6)
+            params.height = 600;
+        else if (cityname.size() >= 4)
+            params.height = 400;
+        else
+            params.height = 200;
+        locationlist_recyclerView.setLayoutParams(params);
 
-        searchResultTxt.setVisibility(View.GONE);
+    }
+
+    private void searchView() {
         searchTxt.setText("");
-        searchTxt.setVisibility(View.VISIBLE);
-
+        searchEnable = true;
+        Log.e("TAG", "searchView:<> ");
+        place_recyclerView.setVisibility(View.VISIBLE);
+        locationlist_recyclerView.setVisibility(View.GONE);
+        dropdownBtn.setVisibility(View.GONE);
     }
 
     /*private void displaySerachRegion(Intent data) {
@@ -362,69 +404,180 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
     }*/
 
     @Override
-    public void onItemClick(View view, int position) {
-        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    public void onplacesearchItemClick(View view, int position) {
+        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_LONG).show();
         if (PLACELATLNGARRAY.size() > 0) {
             animateCameraToNewPosition(PLACELATLNGARRAY.get(position));
-            searchResultTxt.setText(String.valueOf(MAPBOXMAP.getProjection().getVisibleRegion().latLngBounds));
-            searchTxt.setVisibility(View.GONE);
-            searchResultTxt.setVisibility(View.VISIBLE);
+            new android.os.Handler(Looper.getMainLooper()).postDelayed(
+                    new Runnable() {
+                        public void run() {
+                            COMACT.segmentEvents(getActivity(), "Fetching a desired location", PLACEARRAY.get(position), MAPBOXMAP, searchTxt.getText().toString(), "SEARCH");
+                        }
+                    },
+                    1000);
+            searchEnable = false;
+            searchTxt.setText(PLACEARRAY.get(position));
         } else {
-            Toast.makeText(getContext(), "Invalid Latitude or Longitude", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Invalid Latitude or Longitude", Toast.LENGTH_LONG).show();
             searchTxt.setText("");
         }
-        COMACT.segmentEvents(getActivity(), "Fetching a desired location", PLACEARRAY.get(position), MAPBOXMAP, searchTxt.getText().toString(), "SEARCH");
         place_recyclerView.setVisibility(View.GONE);
-        PLACEARRAY.clear(); // clear list
-        PLACELATLNGARRAY.clear(); // clear list
-        locationSearchAdapter.setItems(PLACEARRAY);
-        hideKeyboard(getActivity(), view);
+        if (KawaMap.isFlyToLocationEnable)
+            dropdownBtn.setVisibility(View.VISIBLE);
+        new android.os.Handler(Looper.getMainLooper()).postDelayed(
+                new Runnable() {
+                    public void run() {
+                        PLACEARRAY.clear(); // clear list
+                        PLACELATLNGARRAY.clear(); // clear list
+                        placeSearchAdapter.setItems(PLACEARRAY);
+                        hideKeyboard(getActivity(), view);
+                    }
+                },
+                1000);
+        //searchTxt.setText(String.valueOf(MAPBOXMAP.getProjection().getVisibleRegion().latLngBounds));
+    }
 
+    @Override
+    public void onLocationItemClick1(View view, int position) {
+        clicckCount++;
+        Style style = MAPBOXMAP.getStyle();
+        List<List<Double>> latlng = LocationList.get(position).getRecipeBoundsPolygon().getCoordinates().get(0);
+        List<Point> llPts = new ArrayList<>();
+        for (int i = 0; i < latlng.size(); i++) {
+            llPts.add(Point.fromLngLat(latlng.get(i).get(0), latlng.get(i).get(1)));
+        }
+        style.addSource(new GeoJsonSource("lineSourceID" + LocationList.get(position).getId() + clicckCount, FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(LineString.fromLngLats(llPts))})));
+        style.addLayer(new LineLayer("lineLayerID" + LocationList.get(position).getId() + clicckCount, "lineSourceID" + LocationList.get(position).getId() + clicckCount).withProperties(
+                PropertyFactory.lineWidth(4f),
+                PropertyFactory.lineColor(Color.parseColor("#000000")),
+                PropertyFactory.lineOpacity(0.8f)
+        ));
+        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                .include(new LatLng(llPts.get(0).latitude(), llPts.get(0).longitude()))
+                .include(new LatLng(llPts.get(2).latitude(), llPts.get(2).longitude()))
+                .build();
+        MAPBOXMAP.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 20), 1000);
+        locationlist_recyclerView.setVisibility(View.GONE);
+        if (KawaMap.isFlyToLocationEnable)
+            dropdownBtn.setVisibility(View.VISIBLE);
+        Log.e("onLocationItemClick1", String.valueOf(llPts));
+        searchEnable = false;
+        searchTxt.setText("Location #" + (position + 1));
+        //searchTxt.setText(String.valueOf(MAPBOXMAP.getProjection().getVisibleRegion().latLngBounds));
+    }
+
+    @Override
+    public boolean onMapClick(@NonNull LatLng coordsOfPoint) {
+        if (KawaMap.isFlyToLocationEnable)
+            dropdownBtn.setVisibility(View.VISIBLE);
+        place_recyclerView.setVisibility(View.GONE);
+        locationlist_recyclerView.setVisibility(View.GONE);
+        return false;
     }
 
     private boolean latCoordinateIsValid(double value) {
-        return value >= -90 && value <= 90;
+        return (value >= -90 && value <= 90);
+
     }
 
     private boolean longCoordinateIsValid(double value) {
-        return value >= -180 && value <= 180;
+        return (value >= -180 && value <= 180);
+        
     }
-
     private void makeGeocodeSearch(String searchStr) throws ParseException {
         if (searchStr.length() >= 3) {
-            List<String> placeList = Arrays.asList(searchStr.split(","));
-            // if (placeList.get(0).matches("-?\\d+")) {
-            if (placeList.get(0).matches("\\d+(?:\\.\\d+)?") || placeList.get(0).matches("-?\\d+")) {
-                if (placeList.size() == 2) {
+            place_recyclerView.setVisibility(View.VISIBLE);
+            dropdownBtn.setVisibility(View.GONE);
+            Pattern pattern = Pattern.compile(".*[a-zA-Z]+.*");
+            Matcher matcher = pattern.matcher(searchStr);
+            if (matcher.matches()) {
+                searchUsingAddress(searchStr);
+            } else {
+                searchUsingLatLng(searchStr);
+            }
+
+        } else {
+            place_recyclerView.setVisibility(View.GONE);
+            if (KawaMap.isFlyToLocationEnable)
+                dropdownBtn.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void searchUsingAddress(String searchStr) {
+        PLACEARRAY.clear(); // clear list
+        PLACELATLNGARRAY.clear(); // clear list
+        placeSearchAdapter.setItems(PLACEARRAY);
+        MapboxGeocoding mapboxGeocoding = MapboxGeocoding.builder()
+                .accessToken(Common.MAPBOX_ACCESS_TOKEN)
+                .query(searchStr)
+                .build();
+
+        mapboxGeocoding.enqueueCall(new Callback<GeocodingResponse>() {
+            @Override
+            public void onResponse(Call<GeocodingResponse> call, Response<GeocodingResponse> response) {
+                List<CarmenFeature> results = response.body().features();
+                if (results.size() > 0) {
                     PLACEARRAY.clear(); // clear list
                     PLACELATLNGARRAY.clear(); // clear list
-                    locationSearchAdapter.setItems(PLACEARRAY);
-                    PLACEARRAY.add("Lat : " + placeList.get(0) + " Long : " + placeList.get(1));
-                    PLACEARRAY.add("Long : " + placeList.get(0) + " Lat : " + placeList.get(1));
-                    if (placeList.get(1).equals(" ")) {
-                    } else {
+                    for (int i = 0; i < results.size(); i++) {
+                        Log.d("TAG", "onResponse: " + results.get(0).placeName());
+                        PLACEARRAY.add(results.get(i).placeName());
+                        double lat = results.get(i).center().coordinates().get(1);
+                        double lng = results.get(i).center().coordinates().get(0);
+                        PLACELATLNG = (new LatLng(Double.valueOf(lat),
+                                Double.valueOf(lng)));
+                        PLACELATLNGARRAY.add(PLACELATLNG);
+                        placeSearchAdapter.setItems(PLACEARRAY);
+                    }
+                } else {
+                    Log.d("TAG", "onResponse: No result found");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GeocodingResponse> call, Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        });
+    }
+
+    public void searchUsingLatLng(String searchStr) {
+        List<String> placeList = Arrays.asList(searchStr.split("\\,"));
+        // if (placeList.get(0).matches("-?\\d+")) {
+        if (placeList.get(0).matches("\\d+(?:\\.\\d+)?") || placeList.get(0).matches("-?\\d+")) {
+            if (placeList.size() == 2) {
+                PLACEARRAY.clear(); // clear list
+                PLACELATLNGARRAY.clear(); // clear list
+                placeSearchAdapter.setItems(PLACEARRAY);
+                PLACEARRAY.add("Lat : " + placeList.get(0) + " Long : " + placeList.get(1));
+                PLACEARRAY.add("Long : " + placeList.get(0) + " Lat : " + placeList.get(1));
+                if (placeList.get(1).equals(" ")) {
+                } else {
+                    if (placeList.get(1).matches("\\d+(?:\\.\\d+)?") || placeList.get(1).matches("-?\\d+")) {
                         NumberFormat numberFormat = NumberFormat.getInstance();
                         //double lat = Double.parseDouble(placeList.get(0));
                         //double lng = Double.parseDouble(placeList.get(1));
-                        double lat = numberFormat.parse(placeList.get(0)).doubleValue();
-                        double lng = numberFormat.parse(placeList.get(1)).doubleValue();
-
                         try {
+                            double lat = Double.parseDouble(placeList.get(0));
+                            double lng = Double.parseDouble(placeList.get(1));
                             LatLng latLng = null;
-                            if (latCoordinateIsValid(Double.valueOf(placeList.get(0)))
-                                    && longCoordinateIsValid(Double.valueOf(placeList.get(1)))) {
-                                // Make a geocoding search with the values inputted into the EditTexts
+                            if (latCoordinateIsValid(Double.valueOf(lat))
+                                    && longCoordinateIsValid(Double.valueOf(lng))) {
                                 PLACELATLNG = (new LatLng(Double.valueOf(lat),
                                         Double.valueOf(lng)));
-                                PLACELNGLAT = (new LatLng(Double.valueOf(lng),
-                                        Double.valueOf(lat)));
+
+                                if (Double.valueOf(placeList.get(1)) <= 90) {
+                                    PLACELNGLAT = (new LatLng(Double.valueOf(lng),
+                                            Double.valueOf(lat)));
+//24.98 98.89
+                                }
                                 PLACELATLNGARRAY.add(PLACELATLNG);
                                 PLACELATLNGARRAY.add(PLACELNGLAT);
-                                locationSearchAdapter.setItems(PLACEARRAY);
+                                placeSearchAdapter.setItems(PLACEARRAY);
                                 latLng = (new LatLng(Double.valueOf(placeList.get(0)), Double.valueOf(placeList.get(1))));
 
                                 MapboxGeocoding client = MapboxGeocoding.builder()
-                                        .accessToken("pk.eyJ1Ijoia2F3YS1hZG1pbiIsImEiOiJja3RqcmN3N2kwNWEyMzJueWQzd2J0Znk1In0.WK1trBUr51BifsBNRX5ekw")
+                                        .accessToken(Common.MAPBOX_ACCESS_TOKEN)
                                         .query(Point.fromLngLat(latLng.getLongitude(), latLng.getLatitude()))
                                         .geocodingTypes(GeocodingCriteria.TYPE_PLACE)
                                         .mode(GeocodingCriteria.MODE_PLACES)
@@ -440,7 +593,7 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                                                 CarmenFeature feature = results.get(0);
                                                 //  animateCameraToNewPosition(finalLatLng);
                                             } else {
-                                                Toast.makeText(getContext(), "Not Found", Toast.LENGTH_SHORT).show();
+                                               // Toast.makeText(getContext(), "Place Not Found", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     }
@@ -457,48 +610,56 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
                             Log.e("Error geocoding: ", servicesException.toString());
                             servicesException.printStackTrace();
                         }
+                    } else {
+                        //Toast.makeText(getContext(), "Number Only", Toast.LENGTH_LONG).show();
                     }
                 }
+            }
 
-                Log.e("TAG", "makeGeocodeearch: " + PLACEARRAY);
-            } else {
-                PLACEARRAY.clear(); // clear list
-                PLACELATLNGARRAY.clear(); // clear list
-                locationSearchAdapter.setItems(PLACEARRAY);
-                MapboxGeocoding mapboxGeocoding = MapboxGeocoding.builder()
-                        .accessToken("pk.eyJ1Ijoia2F3YS1hZG1pbiIsImEiOiJja3RqcmN3N2kwNWEyMzJueWQzd2J0Znk1In0.WK1trBUr51BifsBNRX5ekw")
-                        .query(searchStr)
-                        .build();
+            Log.e("TAG", "makeGeocodeearch: " + PLACEARRAY);
 
-                mapboxGeocoding.enqueueCall(new Callback<GeocodingResponse>() {
+        }
+    }
+
+
+    public void getAllLocation() {
+        COMACT.showLoader("isCircle");
+        ServiceManager.getInstance().getKawaService().getLocations()
+                .enqueue(new Callback<List<LocationModel>>() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
                     @Override
-                    public void onResponse(Call<GeocodingResponse> call, Response<GeocodingResponse> response) {
-                        List<CarmenFeature> results = response.body().features();
-                        if (results.size() > 0) {
-                            PLACEARRAY.clear(); // clear list
-                            PLACELATLNGARRAY.clear(); // clear list
-                            for (int i = 0; i < results.size(); i++) {
-                                Log.d("TAG", "onResponse: " + results.get(0).placeName());
-                                PLACEARRAY.add(results.get(i).placeName());
-                                double lat = results.get(i).center().coordinates().get(1);
-                                double lng = results.get(i).center().coordinates().get(0);
-                                PLACELATLNG = (new LatLng(Double.valueOf(lat),
-                                        Double.valueOf(lng)));
-                                PLACELATLNGARRAY.add(PLACELATLNG);
-                                locationSearchAdapter.setItems(PLACEARRAY);
+                    public void onResponse(@NonNull Call<List<LocationModel>> call, @NonNull Response<List<LocationModel>> response) {
+                        COMACT.hideLoader();
+                        try {
+                            if (response.isSuccessful() && response.body() != null) {
+                                LocationList = response.body();
+                                for (int i = 0; i < LocationList.size(); i++) {
+                                    cityname.add("Location #" + (i + 1));
+                                }
+                                Log.e("getAllLocation:", String.valueOf(LNGLAT));
+                            } else {
+                                if (response.errorBody() != null) {
+                                    JSONObject jsonObj = new JSONObject(response.errorBody().string());
+                                    String errorMsg = jsonObj.getString("error");
+                                    Log.e("getAllLocation:error", errorMsg);
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
+                                }
+
                             }
-                        } else {
-                            Log.d("TAG", "onResponse: No result found");
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<GeocodingResponse> call, Throwable throwable) {
-                        throwable.printStackTrace();
+                    public void onFailure(Call<List<LocationModel>> call, Throwable t) {
+                        COMACT.hideLoader();
+                        String errorBody = t.getMessage();
+                        Log.e("getAllLocation", "onFailure: " + errorBody);
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.Error_General), Toast.LENGTH_LONG).show();
                     }
                 });
-            }
-        }
     }
 
     private void animateCameraToNewPosition(LatLng latLng) {
@@ -585,5 +746,4 @@ public class fragmentFarmLocation extends Fragment implements OnMapReadyCallback
         super.onLowMemory();
         MAPVIEW.onLowMemory();
     }
-
 }

@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/mtrl_picker_header_dialog.xml",
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/material_timepicker.xml",
+        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/layout-land/material_timepicker.xml"
+    },
+    {
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/mtrl_picker_header_dialog.xml",
         "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/layout-land/mtrl_picker_header_dialog.xml"
     },
     {
-        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/material_clock_period_toggle_land.xml",
+        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/material_clock_period_toggle_land.xml",
         "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/layout-land/material_clock_period_toggle_land.xml"
-    },
-    {
-        "merged": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/layout-land/material_timepicker.xml",
-        "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/layout-land/material_timepicker.xml"
     }
 ]

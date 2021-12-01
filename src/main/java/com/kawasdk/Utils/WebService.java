@@ -2,8 +2,11 @@ package com.kawasdk.Utils;
 
 import com.google.gson.JsonObject;
 import com.kawasdk.Model.DeviveBounderyModel;
+import com.kawasdk.Model.LocationModel.LocationModel;
 import com.kawasdk.Model.MergeModel;
 import com.kawasdk.Model.PolygonModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -19,9 +22,9 @@ public interface WebService {
             @Header("x-api-key") String x_api_key, @Header("android-version") String android_version,
             @Body JsonObject geoJson
     );
-
-
-
+    @GET("signal_bounds/farm_boundaries")
+    Call <List<LocationModel>>  getLocations(
+    );
     @GET("status/{id}")
     Call<PolygonModel> status(
             @Header("x-api-key") String x_api_key,@Header("android-version") String android_version,

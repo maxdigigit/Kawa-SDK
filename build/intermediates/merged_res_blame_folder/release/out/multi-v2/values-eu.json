@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-eu/values-eu.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-eu/values-eu.xml",
             "map": [
                 {
                     "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/values-eu/values-eu.xml",
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-eu/values-eu.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-eu/values-eu.xml",
             "map": [
                 {
                     "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/a8fdc58028e55c2f5b84e7515ed60f40/core-1.5.0/res/values-eu/values-eu.xml",

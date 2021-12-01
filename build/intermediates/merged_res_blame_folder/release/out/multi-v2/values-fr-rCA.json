@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/values-fr-rCA/values-fr-rCA.xml",
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "/Users/mxmacbookpro6/.gradle/caches/transforms-2/files-2.1/e0e0152b309a9d236a16cb3f96c7ab27/material-1.4.0/res/values-fr-rCA/values-fr-rCA.xml",

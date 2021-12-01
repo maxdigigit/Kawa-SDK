@@ -32,6 +32,7 @@
     <string name="farm_saved_successfully">Farms saved successfully</string>
     <string name="hectares">Hectares</string>
     <string name="kawa_api_key">kawa_RLkNIPN-z3TeWb8AWv089w</string>
+    <string name="mapped_locations">Mapped locations</string>
     <string name="mark_another">Mark Another Farm</string>
     <string name="name">Name</string>
     <string name="next">Next</string>
@@ -57,17 +58,17 @@
         <item name="android:theme">@style/Theme.MaterialButton</item>
     </style>
     <style name="Theme.Kawasdk" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+        
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/whitePressed</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/design_default_color_secondary</item>
         <item name="colorSecondaryVariant">@color/design_default_color_secondary_variant</item>
         <item name="colorOnSecondary">@color/halfBlack</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
     </style>
     <style name="Theme.MaterialButton" parent="Theme.Kawasdk">
         <item name="colorAccent">@color/mapboxBlue</item>

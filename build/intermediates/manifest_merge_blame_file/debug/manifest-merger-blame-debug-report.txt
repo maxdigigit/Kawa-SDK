@@ -3,22 +3,22 @@
 3    package="com.kawasdk" >
 4
 5    <uses-sdk
-6        android:minSdkVersion="21"
-6-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+6        android:minSdkVersion="17"
+6-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="30" />
-7-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+7-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
 8
 9    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-9-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:5-79
-9-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:22-76
+9-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:5-79
+9-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:22-76
 10    <uses-permission android:name="android.permission.INTERNET" />
-10-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:5-67
-10-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:22-64
+10-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:5-67
+10-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:22-64
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:5-78
-11-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:22-75
+11-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:5-78
+11-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:22-75
 12
 13    <application />
-13-->/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:9:5-32
+13-->/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:9:5-32
 14
 15</manifest>

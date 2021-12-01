@@ -25,6 +25,8 @@ drawable ic_baseline_add
 drawable ic_check
 drawable ic_check_small
 drawable ic_discard
+drawable ic_drop_down_arrow
+drawable ic_farm_address
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_location
@@ -33,6 +35,7 @@ drawable ic_mylocation
 drawable ic_search
 drawable ic_seeds
 drawable ic_start_over
+drawable location
 drawable marker
 drawable redline
 drawable riipleeffectbuttons
@@ -65,6 +68,7 @@ id discardEditBtn
 id dootedLineFirst
 id dootedLineSecond
 id downBtn
+id dropdownBtn
 id farmDetailsLayout
 id farmDetailsTv
 id farm_mark_messagebox
@@ -78,6 +82,7 @@ id leftBtn
 id locationLayout
 id locationTv
 id locationiconIv
+id locationlist_recyclerView
 id mapView
 id markAnotherBtn
 id messageBox
@@ -88,7 +93,6 @@ id progress_circular
 id rightBtn
 id saveDetailBtn
 id saveEditBtn
-id searchResultTxt
 id searchTxt
 id seediconIv
 id seedsLayout
@@ -101,6 +105,7 @@ id totalseedsTv
 id upBtn
 id zoomInBtn
 id zoomOutBtn
+layout activity_demo
 layout activity_home
 layout activity_kawa_home
 layout edit_farm_boundries
@@ -130,6 +135,7 @@ string farm_mark_successfully
 string farm_saved_successfully
 string hectares
 string kawa_api_key
+string mapped_locations
 string mark_another
 string name
 string next

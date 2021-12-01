@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/res/merged/release/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/values-night/themes.xml",
+                    "source": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/values-night/themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -59,10 +59,10 @@
             ]
         },
         {
-            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/values-night/themes.xml",
+                    "source": "/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/values-night/themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

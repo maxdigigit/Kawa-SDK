@@ -85,6 +85,7 @@ public class Common extends AppCompatActivity {
     public static String SEGMENT_KEY = "IKuQjAPnvs0jDZtAj2z52b7yuDrjM1Zm";
     public static String USER_NAME; // for avoid submit api call
     public static String USER_ADDRESS; // for avoid submit api call
+    public static String USER_COMPANY; // for avoid submit api call
 
     //1 - for all functnality with edit
     // 2 - for avoid merge and submit api call
@@ -186,7 +187,7 @@ public class Common extends AppCompatActivity {
         String previousvisibleRegion = getVisibleRegion(MAPBOXMAP);
         String visibleRegion = "";
         Properties properties = new Properties();
-
+        String fildsInformation = getFiledsDetails();
         Log.e("zoomleval", String.valueOf(zoomleval));
         if (val == 1.0 && zoomleval >= 2 && zoomleval < 3) {
             zoomleval = 3.1;
@@ -196,20 +197,23 @@ public class Common extends AppCompatActivity {
             visibleRegion = getVisibleRegion(MAPBOXMAP);
             zoomleval = zoomleval + val;
         }
-        String jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Zoom leval saved" + "\"" + ",\"previousCoordinates\":{\"lat\":" + "\"" +
-                previousLat + "\"" + ",\"long\":" + "\"" + previousLng + "\"" + "},\"currentCoordinates\":{\"lat\":" + "\"" +
-                CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"previousViewport\": " +
-                previousvisibleRegion + ", \"currentViewport\": " + visibleRegion + ",\"previousZoom\": " + previouszoomleval + ",\"currentZoom\": " + zoomleval + "}}";
-        JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
-        properties.putValue("data", jsonObject);
-        Log.e("TAG", "segmentInit: " + properties);
-        String zoomType = "";
-        if (val == 1.0) {
-            zoomType = "Zoom in";
-        } else {
-            zoomType = "Zoom out";
+        if (KawaMap.SEGMENT_API_KEY != "" && KawaMap.SEGMENT_API_KEY != null) {
+            String jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + "Zoom leval saved" + "\"" + ",\"previousCoordinates\":{\"lat\":" + "\"" +
+                    previousLat + "\"" + ",\"long\":" + "\"" + previousLng + "\"" + "},\"currentCoordinates\":{\"lat\":" + "\"" +
+                    CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"previousViewport\": " +
+                    previousvisibleRegion + ", \"currentViewport\": " + visibleRegion + ",\"previousZoom\": " + previouszoomleval + ",\"currentZoom\": " + zoomleval + "}}";
+            Log.e("TAG", "segmentInit: " + jString);
+            JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
+            properties.putValue("data", jsonObject);
+
+            String zoomType = "";
+            if (val == 1.0) {
+                zoomType = "Zoom in";
+            } else {
+                zoomType = "Zoom out";
+            }
+            Analytics.with(context).track(zoomType, properties);
         }
-        Analytics.with(context).track(zoomType, properties);
     }
 
     public static void lockZoom(MapboxMap MAPBOXMAP) {
@@ -349,60 +353,80 @@ public class Common extends AppCompatActivity {
         return vRegionStr;
     }
 
+    public static String getFiledsDetails() {
+        String fildsStr;
+        if (USER_NAME == null && USER_ADDRESS == null) {
+            fildsStr = "{\"user\":{}";
+        } else if (USER_COMPANY != null) {
+            fildsStr = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "}";
+        } else {
+            fildsStr = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + ",\"company\":" + "\"" + USER_COMPANY + "\"" + "}";
+        }
+        return fildsStr;
+    }
+
     public static void segmentEvents(Context context, String eventname, String message, MapboxMap mapboxMap, String responsemsg, String eventType) {
         String jString = "";
         Properties properties = new Properties();
         String visibleRegion = getVisibleRegion(mapboxMap);
-        switch (eventType) {
-            case "CURRENT_LOC":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ", \"viewport\": "
-                        + visibleRegion + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}}  }";
-                break;
-            case "SEARCH":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"query\":" + "\"" + responsemsg + "\"" + ", \"tappedResult\":{ \"name\":" +
-                        "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}}  }}";
-                break;
-            case "GET_FARMS":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + ",\"response\":" + "\"" + responsemsg + "\"}}";
-                break;
-            case "FARMS_SELECTION":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "boundary selection saved " + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + ",\"coordinates\":" + responsemsg + ",\"eventType\":" + message + "}}";
-                break;
-            case "SAVE_ON_SUCCESS":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data save on success\",\"response\":" + responsemsg + "}}}";
-                break;
-            case "SAVE_ON_FAILURE":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data saved on failure\",\"error\":" + responsemsg + "}}}";
-                break;
-            case "ADD_MORE_PLOTS":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + "}}";
-                break;
-            case "SAVE_DETAILS":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
-                        visibleRegion + ",\"resultantFarms\":" + responsemsg + "}}";
-                break;
-            case "START_OVER":
-            case "MARK_ANOTHER_PLOTS":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + "}}";
-                break;
-            case "GET_ALL_POLYGON_DATA":
-                jString = "{\"user\":{\"name\":" + "\"" + USER_NAME + "\"" + ",\"address\":" + "\"" + USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"api_response\":" + responsemsg + "}}";
-                break;
+        String fildsInformation = getFiledsDetails();
+
+        CameraPosition cameraPosition = mapboxMap.getCameraPosition();
+        LatLng location = cameraPosition.target;
+
+        if (KawaMap.SEGMENT_API_KEY != "" && KawaMap.SEGMENT_API_KEY != null) {
+
+            switch (eventType) {
+                case "CURRENT_LOC":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + ", \"viewport\": "
+                            + visibleRegion + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}}  }";
+                    break;
+                case "SEARCH":
+                    jString = fildsInformation + ",\"metadata\":{\"query\":" + "\"" + responsemsg + "\"" + ", \"tappedResult\":{ \"name\":" +
+                            "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + location.getLatitude() + "\"" + ",\"long\":" + "\"" + location.getLongitude() + "\"" + "}}  }}";
+                    break;
+                case "GET_FARMS":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + ",\"response\":" + "\"" + responsemsg + "\"}}";
+                    break;
+                case "FARMS_SELECTION":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + "boundary selection saved " + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + ",\"coordinates\":" + responsemsg + ",\"eventType\":" + message + "}}";
+                    break;
+                case "SAVE_ON_SUCCESS":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data save on success\",\"response\":" + responsemsg + "}}}";
+                    break;
+                case "SAVE_ON_FAILURE":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + "Selection Data Saved" + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + ",\"resultantFarms\":" + message + ",\"mergeAPI\":{\"message\":\"Data saved on failure\",\"error\":" + responsemsg + "}}}";
+                    break;
+                case "ADD_MORE_PLOTS":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + "}}";
+                    break;
+                case "SAVE_DETAILS":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"coordinates\":{\"lat\":" + "\"" + CAMERALAT + "\"" + ",\"long\":" + "\"" + CAMERALNG + "\"" + "}, \"viewport\": " +
+                            visibleRegion + ",\"resultantFarms\":" + responsemsg + "}}";
+                    break;
+                case "START_OVER":
+                case "MARK_ANOTHER_PLOTS":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + "}}";
+                    break;
+                case "GET_ALL_POLYGON_DATA":
+                    jString = fildsInformation + ",\"metadata\":{\"message\":" + "\"" + message + "\"" + ",\"api_response\":" + responsemsg + "}}";
+                    break;
+            }
+            //Log.e("TAG", "segmentInit: " + jString);
+            try {
+                JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
+                properties.putValue("data", jsonObject);
+                Log.e("segment", eventname + properties);
+                Analytics.with(context).track(eventname, properties);
+            } catch (Exception e) {
+                Toast.makeText(context, String.valueOf(e.getMessage()), Toast.LENGTH_LONG).show();
+            }
         }
-        Log.e("TAG", "segmentInit: " + jString);
-//        try {
-//            JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
-//            properties.putValue("data", jsonObject);
-//            Log.e("TAG", "segmentInit: " + properties);
-//            Analytics.with(context).track(eventname, properties);
-//        } catch (Exception e) {
-//            Toast.makeText(context, String.valueOf(e.getMessage()), Toast.LENGTH_LONG).show();
-//        }
     }
 }
 

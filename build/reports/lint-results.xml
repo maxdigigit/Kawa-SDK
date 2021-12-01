@@ -30,22 +30,6 @@
     </issue>
 
     <issue
-        id="TextViewEdits"
-        severity="Warning"
-        message="Attribute `android:inputType` should not be used with `&lt;TextView>`: Change element type to `&lt;EditText>` ?"
-        category="Correctness"
-        priority="7"
-        summary="TextView should probably be an EditText instead"
-        explanation="Using a `&lt;TextView>` to input text is generally an error, you should be using `&lt;EditText>` instead.  `EditText` is a subclass of `TextView`, and some of the editing support is provided by `TextView`, so it&apos;s possible to set some input-related properties on a `TextView`. However, using a `TextView` along with input attributes is usually a cut &amp; paste error. To input text you should be using `&lt;EditText>`.&#xA;&#xA;This check also checks subclasses of `TextView`, such as `Button` and `CheckBox`, since these have the same issue: they should not be used with editable attributes."
-        errorLine1="            android:inputType=&quot;text&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="71"
-            column="13"/>
-    </issue>
-
-    <issue
         id="DefaultLocale"
         severity="Warning"
         message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
@@ -58,8 +42,8 @@
         errorLine1="            String hectaresStr = String.format(&quot;%.2f&quot;, hectares);"
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="786"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="789"
             column="34"/>
     </issue>
 
@@ -76,8 +60,8 @@
         errorLine1="            String seedrequiredStr = String.format(&quot;%.2f&quot;, seedrequired);"
         errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="787"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="790"
             column="38"/>
     </issue>
 
@@ -94,15 +78,31 @@
         errorLine1="            String areaStr = String.format(&quot;%.2f&quot;, totalArea);"
         errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="792"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="795"
             column="30"/>
     </issue>
 
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="        android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            line="55"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -110,7 +110,7 @@
         errorLine1="        android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="56"
             column="9"/>
     </issue>
@@ -118,7 +118,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -126,7 +142,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="67"
             column="13"/>
     </issue>
@@ -134,7 +150,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="84"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -142,7 +174,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="86"
             column="13"/>
     </issue>
@@ -150,7 +182,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="102"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -158,7 +206,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="104"
             column="13"/>
     </issue>
@@ -166,7 +214,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="162"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -174,7 +238,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="163"
             column="13"/>
     </issue>
@@ -182,7 +246,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="179"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -190,7 +270,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="180"
             column="13"/>
     </issue>
@@ -198,7 +278,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="193"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -206,7 +302,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="194"
             column="13"/>
     </issue>
@@ -214,7 +310,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="208"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -222,7 +334,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="210"
             column="13"/>
     </issue>
@@ -230,7 +342,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="223"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -238,7 +366,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="224"
             column="13"/>
     </issue>
@@ -246,7 +374,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            line="303"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -254,7 +398,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="304"
             column="13"/>
     </issue>
@@ -262,23 +406,71 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `autoMirrored` is only used in API level 19 and higher (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
         explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
-        errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="    android:autoMirrored=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="149"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_drop_down_arrow.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `autoMirrored` is only used in API level 19 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="    android:autoMirrored=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_location.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `elevation` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:elevation=&quot;8dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="44"
             column="13"/>
     </issue>
 
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -286,7 +478,103 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `nestedScrollingEnabled` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:nestedScrollingEnabled=&quot;false&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="84"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `nestedScrollingEnabled` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:nestedScrollingEnabled=&quot;false&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="95"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="155"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="156"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxWhite&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            line="37"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="39"
             column="13"/>
     </issue>
@@ -294,7 +582,23 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 21)"
+        message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="            android:backgroundTint=&quot;@color/mapboxBlue&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            line="64"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 17)"
         category="Correctness"
         priority="6"
         summary="Attribute unused on older versions"
@@ -302,7 +606,7 @@
         errorLine1="            android:foreground=&quot;@drawable/riipleeffectbuttons&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="65"
             column="13"/>
     </issue>
@@ -320,15 +624,191 @@
         errorLine1="            View view = LayoutInflater.from(context).inflate(R.layout.loader, null);"
         errorLine2="                                                                              ~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="251"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="255"
             column="79"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="      android:fillColor=&quot;@android:color/black&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_arrow_down.xml"
+            line="7"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="      android:fillColor=&quot;@android:color/black&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_arrow_left.xml"
+            line="7"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="      android:fillColor=&quot;@android:color/black&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_arrow_right.xml"
+            line="7"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="      android:fillColor=&quot;@android:color/black&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_arrow_up.xml"
+            line="7"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="        android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_baseline_add.xml"
+            line="8"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="    android:autoMirrored=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_drop_down_arrow.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="    android:tint=&quot;?attr/colorControlNormal&quot;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_drop_down_arrow.xml"
+            line="5"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="        android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_drop_down_arrow.xml"
+            line="9"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="This attribute is not supported in images generated from this vector icon for API &lt; 24; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="    android:autoMirrored=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_location.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        severity="Warning"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        category="Correctness"
+        priority="5"
+        summary="Vector Image Generation"
+        explanation="Vector icons require API 21 or API 24 depending on used features, but when `minSdkVersion` is less than 21 or 24 and Android Gradle plugin 1.4 or higher is used, a vector drawable placed in the `drawable` folder is automatically moved to `drawable-anydpi-v21` or `drawable-anydpi-v24` and bitmap images are generated for different screen resolutions for backwards compatibility.&#xA;&#xA;However, there are some limitations to this raster image generation, and this lint check flags elements and attributes that are not fully supported. You should manually check whether the generated output is acceptable for those older devices."
+        errorLine1="        android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/ic_mylocation.xml"
+            line="8"
+            column="28"/>
     </issue>
 
     <issue
         id="GradleDependency"
         severity="Warning"
-        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.0 is available: 2.1.1"
+        message="A newer version of androidx.appcompat:appcompat than 1.3.1 is available: 1.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &apos;androidx.appcompat:appcompat:1.3.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
+            line="32"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.0 is available: 2.1.2"
         category="Correctness"
         priority="4"
         summary="Obsolete Gradle Dependency"
@@ -336,24 +816,8 @@
         errorLine1="    implementation &apos;androidx.constraintlayout:constraintlayout:2.1.0&apos;"
         errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
             line="34"
-            column="20"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        severity="Warning"
-        message="A newer version of androidx.recyclerview:recyclerview than 1.1.0 is available: 1.2.1"
-        category="Correctness"
-        priority="4"
-        summary="Obsolete Gradle Dependency"
-        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
-        errorLine1="    implementation &apos;androidx.recyclerview:recyclerview:1.1.0&apos;"
-        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
-            line="44"
             column="20"/>
     </issue>
 
@@ -368,7 +832,23 @@
         errorLine1="    implementation &apos;com.squareup.retrofit2:retrofit:2.7.1&apos;"
         errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
+            line="44"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.squareup.retrofit2:converter-gson than 2.7.1 is available: 2.7.2"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &apos;com.squareup.retrofit2:converter-gson:2.7.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
             line="45"
             column="20"/>
     </issue>
@@ -384,7 +864,7 @@
         errorLine1="    testImplementation &apos;junit:junit:4.+&apos;"
         errorLine2="                       ~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
             line="35"
             column="24"/>
     </issue>
@@ -400,8 +880,8 @@
         errorLine1="    implementation &apos;com.segment.analytics.android:analytics:4.+&apos;"
         errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/build.gradle"
-            line="54"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/build.gradle"
+            line="53"
             column="20"/>
     </issue>
 
@@ -416,25 +896,9 @@
         errorLine1="                android:drawableStart=&quot;@drawable/ic_check_small&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="46"
             column="17"/>
-    </issue>
-
-    <issue
-        id="UseCompatTextViewDrawableXml"
-        severity="Warning"
-        message="Use `app:drawableLeftCompat` instead of `android:drawableLeft`"
-        category="Correctness"
-        priority="1"
-        summary="Compat compound drawable attributes should be used on `TextView`"
-        explanation="`TextView` uses `android:` compound drawable attributes instead of `app:` ones"
-        errorLine1="            android:drawableLeft=&quot;@drawable/ic_search&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="66"
-            column="13"/>
     </issue>
 
     <issue
@@ -448,7 +912,7 @@
         errorLine1="    &lt;string name=&quot;correct_boundery&quot;>Correct Boundry&lt;/string>"
         errorLine2="                                            ^">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/values/strings.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/values/strings.xml"
             line="22"
             column="45"/>
     </issue>
@@ -464,8 +928,8 @@
         errorLine1="        Log.e(&quot;zoomleval&quot;, String.valueOf(zoomleval));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="190"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="191"
             column="9"/>
     </issue>
 
@@ -477,12 +941,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="        Log.e(&quot;TAG&quot;, &quot;segmentInit: &quot; + properties);"
-        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="            Log.e(&quot;TAG&quot;, &quot;segmentInit: &quot; + jString);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
             line="205"
-            column="9"/>
+            column="13"/>
     </issue>
 
     <issue
@@ -496,8 +960,8 @@
         errorLine1="        Log.e(&quot;TAG&quot;, &quot;setLocale: &quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="297"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="301"
             column="9"/>
     </issue>
 
@@ -512,8 +976,8 @@
         errorLine1="                    Log.e(&quot;value&quot;, &quot;Permission Granted, Now you can use local drive .&quot;);"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="318"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="322"
             column="21"/>
     </issue>
 
@@ -528,8 +992,8 @@
         errorLine1="                    Log.e(&quot;value&quot;, &quot;Permission Denied, You cannot use local drive .&quot;);"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="320"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="324"
             column="21"/>
     </issue>
 
@@ -541,12 +1005,28 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="        Log.e(&quot;TAG&quot;, &quot;segmentInit: &quot; + jString);"
-        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                Log.e(&quot;segment&quot;, eventname + properties);"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
-            line="397"
-            column="9"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            line="424"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="            Log.e(&quot;catch-error&quot;, String.valueOf(e.getMessage()));"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/KawaMap.java"
+            line="138"
+            column="13"/>
     </issue>
 
     <issue
@@ -560,7 +1040,7 @@
         errorLine1="        Log.e(TAG, &quot;POLYGONAREA: &quot; + POLYGONAREA);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="136"
             column="9"/>
     </issue>
@@ -576,7 +1056,7 @@
         errorLine1="            Log.e(&quot;onMapReady&quot;, &quot;CALLED&quot;);"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="162"
             column="13"/>
     </issue>
@@ -592,7 +1072,7 @@
         errorLine1="        Log.e(&quot;onMapClick BEFORE&quot;, String.valueOf(EDITON) + &quot; : &quot; + String.valueOf(SYMBOLACTIVE));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="189"
             column="9"/>
     </issue>
@@ -608,7 +1088,7 @@
         errorLine1="                                Log.e(&quot;onMapClick AFTER&quot;, String.valueOf(EDITON) + &quot; : &quot; + String.valueOf(LAYERINDEX));"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="235"
             column="33"/>
     </issue>
@@ -624,7 +1104,7 @@
         errorLine1="            Log.e(&quot;EDITON - LAYERINDEX&quot;, String.valueOf(EDITON) + &quot; - &quot; + LAYERINDEX);"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="268"
             column="13"/>
     </issue>
@@ -640,7 +1120,7 @@
         errorLine1="                Log.e(&quot;getIconOpacity SYMBOL&quot;, String.valueOf(symbol.getIconOpacity()));"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="270"
             column="17"/>
     </issue>
@@ -656,7 +1136,7 @@
         errorLine1="                        Log.e(&quot;PREV SYMBOL&quot;, &quot;FOUND&quot;);"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="274"
             column="25"/>
     </issue>
@@ -672,7 +1152,7 @@
         errorLine1="                            Log.e(&quot;NOT EQUAL&quot;, &quot;PREV&quot;);"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="276"
             column="29"/>
     </issue>
@@ -688,7 +1168,7 @@
         errorLine1="                        Log.e(&quot;PREV SYMBOL&quot;, &quot;NOT FOUND&quot;);"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="284"
             column="25"/>
     </issue>
@@ -704,7 +1184,7 @@
         errorLine1="                    Log.e(&quot;SYBOL FLAG&quot;, String.valueOf(flg));"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="288"
             column="21"/>
     </issue>
@@ -720,7 +1200,7 @@
         errorLine1="            Log.e(&quot;SYMBOLSET&quot;, String.valueOf(SYMBOLSET.size()));"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="341"
             column="13"/>
     </issue>
@@ -736,7 +1216,7 @@
         errorLine1="                    Log.e(&quot;SymbolManager&quot;, &quot;not null&quot;);"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="345"
             column="21"/>
     </issue>
@@ -752,7 +1232,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;hideAllBtn&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="563"
             column="9"/>
     </issue>
@@ -768,7 +1248,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;onFarmsLoaded&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="581"
             column="9"/>
     </issue>
@@ -784,7 +1264,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;correctBoundry&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="600"
             column="9"/>
     </issue>
@@ -800,7 +1280,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;onFarmSelected&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="610"
             column="9"/>
     </issue>
@@ -816,7 +1296,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;onSymbolSelected&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="623"
             column="9"/>
     </issue>
@@ -832,7 +1312,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;completeMarking&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="670"
             column="9"/>
     </issue>
@@ -848,7 +1328,7 @@
         errorLine1="        Log.e(&quot;Called&quot;, &quot;saveDetail&quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
             line="689"
             column="9"/>
     </issue>
@@ -864,8 +1344,8 @@
         errorLine1="                                Log.e(&quot;TAG&quot;, &quot;onResponse: &quot; + response.body().getStatus());"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="733"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="736"
             column="33"/>
     </issue>
 
@@ -880,8 +1360,8 @@
         errorLine1="            Log.e(&quot;TAG&quot;, &quot;onCreate: &quot; + obj);"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="830"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="834"
             column="13"/>
     </issue>
 
@@ -896,8 +1376,8 @@
         errorLine1="                Log.e(&quot;TAG&quot;, &quot;farm_fields_array: &quot; + farm_fields_array);"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="833"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="837"
             column="17"/>
     </issue>
 
@@ -912,8 +1392,8 @@
         errorLine1="            Log.e(&quot;TAG&quot;, &quot;loadJSONFromAsset: &quot; + inputStream);"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="877"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="881"
             column="13"/>
     </issue>
 
@@ -928,8 +1408,8 @@
         errorLine1="            Log.e(TAG, &quot;getAddress:IF &quot;+POLYGONAREA );"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="896"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="901"
             column="13"/>
     </issue>
 
@@ -944,8 +1424,8 @@
         errorLine1="            Log.e(TAG, &quot;getAddress:else &quot;+POLYGONAREA );"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="900"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="905"
             column="13"/>
     </issue>
 
@@ -960,8 +1440,8 @@
         errorLine1="                                    Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="922"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="927"
             column="37"/>
     </issue>
 
@@ -976,8 +1456,8 @@
         errorLine1="                        Log.e(&quot;PERMISSIONSTATUS&quot;, String.valueOf(result));"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="209"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="232"
             column="25"/>
     </issue>
 
@@ -992,8 +1472,8 @@
         errorLine1="                            Log.e(&quot;TAG&quot;, &quot;onActivityResult: PERMISSION GRANTED&quot;);"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="211"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="234"
             column="29"/>
     </issue>
 
@@ -1008,8 +1488,8 @@
         errorLine1="                                Log.e(&quot;TAG&quot;, &quot;onActivityResult: PERMISSION IF&quot;);"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="217"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="241"
             column="33"/>
     </issue>
 
@@ -1024,8 +1504,8 @@
         errorLine1="                            Log.e(&quot;COMACTZOOM&quot;, String.valueOf(COMACT.MAPZOOM));"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="223"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="247"
             column="29"/>
     </issue>
 
@@ -1040,8 +1520,8 @@
         errorLine1="                            Log.e(&quot;TAG&quot;, &quot;onActivityResult: PERMISSION DENIED&quot;);"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="233"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="257"
             column="29"/>
     </issue>
 
@@ -1056,8 +1536,8 @@
         errorLine1="                                    Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="289"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="314"
             column="37"/>
     </issue>
 
@@ -1072,8 +1552,8 @@
         errorLine1="                                    Log.e(&quot;getAllFarms&quot;, errorMsg);"
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="291"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="316"
             column="37"/>
     </issue>
 
@@ -1088,8 +1568,8 @@
         errorLine1="                        Log.e(&quot;TAG&quot;, &quot;onFailure: &quot; + errorBody);"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="312"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="337"
             column="25"/>
     </issue>
 
@@ -1104,9 +1584,89 @@
         errorLine1="        Log.e(&quot;jsonObject:&quot;, String.valueOf(jsonObject));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="328"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="353"
             column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;cityname&quot;, &quot;flytoLocation: &quot; + cityname.size());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="362"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;searchView:&lt;> &quot;);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="376"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;onLocationItemClick1&quot;, String.valueOf(llPts));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="463"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                        Log.d(&quot;TAG&quot;, &quot;onResponse: &quot; + results.get(0).placeName());"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="523"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                    Log.d(&quot;TAG&quot;, &quot;onResponse: No result found&quot;);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="533"
+            column="21"/>
     </issue>
 
     <issue
@@ -1120,8 +1680,8 @@
         errorLine1="                                        Log.e(&quot;Geocoding Failure: &quot;, throwable.getMessage());"
         errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="450"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="603"
             column="41"/>
     </issue>
 
@@ -1136,8 +1696,8 @@
         errorLine1="                            Log.e(&quot;Error geocoding: &quot;, servicesException.toString());"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="457"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="610"
             column="29"/>
     </issue>
 
@@ -1149,12 +1709,12 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                Log.e(&quot;TAG&quot;, &quot;makeGeocodeearch: &quot; + PLACEARRAY);"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="            Log.e(&quot;TAG&quot;, &quot;makeGeocodeearch: &quot; + PLACEARRAY);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="463"
-            column="17"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="619"
+            column="13"/>
     </issue>
 
     <issue
@@ -1165,11 +1725,11 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                                Log.d(&quot;TAG&quot;, &quot;onResponse: &quot; + results.get(0).placeName());"
-        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                                Log.e(&quot;getAllLocation:&quot;, String.valueOf(LNGLAT));"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="481"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="640"
             column="33"/>
     </issue>
 
@@ -1181,12 +1741,28 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
-        errorLine1="                            Log.d(&quot;TAG&quot;, &quot;onResponse: No result found&quot;);"
-        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                                    Log.e(&quot;getAllLocation:error&quot;, errorMsg);"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="491"
-            column="29"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="645"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                        Log.e(&quot;getAllLocation&quot;, &quot;onFailure: &quot; + errorBody);"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="659"
+            column="25"/>
     </issue>
 
     <issue
@@ -1200,8 +1776,8 @@
         errorLine1="            Log.e(&quot;onStart_if&quot;, String.valueOf(firstTimecnt));"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="536"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="697"
             column="13"/>
     </issue>
 
@@ -1216,8 +1792,8 @@
         errorLine1="            Log.e(&quot;onStart_else&quot;, String.valueOf(firstTimecnt));"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="539"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="700"
             column="13"/>
     </issue>
 
@@ -1232,8 +1808,8 @@
         errorLine1="        Log.e(&quot;TAG&quot;, &quot;hideKeyboard: &quot;);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="556"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="717"
             column="9"/>
     </issue>
 
@@ -1248,7 +1824,7 @@
         errorLine1="        Log.e(&quot;POLYSELECTED::&quot;, String.valueOf(POLYSELECTED));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="106"
             column="9"/>
     </issue>
@@ -1264,7 +1840,7 @@
         errorLine1="        Log.e(&quot;LNGLAT::&quot;, String.valueOf(LNGLAT));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="107"
             column="9"/>
     </issue>
@@ -1280,7 +1856,7 @@
         errorLine1="        Log.e(&quot;GET ZOOM&quot;, String.valueOf(Common.MAPZOOM));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="113"
             column="9"/>
     </issue>
@@ -1296,7 +1872,7 @@
         errorLine1="            Log.e(&quot;FINA ZOOM&quot;, String.valueOf(Common.MAPZOOM));"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="149"
             column="13"/>
     </issue>
@@ -1312,7 +1888,7 @@
         errorLine1="                                    Log.e(&quot;Prop-AREA&quot;, String.valueOf(AREA));"
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="236"
             column="37"/>
     </issue>
@@ -1328,7 +1904,7 @@
         errorLine1="                            Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="277"
             column="29"/>
     </issue>
@@ -1344,7 +1920,7 @@
         errorLine1="                Log.e(&quot;TAG&quot;, &quot;errorBody: &quot;+errorBody );"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="291"
             column="17"/>
     </issue>
@@ -1360,7 +1936,7 @@
         errorLine1="        Log.e(&quot;strMerge&lt;&lt;&lt;&lt;&quot;, strMerge );"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="349"
             column="9"/>
     </issue>
@@ -1376,7 +1952,7 @@
         errorLine1="        Log.e(&quot;selectedFarms:&quot;, String.valueOf(selectedFarms));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="385"
             column="9"/>
     </issue>
@@ -1392,7 +1968,7 @@
         errorLine1="                            Log.e(&quot;resposnebody&quot;, new Gson().toJson(response.body()));"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="397"
             column="29"/>
     </issue>
@@ -1408,7 +1984,7 @@
         errorLine1="                            Log.e(&quot;RESP&quot;, jsonObj.getString(&quot;error&quot;));"
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="422"
             column="29"/>
     </issue>
@@ -1424,7 +2000,7 @@
         errorLine1="                Log.e(&quot;onResponse:Failure &quot;, errorBody);"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="438"
             column="17"/>
     </issue>
@@ -1440,7 +2016,7 @@
         errorLine1="        Log.e(&quot;LNGLAT&quot;, String.valueOf(LNGLAT));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="446"
             column="9"/>
     </issue>
@@ -1456,7 +2032,7 @@
         errorLine1="            Log.e(&quot;POLYSELECTED:&quot;, String.valueOf(POLYSELECTED.get(i)));"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="450"
             column="13"/>
     </issue>
@@ -1472,7 +2048,7 @@
         errorLine1="        Log.e(&quot;lngLat-b&quot;, String.valueOf(lngLat) + &quot; polygonarea :&quot; + POLYGONAREA);"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="454"
             column="9"/>
     </issue>
@@ -1488,7 +2064,7 @@
         errorLine1="                android:layout_centerVertical=&quot;true&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="44"
             column="17"/>
     </issue>
@@ -1504,24 +2080,8 @@
         errorLine1="            android:layout_below=&quot;@+id/messageBox&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="37"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="ObsoleteLayoutParam"
-        severity="Warning"
-        message="Invalid layout param in a `LinearLayout`: `layout_below`"
-        category="Performance"
-        priority="6"
-        summary="Obsolete layout params"
-        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
-        errorLine1="            android:layout_below=&quot;@+id/messageBox&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="62"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="38"
             column="13"/>
     </issue>
 
@@ -1536,21 +2096,9 @@
         errorLine1="            android:layout_above=&quot;@+id/GET_FARMSBtn&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="132"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="139"
             column="13"/>
-    </issue>
-
-    <issue
-        id="ObsoleteSdkInt"
-        severity="Warning"
-        message="This folder configuration (`v21`) is unnecessary; `minSdkVersion` is 21. Merge all the resources in this folder into `drawable`."
-        category="Performance"
-        priority="6"
-        summary="Obsolete SDK_INT Version Check"
-        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable-v21"/>
     </issue>
 
     <issue
@@ -1564,7 +2112,7 @@
         errorLine1="    public static Context context;"
         errorLine2="           ~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
             line="66"
             column="12"/>
     </issue>
@@ -1580,7 +2128,7 @@
         errorLine1="    public static ImageView imageline;"
         errorLine2="           ~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
             line="67"
             column="12"/>
     </issue>
@@ -1596,7 +2144,7 @@
         errorLine1="    public static ProgressBar PROGRESSBAR;"
         errorLine2="           ~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/Common.java"
             line="75"
             column="12"/>
     </issue>
@@ -1612,73 +2160,9 @@
         errorLine1="    public static Context context;"
         errorLine2="           ~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/KawaMap.java"
-            line="13"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Utils/KawaMap.java"
+            line="21"
             column="12"/>
-    </issue>
-
-    <issue
-        id="VectorPath"
-        severity="Warning"
-        message="Very long vector path (3658 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
-        category="Performance"
-        priority="5"
-        summary="Long vector paths"
-        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
-        errorLine1="      android:pathData=&quot;M16.8752,13.8387V6.1612C17.3017,6.0519 17.6917,5.8317 18.0055,5.523C18.3194,5.2142 18.546,4.8279 18.6622,4.4033C18.7785,3.9786 18.7804,3.5308 18.6676,3.1052C18.5548,2.6796 18.3314,2.2914 18.0201,1.9801C17.7087,1.6688 17.3206,1.4454 16.895,1.3326C16.4694,1.2198 16.0215,1.2216 15.5969,1.3379C15.1722,1.4542 14.7859,1.6808 14.4772,1.9946C14.1684,2.3085 13.9482,2.6985 13.8389,3.125H6.1614C6.0521,2.6985 5.8319,2.3085 5.5232,1.9946C5.2144,1.6808 4.8281,1.4542 4.4034,1.3379C3.9788,1.2216 3.5309,1.2198 3.1054,1.3326C2.6798,1.4454 2.2916,1.6688 1.9803,1.9801C1.669,2.2914 1.4456,2.6796 1.3328,3.1052C1.22,3.5308 1.2218,3.9786 1.3381,4.4033C1.4544,4.8279 1.681,5.2142 1.9948,5.523C2.3087,5.8317 2.6987,6.0519 3.1252,6.1612V13.8387C2.6987,13.948 2.3087,14.1682 1.9948,14.477C1.681,14.7857 1.4544,15.1721 1.3381,15.5967C1.2218,16.0214 1.22,16.4692 1.3328,16.8948C1.4456,17.3204 1.669,17.7085 1.9803,18.0199C2.2916,18.3312 2.6798,18.5546 3.1054,18.6674C3.5309,18.7802 3.9788,18.7783 4.4034,18.6621C4.8281,18.5458 5.2144,18.3192 5.5232,18.0053C5.8319,17.6915 6.0521,17.3015 6.1614,16.875H13.8389C13.9482,17.3015 14.1684,17.6915 14.4772,18.0053C14.7859,18.3192 15.1722,18.5458 15.5969,18.6621C16.0215,18.7783 16.4694,18.7802 16.895,18.6674C17.3206,18.5546 17.7087,18.3312 18.0201,18.0199C18.3314,17.7085 18.5548,17.3204 18.6676,16.8948C18.7804,16.4692 18.7785,16.0214 18.6622,15.5967C18.546,15.1721 18.3194,14.7857 18.0055,14.477C17.6917,14.1682 17.3017,13.948 16.8752,13.8387ZM16.2502,2.5C16.4974,2.5 16.7391,2.5733 16.9446,2.7106C17.1502,2.848 17.3104,3.0432 17.405,3.2716C17.4996,3.5 17.5244,3.7514 17.4762,3.9938C17.4279,4.2363 17.3089,4.4591 17.1341,4.6339C16.9592,4.8087 16.7365,4.9277 16.494,4.976C16.2516,5.0242 16.0002,4.9994 15.7718,4.9048C15.5434,4.8102 15.3482,4.65 15.2108,4.4444C15.0735,4.2389 15.0002,3.9972 15.0002,3.75C15.0005,3.4186 15.1323,3.1008 15.3666,2.8665C15.601,2.6321 15.9187,2.5003 16.2502,2.5ZM2.5002,3.75C2.5002,3.5028 2.5735,3.2611 2.7108,3.0555C2.8482,2.85 3.0434,2.6897 3.2718,2.5951C3.5002,2.5005 3.7516,2.4758 3.994,2.524C4.2365,2.5722 4.4592,2.6913 4.634,2.8661C4.8089,3.0409 4.9279,3.2636 4.9762,3.5061C5.0244,3.7486 4.9996,3.9999 4.905,4.2283C4.8104,4.4567 4.6502,4.652 4.4446,4.7893C4.2391,4.9267 3.9974,5 3.7502,5C3.4188,4.9997 3.101,4.8678 2.8667,4.6335C2.6323,4.3991 2.5005,4.0814 2.5002,3.75ZM3.7502,17.5C3.5029,17.5 3.2613,17.4267 3.0557,17.2893C2.8501,17.152 2.6899,16.9567 2.5953,16.7283C2.5007,16.4999 2.476,16.2486 2.5242,16.0061C2.5724,15.7636 2.6915,15.5409 2.8663,15.3661C3.0411,15.1913 3.2638,15.0722 3.5063,15.024C3.7488,14.9758 4.0001,15.0005 4.2285,15.0951C4.4569,15.1897 4.6522,15.35 4.7895,15.5555C4.9269,15.7611 5.0002,16.0028 5.0002,16.25C4.9998,16.5814 4.868,16.8992 4.6337,17.1335C4.3993,17.3679 4.0816,17.4997 3.7502,17.5ZM13.8389,15.625H6.1614C6.0495,15.1953 5.8249,14.8032 5.5109,14.4892C5.1969,14.1752 4.8049,13.9507 4.3752,13.8387V6.1612C4.8048,6.0492 5.1969,5.8246 5.5108,5.5107C5.8248,5.1967 6.0494,4.8047 6.1614,4.375H13.8389C13.9509,4.8047 14.1754,5.1968 14.4894,5.5107C14.8034,5.8247 15.1955,6.0493 15.6252,6.1612V13.8387C15.1954,13.9506 14.8033,14.1752 14.4893,14.4892C14.1753,14.8032 13.9508,15.1953 13.8389,15.625ZM16.2502,17.5C16.0029,17.5 15.7613,17.4267 15.5557,17.2893C15.3501,17.152 15.1899,16.9567 15.0953,16.7283C15.0007,16.4999 14.976,16.2486 15.0242,16.0061C15.0724,15.7636 15.1915,15.5409 15.3663,15.3661C15.5411,15.1913 15.7638,15.0722 16.0063,15.024C16.2488,14.9758 16.5001,15.0005 16.7285,15.0951C16.9569,15.1897 17.1522,15.35 17.2895,15.5555C17.4269,15.7611 17.5002,16.0028 17.5002,16.25C17.4997,16.5814 17.3678,16.899 17.1335,17.1333C16.8992,17.3676 16.5815,17.4995 16.2502,17.5Z&quot;"
-        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/ic_area.xml"
-            line="7"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="VectorPath"
-        severity="Warning"
-        message="Very long vector path (964 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
-        category="Performance"
-        priority="5"
-        summary="Long vector paths"
-        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
-        errorLine1="      android:pathData=&quot;M13.125,5.5721H2.7475L5.9237,1.5239C6.0723,1.3343 6.1437,1.0898 6.1224,0.8443C6.1011,0.5988 5.9887,0.3723 5.81,0.2147C5.6313,0.0571 5.4009,-0.0187 5.1696,0.0039C4.9382,0.0266 4.7248,0.1458 4.5763,0.3354L0.2013,5.9064C0.1718,5.9507 0.1455,5.9972 0.1225,6.0456C0.1225,6.0921 0.1225,6.1199 0.0613,6.1663C0.0216,6.2728 0.0008,6.3861 0,6.5006C0.0008,6.615 0.0216,6.7284 0.0613,6.8348C0.0613,6.8813 0.0612,6.9091 0.1225,6.9555C0.1455,7.004 0.1718,7.0505 0.2013,7.0948L4.5763,12.6657C4.6585,12.7706 4.7615,12.8548 4.878,12.9126C4.9944,12.9704 5.1214,13.0002 5.25,13C5.4545,13.0004 5.6526,12.9249 5.81,12.7864C5.8986,12.7085 5.9718,12.6128 6.0255,12.5047C6.0792,12.3967 6.1123,12.2785 6.1228,12.1569C6.1334,12.0353 6.1213,11.9127 6.0871,11.796C6.0529,11.6794 5.9974,11.5711 5.9237,11.4773L2.7475,7.4291H13.125C13.3571,7.4291 13.5796,7.3313 13.7437,7.1571C13.9078,6.983 14,6.7468 14,6.5006C14,6.2543 13.9078,6.0182 13.7437,5.844C13.5796,5.6699 13.3571,5.5721 13.125,5.5721Z&quot;"
-        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/ic_back.xml"
-            line="7"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="VectorPath"
-        severity="Warning"
-        message="Very long vector path (912 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
-        category="Performance"
-        priority="5"
-        summary="Long vector paths"
-        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
-        errorLine1="      android:pathData=&quot;M15.4165,13.3333L11.2132,17.7958C11.0574,17.9613 10.8693,18.0931 10.6607,18.1832C10.452,18.2733 10.2271,18.3198 9.9999,18.3198C9.7726,18.3198 9.5477,18.2733 9.339,18.1832C9.1304,18.0931 8.9423,17.9613 8.7865,17.7958L4.5832,13.3333H4.599L4.5919,13.325L4.5832,13.3145C3.5043,12.0386 2.9137,10.4209 2.9165,8.75C2.9165,4.8379 6.0878,1.6666 9.9999,1.6666C13.9119,1.6666 17.0832,4.8379 17.0832,8.75C17.0861,10.4209 16.4954,12.0386 15.4165,13.3145L15.4078,13.325L15.4007,13.3333H15.4165ZM14.6069,12.6587C15.5353,11.5682 16.044,10.1821 16.0415,8.75C16.0415,5.4133 13.3365,2.7083 9.9999,2.7083C6.6632,2.7083 3.9582,5.4133 3.9582,8.75C3.9582,10.2416 4.4974,11.605 5.3928,12.6587L5.5211,12.81L9.5449,17.0812C9.6033,17.1433 9.6738,17.1927 9.752,17.2265C9.8303,17.2603 9.9146,17.2777 9.9999,17.2777C10.0851,17.2777 10.1694,17.2603 10.2477,17.2265C10.3259,17.1927 10.3964,17.1433 10.4548,17.0812L14.4786,12.81L14.6069,12.6587Z&quot;"
-        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/ic_location.xml"
-            line="10"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="VectorPath"
-        severity="Warning"
-        message="Very long vector path (1098 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
-        category="Performance"
-        priority="5"
-        summary="Long vector paths"
-        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
-        errorLine1="      android:pathData=&quot;M14.0203,13.0518L9.4553,8.4867C10.1637,7.5709 10.5469,6.4512 10.5469,5.2734C10.5469,3.8637 9.9967,2.5418 9.0018,1.5451C8.0068,0.5484 6.6814,0 5.2734,0C3.8654,0 2.54,0.5502 1.5451,1.5451C0.5484,2.54 0,3.8637 0,5.2734C0,6.6814 0.5502,8.0068 1.5451,9.0018C2.54,9.9984 3.8637,10.5469 5.2734,10.5469C6.4512,10.5469 7.5691,10.1637 8.485,9.457L13.05,14.0203C13.0634,14.0337 13.0793,14.0443 13.0968,14.0516C13.1143,14.0588 13.133,14.0626 13.152,14.0626C13.1709,14.0626 13.1896,14.0588 13.2071,14.0516C13.2246,14.0443 13.2405,14.0337 13.2539,14.0203L14.0203,13.2557C14.0337,13.2423 14.0443,13.2264 14.0516,13.2089C14.0588,13.1914 14.0626,13.1726 14.0626,13.1537C14.0626,13.1348 14.0588,13.116 14.0516,13.0985C14.0443,13.081 14.0337,13.0651 14.0203,13.0518ZM8.0578,8.0578C7.3125,8.8014 6.3246,9.2109 5.2734,9.2109C4.2223,9.2109 3.2344,8.8014 2.4891,8.0578C1.7455,7.3125 1.3359,6.3246 1.3359,5.2734C1.3359,4.2223 1.7455,3.2326 2.4891,2.4891C3.2344,1.7455 4.2223,1.3359 5.2734,1.3359C6.3246,1.3359 7.3143,1.7437 8.0578,2.4891C8.8014,3.2344 9.2109,4.2223 9.2109,5.2734C9.2109,6.3246 8.8014,7.3143 8.0578,8.0578Z&quot;"
-        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/ic_search.xml"
-            line="7"
-            column="25"/>
     </issue>
 
     <issue
@@ -1692,9 +2176,23 @@
         errorLine1="            android:layout_height=&quot;35dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="131"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="138"
             column="13"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/location.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="https://developer.android.com/guide/practices/screens_support.html"
+        urls="https://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/location.png"/>
     </issue>
 
     <issue
@@ -1708,7 +2206,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/marker.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/marker.png"/>
     </issue>
 
     <issue
@@ -1722,7 +2220,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/redline.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/redline.png"/>
     </issue>
 
     <issue
@@ -1736,7 +2234,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/symbol_blue.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/symbol_blue.png"/>
     </issue>
 
     <issue
@@ -1750,7 +2248,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/symbol_yellow.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/symbol_yellow.png"/>
     </issue>
 
     <issue
@@ -1764,7 +2262,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/zoomin.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/zoomin.png"/>
     </issue>
 
     <issue
@@ -1778,7 +2276,7 @@
         url="https://developer.android.com/guide/practices/screens_support.html"
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/drawable/zoomout.png"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/zoomout.png"/>
     </issue>
 
     <issue
@@ -1794,7 +2292,7 @@
         errorLine1="    &lt;EditText"
         errorLine2="     ~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="17"
             column="6"/>
     </issue>
@@ -1812,7 +2310,7 @@
         errorLine1="    &lt;EditText"
         errorLine2="     ~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="33"
             column="6"/>
     </issue>
@@ -1830,8 +2328,8 @@
         errorLine1="        &lt;EditText"
         errorLine2="         ~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="33"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="34"
             column="10"/>
     </issue>
 
@@ -1848,7 +2346,7 @@
         errorLine1="        &lt;ImageButton"
         errorLine2="         ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="245"
             column="10"/>
     </issue>
@@ -1866,7 +2364,7 @@
         errorLine1="        &lt;ImageButton"
         errorLine2="         ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="259"
             column="10"/>
     </issue>
@@ -1884,7 +2382,7 @@
         errorLine1="        &lt;ImageButton"
         errorLine2="         ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="272"
             column="10"/>
     </issue>
@@ -1902,7 +2400,7 @@
         errorLine1="        &lt;ImageButton"
         errorLine2="         ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="284"
             column="10"/>
     </issue>
@@ -1920,7 +2418,7 @@
         errorLine1="        &lt;ImageView"
         errorLine2="         ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="347"
             column="10"/>
     </issue>
@@ -1938,7 +2436,7 @@
         errorLine1="            &lt;ImageView"
         errorLine2="             ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="411"
             column="14"/>
     </issue>
@@ -1956,7 +2454,7 @@
         errorLine1="        &lt;ImageView"
         errorLine2="         ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="440"
             column="10"/>
     </issue>
@@ -1974,7 +2472,7 @@
         errorLine1="            &lt;ImageView"
         errorLine2="             ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="454"
             column="14"/>
     </issue>
@@ -1992,7 +2490,7 @@
         errorLine1="        &lt;ImageView"
         errorLine2="         ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="481"
             column="10"/>
     </issue>
@@ -2010,7 +2508,7 @@
         errorLine1="            &lt;ImageView"
         errorLine2="             ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="495"
             column="14"/>
     </issue>
@@ -2028,7 +2526,7 @@
         errorLine1="    &lt;ImageView"
         errorLine2="     ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/loader.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/loader.xml"
             line="6"
             column="6"/>
     </issue>
@@ -2046,7 +2544,7 @@
         errorLine1="    &lt;ImageView"
         errorLine2="     ~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/loader.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/loader.xml"
             line="12"
             column="6"/>
     </issue>
@@ -2064,8 +2562,8 @@
         errorLine1="            totalAreaTv.setText(hectaresStr + &quot; &quot;+getResources().getString(R.string.hectares));"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="788"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="791"
             column="33"/>
     </issue>
 
@@ -2082,8 +2580,8 @@
         errorLine1="            totalseedsTv.setText(seedrequiredStr + &quot; KG&quot;);"
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="789"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="792"
             column="34"/>
     </issue>
 
@@ -2100,8 +2598,8 @@
         errorLine1="            totalseedsTv.setText(seedrequiredStr + &quot; KG&quot;);"
         errorLine2="                                                   ~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="789"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="792"
             column="52"/>
     </issue>
 
@@ -2118,8 +2616,8 @@
         errorLine1="            totalAreaTv.setText(areaStr + &quot; Acres&quot;);"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="793"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="796"
             column="33"/>
     </issue>
 
@@ -2136,9 +2634,45 @@
         errorLine1="            totalAreaTv.setText(areaStr + &quot; Acres&quot;);"
         errorLine2="                                          ~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
-            line="793"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentEditFarmBoundries.java"
+            line="796"
             column="43"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        searchTxt.setText(&quot;Location #&quot; + (position + 1));"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="465"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        searchTxt.setText(&quot;Location #&quot; + (position + 1));"
+        errorLine2="                          ~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="465"
+            column="27"/>
     </issue>
 
     <issue
@@ -2154,7 +2688,7 @@
         errorLine1="            messageBox.setText(selSize + &quot; &quot; + getResources().getString(R.string.farm) + msgPre + &quot; &quot; + getResources().getString(R.string.selected));"
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentShowAllFarms.java"
             line="205"
             column="32"/>
     </issue>
@@ -2170,7 +2704,7 @@
         errorLine1="        android:text=&quot;MAXDIGI&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="25"
             column="9"/>
     </issue>
@@ -2186,7 +2720,7 @@
         errorLine1="        android:text=&quot;Nashik&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="41"
             column="9"/>
     </issue>
@@ -2202,7 +2736,7 @@
         errorLine1="            android:text=&quot;Parent App Header&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
             line="21"
             column="13"/>
     </issue>
@@ -2218,7 +2752,7 @@
         errorLine1="            android:text=&quot;Parent App Footer&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
             line="38"
             column="13"/>
     </issue>
@@ -2234,7 +2768,7 @@
         errorLine1="                android:text=&quot; 19.45&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="433"
             column="17"/>
     </issue>
@@ -2250,7 +2784,7 @@
         errorLine1="                android:text=&quot;17 KG&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="475"
             column="17"/>
     </issue>
@@ -2266,7 +2800,7 @@
         errorLine1="                android:text=&quot;India&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="517"
             column="17"/>
     </issue>
@@ -2282,7 +2816,7 @@
         errorLine1="        android:text=&quot;First Exam&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/search_cutom_view.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/search_cutom_view.xml"
             line="15"
             column="9"/>
     </issue>
@@ -2298,7 +2832,7 @@
         errorLine1="            android:paddingLeft=&quot;15dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="134"
             column="13"/>
     </issue>
@@ -2314,7 +2848,7 @@
         errorLine1="            android:paddingLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="148"
             column="13"/>
     </issue>
@@ -2330,8 +2864,8 @@
         errorLine1="            android:paddingLeft=&quot;15dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="110"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="117"
             column="13"/>
     </issue>
 
@@ -2346,8 +2880,8 @@
         errorLine1="            android:paddingLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="123"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="130"
             column="13"/>
     </issue>
 
@@ -2362,7 +2896,7 @@
         errorLine1="        android:gravity=&quot;left&quot;"
         errorLine2="                         ~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="23"
             column="26"/>
     </issue>
@@ -2378,7 +2912,7 @@
         errorLine1="        android:gravity=&quot;left&quot;"
         errorLine2="                         ~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_home.xml"
             line="39"
             column="26"/>
     </issue>
@@ -2394,7 +2928,7 @@
         errorLine1="            android:layout_alignParentLeft=&quot;true&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/activity_kawa_home.xml"
             line="56"
             column="13"/>
     </issue>
@@ -2410,7 +2944,7 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="62"
             column="13"/>
     </issue>
@@ -2426,7 +2960,7 @@
         errorLine1="            android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="64"
             column="13"/>
     </issue>
@@ -2442,7 +2976,7 @@
         errorLine1="            android:drawableLeft=&quot;@drawable/ic_discard&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="66"
             column="13"/>
     </issue>
@@ -2458,7 +2992,7 @@
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="80"
             column="13"/>
     </issue>
@@ -2474,7 +3008,7 @@
         errorLine1="            android:layout_toRightOf=&quot;@+id/discardEditBtn&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="82"
             column="13"/>
     </issue>
@@ -2490,7 +3024,7 @@
         errorLine1="            android:drawableLeft=&quot;@drawable/ic_back&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="85"
             column="13"/>
     </issue>
@@ -2506,7 +3040,7 @@
         errorLine1="            android:layout_alignParentRight=&quot;true&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="99"
             column="13"/>
     </issue>
@@ -2522,7 +3056,7 @@
         errorLine1="            android:layout_marginRight=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="101"
             column="13"/>
     </issue>
@@ -2538,7 +3072,7 @@
         errorLine1="            android:drawableLeft=&quot;@drawable/ic_start_over&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="103"
             column="13"/>
     </issue>
@@ -2554,7 +3088,7 @@
         errorLine1="        android:layout_gravity=&quot;bottom|left&quot;"
         errorLine2="                                ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="122"
             column="33"/>
     </issue>
@@ -2570,7 +3104,7 @@
         errorLine1="        android:gravity=&quot;bottom|left&quot;"
         errorLine2="                         ~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="123"
             column="26"/>
     </issue>
@@ -2586,7 +3120,7 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="130"
             column="13"/>
     </issue>
@@ -2602,7 +3136,7 @@
         errorLine1="            android:paddingLeft=&quot;15dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="134"
             column="13"/>
     </issue>
@@ -2618,7 +3152,7 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="144"
             column="13"/>
     </issue>
@@ -2634,7 +3168,7 @@
         errorLine1="            android:paddingLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="148"
             column="13"/>
     </issue>
@@ -2650,7 +3184,7 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="159"
             column="13"/>
     </issue>
@@ -2666,7 +3200,7 @@
         errorLine1="        android:layout_alignParentRight=&quot;true&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="238"
             column="9"/>
     </issue>
@@ -2682,7 +3216,7 @@
         errorLine1="        android:layout_gravity=&quot;bottom|right&quot;"
         errorLine2="                                ~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="240"
             column="33"/>
     </issue>
@@ -2698,7 +3232,7 @@
         errorLine1="        android:gravity=&quot;bottom|right&quot;"
         errorLine2="                         ~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="242"
             column="26"/>
     </issue>
@@ -2714,7 +3248,7 @@
         errorLine1="            android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="251"
             column="13"/>
     </issue>
@@ -2730,7 +3264,7 @@
         errorLine1="            android:layout_toLeftOf=&quot;@+id/rightBtn&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="253"
             column="13"/>
     </issue>
@@ -2746,7 +3280,7 @@
         errorLine1="            android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="263"
             column="13"/>
     </issue>
@@ -2762,7 +3296,7 @@
         errorLine1="            android:layout_toLeftOf=&quot;@+id/downBtn&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="265"
             column="13"/>
     </issue>
@@ -2778,7 +3312,7 @@
         errorLine1="            android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="276"
             column="13"/>
     </issue>
@@ -2794,7 +3328,7 @@
         errorLine1="            android:layout_toLeftOf=&quot;@+id/rightBtn&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="277"
             column="13"/>
     </issue>
@@ -2810,7 +3344,7 @@
         errorLine1="            android:layout_marginRight=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="288"
             column="13"/>
     </issue>
@@ -2826,7 +3360,7 @@
         errorLine1="            android:layout_marginRight=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="301"
             column="13"/>
     </issue>
@@ -2842,7 +3376,7 @@
         errorLine1="                android:layout_marginLeft=&quot;5dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="421"
             column="17"/>
     </issue>
@@ -2858,7 +3392,7 @@
         errorLine1="                android:layout_marginLeft=&quot;5dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="464"
             column="17"/>
     </issue>
@@ -2874,7 +3408,7 @@
         errorLine1="                android:layout_marginLeft=&quot;5dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="505"
             column="17"/>
     </issue>
@@ -2890,7 +3424,7 @@
         errorLine1="                android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
             line="516"
             column="17"/>
     </issue>
@@ -2906,8 +3440,8 @@
         errorLine1="            android:drawableLeft=&quot;@drawable/ic_search&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="41"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="42"
             column="13"/>
     </issue>
 
@@ -2922,23 +3456,55 @@
         errorLine1="            android:gravity=&quot;left&quot;"
         errorLine2="                             ~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="45"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="47"
             column="30"/>
     </issue>
 
     <issue
         id="RtlHardcoded"
         severity="Warning"
-        message="Consider replacing `android:drawableLeft` with `android:drawableStart=&quot;@drawable/ic_search&quot;` to better support right-to-left layouts"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
         explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
-        errorLine1="            android:drawableLeft=&quot;@drawable/ic_search&quot;"
+        errorLine1="            android:layout_gravity=&quot;left&quot;"
+        errorLine2="                                    ~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="63"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;16dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="64"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:drawableLeft` with `android:drawableStart=&quot;@drawable/ic_location&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:drawableLeft=&quot;@drawable/ic_location&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
             line="66"
             column="13"/>
     </issue>
@@ -2946,6 +3512,22 @@
     <issue
         id="RtlHardcoded"
         severity="Warning"
+        message="Consider replacing `android:drawableRight` with `android:drawableEnd=&quot;@drawable/ic_drop_down_arrow&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:drawableRight=&quot;@drawable/ic_drop_down_arrow&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
         message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
         category="Internationalization:Bidirectional Text"
         priority="5"
@@ -2954,7 +3536,7 @@
         errorLine1="            android:gravity=&quot;left&quot;"
         errorLine2="                             ~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
             line="69"
             column="30"/>
     </issue>
@@ -2970,8 +3552,8 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="106"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="113"
             column="13"/>
     </issue>
 
@@ -2986,8 +3568,8 @@
         errorLine1="            android:paddingLeft=&quot;15dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="110"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="117"
             column="13"/>
     </issue>
 
@@ -3002,8 +3584,8 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="119"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="126"
             column="13"/>
     </issue>
 
@@ -3018,8 +3600,8 @@
         errorLine1="            android:paddingLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="123"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="130"
             column="13"/>
     </issue>
 
@@ -3034,8 +3616,8 @@
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="133"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="140"
             column="13"/>
     </issue>
 
@@ -3050,7 +3632,7 @@
         errorLine1="            android:layout_gravity=&quot;right&quot;"
         errorLine2="                                    ~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="34"
             column="37"/>
     </issue>
@@ -3066,7 +3648,7 @@
         errorLine1="            android:layout_marginRight=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="36"
             column="13"/>
     </issue>
@@ -3082,7 +3664,7 @@
         errorLine1="            android:drawableLeft=&quot;@drawable/ic_start_over&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="38"
             column="13"/>
     </issue>
@@ -3098,7 +3680,7 @@
         errorLine1="            android:gravity=&quot;right&quot;"
         errorLine2="                             ~~~~~">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/show_all_farms.xml"
             line="40"
             column="30"/>
     </issue>
@@ -3112,7 +3694,7 @@
         summary="Using RTL attributes without enabling RTL support"
         explanation="To enable right-to-left support, when running on API 17 and higher, you must set the `android:supportsRtl` attribute in the manifest `&lt;application>` element.&#xA;&#xA;If you have started adding RTL attributes, but have not yet finished the migration, you can set the attribute to false to satisfy this lint check.">
         <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml"/>
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml"/>
     </issue>
 
 </issues>

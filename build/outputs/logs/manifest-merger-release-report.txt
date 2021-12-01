@@ -1,39 +1,39 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
+ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:1-11:12
 	package
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:3:5-26
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:3:5-26
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:5-79
+ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:22-76
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.INTERNET
-ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:5-67
+ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:22-64
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:5-78
+ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:5-78
 	android:name
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:22-75
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:7:22-75
 application
-ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml:9:5-32
+ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml:9:5-32
 uses-sdk
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
-		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Final/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		ADDED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/AndroidManifest.xml

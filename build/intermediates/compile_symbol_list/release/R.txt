@@ -2039,6 +2039,8 @@ int drawable ic_check 0x0
 int drawable ic_check_small 0x0
 int drawable ic_clock_black_24dp 0x0
 int drawable ic_discard 0x0
+int drawable ic_drop_down_arrow 0x0
+int drawable ic_farm_address 0x0
 int drawable ic_keyboard_black_24dp 0x0
 int drawable ic_launcher_background 0x0
 int drawable ic_launcher_foreground 0x0
@@ -2052,6 +2054,7 @@ int drawable ic_mylocation 0x0
 int drawable ic_search 0x0
 int drawable ic_seeds 0x0
 int drawable ic_start_over 0x0
+int drawable location 0x0
 int drawable map_default_map_marker 0x0
 int drawable map_default_map_marker_shadow 0x0
 int drawable mapbox_color_text_cursor 0x0
@@ -2332,6 +2335,7 @@ int id dragLeft 0x0
 int id dragRight 0x0
 int id dragStart 0x0
 int id dragUp 0x0
+int id dropdownBtn 0x0
 int id dropdown_menu 0x0
 int id easeIn 0x0
 int id easeInOut 0x0
@@ -2412,6 +2416,7 @@ int id list_item 0x0
 int id locationLayout 0x0
 int id locationTv 0x0
 int id locationiconIv 0x0
+int id locationlist_recyclerView 0x0
 int id mapView 0x0
 int id map_view 0x0
 int id mapbox_place_picker_toolbar_back_button 0x0
@@ -2550,7 +2555,6 @@ int id scroll_drop_shadow 0x0
 int id scroll_view_results 0x0
 int id scrollable 0x0
 int id searchHistoryResultsView 0x0
-int id searchResultTxt 0x0
 int id searchResultView 0x0
 int id searchTxt 0x0
 int id searchView 0x0
@@ -2757,6 +2761,7 @@ int layout abc_search_dropdown_item_icons_2line 0x0
 int layout abc_search_view 0x0
 int layout abc_select_dialog_material 0x0
 int layout abc_tooltip 0x0
+int layout activity_demo 0x0
 int layout activity_home 0x0
 int layout activity_kawa_home 0x0
 int layout com_mixpanel_android_activity_notification_full 0x0
@@ -3011,6 +3016,7 @@ int string mapbox_style_traffic_night 0x0
 int string mapbox_telemetryImproveMap 0x0
 int string mapbox_telemetryLink 0x0
 int string mapbox_telemetrySettings 0x0
+int string mapped_locations 0x0
 int string mark_another 0x0
 int string material_clock_display_divider 0x0
 int string material_clock_toggle_content_description 0x0
