@@ -31,30 +31,69 @@
             android:textAlignment="center"
             android:textColor="#FFF" />
 
-        <EditText
-            android:id="@+id/searchTxt"
+        <!--            <EditText-->
+        <!--                android:id="@+id/searchTxt"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="50dp"-->
+        <!--                android:layout_gravity="center_horizontal"-->
+        <!--                android:layout_marginHorizontal="16dp"-->
+        <!--                android:layout_marginVertical="10dp"-->
+        <!--                android:layout_marginBottom="5dp"-->
+        <!--                android:background="@drawable/style_rounded_corner_large"-->
+        <!--                android:drawableLeft="@drawable/ic_search"-->
+        <!--                android:drawablePadding="10dp"-->
+        <!--                android:elevation="8dp"-->
+        <!--                android:focusable="true"-->
+        <!--                android:focusableInTouchMode="true"-->
+        <!--                android:hint="@string/searchStr"-->
+        <!--                android:imeOptions="actionDone"-->
+        <!--                android:inputType="text"-->
+        <!--                android:maxLines="1"-->
+        <!--                android:paddingHorizontal="20dp"-->
+        <!--                android:paddingVertical="15dp"-->
+        <!--                android:singleLine="true"-->
+        <!--                android:textColor="@color/mapboxBlack"-->
+        <!--                android:textColorHint="#4F4F4F" />-->
+
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/messageBox"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/style_rounded_corner_large"
-            android:drawableLeft="@drawable/ic_search"
-            android:drawablePadding="10dp"
-            android:elevation="8dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="left"
-            android:hint="@string/searchStr"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="15dp"
-            android:singleLine="true"
-            android:textColor="@color/mapboxBlack"
-            android:textColorHint="#4F4F4F"
-            app:backgroundTint="@color/mapboxWhite" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/searchTxt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/style_rounded_corner_large"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/searchStr"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingRight="40dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/mapboxBlack"
+                android:textColorHint="@color/mapboxGrayLight"
+                android:paddingVertical="15dp"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:id="@+id/button_search_clear"
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/close_icon"
+                android:padding="30dp"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/dropdownBtn"

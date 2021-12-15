@@ -438,22 +438,6 @@
     <issue
         id="UnusedAttribute"
         severity="Warning"
-        message="Attribute `elevation` is only used in API level 21 and higher (current min is 17)"
-        category="Correctness"
-        priority="6"
-        summary="Attribute unused on older versions"
-        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
-        errorLine1="            android:elevation=&quot;8dp&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="44"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="UnusedAttribute"
-        severity="Warning"
         message="Attribute `backgroundTint` is only used in API level 21 and higher (current min is 17)"
         category="Correctness"
         priority="6"
@@ -463,7 +447,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="65"
+            line="104"
             column="13"/>
     </issue>
 
@@ -479,7 +463,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="68"
+            line="107"
             column="13"/>
     </issue>
 
@@ -495,7 +479,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="84"
+            line="123"
             column="13"/>
     </issue>
 
@@ -511,7 +495,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="95"
+            line="134"
             column="13"/>
     </issue>
 
@@ -527,7 +511,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="155"
+            line="194"
             column="13"/>
     </issue>
 
@@ -543,7 +527,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="156"
+            line="195"
             column="13"/>
     </issue>
 
@@ -1629,11 +1613,75 @@
         priority="5"
         summary="Logging call to Log instead of Timber"
         explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="            Log.e(&quot;TAG&quot;, &quot;clearsearchView: VISIBLE&quot; );"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="388"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="            Log.e(&quot;TAG&quot;, &quot;clearsearchView: VISIBLE GONE&quot; );"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="391"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;PLACELATLNGARRAY: &quot; + PLACELATLNGARRAY);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="426"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
         errorLine1="        Log.e(&quot;onLocationItemClick1&quot;, String.valueOf(llPts));"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="463"
+            line="481"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="        Log.e(&quot;TAG&quot;, &quot;makeGeocodeSearch: &quot;);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="512"
             column="9"/>
     </issue>
 
@@ -1649,7 +1697,7 @@
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="523"
+            line="549"
             column="25"/>
     </issue>
 
@@ -1665,8 +1713,88 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="533"
+            line="559"
             column="21"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                    Log.e(&quot;TAG&quot;, &quot;Space : &quot; + PLACEARRAY);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="587"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                    Log.e(&quot;TAG&quot;, &quot;PLACEARRAY >> : &quot; + PLACEARRAY);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="589"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                        Log.e(&quot;TAG&quot;, &quot;placeList: &quot; + placeList);"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="594"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                                Log.e(&quot;TAG&quot;, &quot;latLng: &quot; + latLng);"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="614"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="LogNotTimber"
+        severity="Warning"
+        message="Using &apos;Log&apos; instead of &apos;Timber&apos;"
+        category="Correctness:Messages"
+        priority="5"
+        summary="Logging call to Log instead of Timber"
+        explanation="Since Timber is included in the project, it is likely that calls to Log should instead be going to Timber."
+        errorLine1="                                Log.e(&quot;TAG&quot;, &quot;PLACELATLNGARRAY>>: &quot; + PLACELATLNGARRAY);"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
+            line="615"
+            column="33"/>
     </issue>
 
     <issue
@@ -1681,7 +1809,7 @@
         errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="603"
+            line="641"
             column="41"/>
     </issue>
 
@@ -1697,7 +1825,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="610"
+            line="648"
             column="29"/>
     </issue>
 
@@ -1713,7 +1841,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="619"
+            line="657"
             column="13"/>
     </issue>
 
@@ -1729,7 +1857,7 @@
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="640"
+            line="678"
             column="33"/>
     </issue>
 
@@ -1745,7 +1873,7 @@
         errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="645"
+            line="683"
             column="37"/>
     </issue>
 
@@ -1761,7 +1889,7 @@
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="659"
+            line="697"
             column="25"/>
     </issue>
 
@@ -1777,7 +1905,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="697"
+            line="735"
             column="13"/>
     </issue>
 
@@ -1793,7 +1921,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="700"
+            line="738"
             column="13"/>
     </issue>
 
@@ -1809,7 +1937,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="717"
+            line="755"
             column="9"/>
     </issue>
 
@@ -2072,22 +2200,6 @@
     <issue
         id="ObsoleteLayoutParam"
         severity="Warning"
-        message="Invalid layout param in a `LinearLayout`: `layout_below`"
-        category="Performance"
-        priority="6"
-        summary="Obsolete layout params"
-        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
-        errorLine1="            android:layout_below=&quot;@+id/messageBox&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="38"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="ObsoleteLayoutParam"
-        severity="Warning"
         message="Invalid layout param in a `LinearLayout`: `layout_above`"
         category="Performance"
         priority="6"
@@ -2097,7 +2209,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="139"
+            line="178"
             column="13"/>
     </issue>
 
@@ -2177,8 +2289,22 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="138"
+            line="177"
             column="13"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/close_icon.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="https://developer.android.com/guide/practices/screens_support.html"
+        urls="https://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/close_icon.png"/>
     </issue>
 
     <issue
@@ -2249,6 +2375,20 @@
         urls="https://developer.android.com/guide/practices/screens_support.html">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/symbol_yellow.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/x_icon.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="https://developer.android.com/guide/practices/screens_support.html"
+        urls="https://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/drawable/x_icon.png"/>
     </issue>
 
     <issue
@@ -2325,12 +2465,12 @@
         explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
         url="https://developer.android.com/guide/topics/text/autofill.html"
         urls="https://developer.android.com/guide/topics/text/autofill.html"
-        errorLine1="        &lt;EditText"
-        errorLine2="         ~~~~~~~~">
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="34"
-            column="10"/>
+            line="63"
+            column="14"/>
     </issue>
 
     <issue
@@ -2550,6 +2690,24 @@
     </issue>
 
     <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`."
+        url="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
+        urls="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases"
+        errorLine1="            &lt;ImageView"
+        errorLine2="             ~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="87"
+            column="14"/>
+    </issue>
+
+    <issue
         id="SetTextI18n"
         severity="Warning"
         message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
@@ -2653,7 +2811,7 @@
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="465"
+            line="483"
             column="27"/>
     </issue>
 
@@ -2671,7 +2829,7 @@
         errorLine2="                          ~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/java/com/kawasdk/Fragment/fragmentFarmLocation.java"
-            line="465"
+            line="483"
             column="27"/>
     </issue>
 
@@ -2792,22 +2950,6 @@
     <issue
         id="HardcodedText"
         severity="Warning"
-        message="Hardcoded string &quot;India&quot;, should use `@string` resource"
-        category="Internationalization"
-        priority="5"
-        summary="Hardcoded text"
-        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
-        errorLine1="                android:text=&quot;India&quot;"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/edit_farm_boundries.xml"
-            line="517"
-            column="17"/>
-    </issue>
-
-    <issue
-        id="HardcodedText"
-        severity="Warning"
         message="Hardcoded string &quot;First Exam&quot;, should use `@string` resource"
         category="Internationalization"
         priority="5"
@@ -2865,7 +3007,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="117"
+            line="156"
             column="13"/>
     </issue>
 
@@ -2881,7 +3023,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="130"
+            line="169"
             column="13"/>
     </issue>
 
@@ -3437,28 +3579,76 @@
         priority="5"
         summary="Using left/right instead of start/end attributes"
         explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
-        errorLine1="            android:drawableLeft=&quot;@drawable/ic_search&quot;"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                android:drawableLeft=&quot;@drawable/ic_search&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="42"
-            column="13"/>
+            line="72"
+            column="17"/>
     </issue>
 
     <issue
         id="RtlHardcoded"
         severity="Warning"
-        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales"
+        message="Consider replacing `android:paddingRight` with `android:paddingEnd=&quot;40dp&quot;` to better support right-to-left layouts"
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
         explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
-        errorLine1="            android:gravity=&quot;left&quot;"
-        errorLine2="                             ~~~~">
+        errorLine1="                android:paddingRight=&quot;40dp&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="47"
-            column="30"/>
+            line="80"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:paddingLeft` with `android:paddingStart=&quot;20dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                android:paddingLeft=&quot;20dp&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="81"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`end`&quot; instead of &quot;`right`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                android:layout_gravity=&quot;right|center_vertical&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="91"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;25dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                android:layout_marginRight=&quot;25dp&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
+            line="92"
+            column="17"/>
     </issue>
 
     <issue
@@ -3473,7 +3663,7 @@
         errorLine2="                                    ~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="63"
+            line="102"
             column="37"/>
     </issue>
 
@@ -3489,7 +3679,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="64"
+            line="103"
             column="13"/>
     </issue>
 
@@ -3505,7 +3695,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="66"
+            line="105"
             column="13"/>
     </issue>
 
@@ -3521,7 +3711,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="67"
+            line="106"
             column="13"/>
     </issue>
 
@@ -3537,7 +3727,7 @@
         errorLine2="                             ~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="69"
+            line="108"
             column="30"/>
     </issue>
 
@@ -3553,7 +3743,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="113"
+            line="152"
             column="13"/>
     </issue>
 
@@ -3569,7 +3759,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="117"
+            line="156"
             column="13"/>
     </issue>
 
@@ -3585,7 +3775,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="126"
+            line="165"
             column="13"/>
     </issue>
 
@@ -3601,7 +3791,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="130"
+            line="169"
             column="13"/>
     </issue>
 
@@ -3617,7 +3807,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/mxmacbookpro6/Documents/MAXDIGI/Android/kawa_space/Kawasdk/kawasdk/src/main/res/layout/select_farm_location.xml"
-            line="140"
+            line="179"
             column="13"/>
     </issue>
 

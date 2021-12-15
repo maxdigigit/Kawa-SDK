@@ -1,13 +1,9 @@
-com/kawasdk/Utils/LocationAdapter.java
- com.kawasdk.Utils.LocationAdapter
- com.kawasdk.Utils.LocationAdapter$LocationItemClickListener
- com.kawasdk.Utils.LocationAdapter$ViewHolder
+com/kawasdk/Model/Geojson.java
+ com.kawasdk.Model.Geojson
 com/kawasdk/BuildConfig.java
  com.kawasdk.BuildConfig
-com/kawasdk/Utils/Common.java
- com.kawasdk.Utils.Common
- com.kawasdk.Utils.Common$1
- com.kawasdk.Utils.Common$2
+com/kawasdk/Utils/AddressServiceManager.java
+ com.kawasdk.Utils.AddressServiceManager
 com/kawasdk/Model/Properties.java
  com.kawasdk.Model.Properties
 com/kawasdk/Model/LocationModel/RecipeBoundsPolygon.java
@@ -24,10 +20,8 @@ com/kawasdk/Model/Data.java
  com.kawasdk.Model.Data
 com/kawasdk/Utils/KawaMap.java
  com.kawasdk.Utils.KawaMap
-com/kawasdk/Utils/LocationSearchAdapter.java
- com.kawasdk.Utils.LocationSearchAdapter
- com.kawasdk.Utils.LocationSearchAdapter$ItemClickListener
- com.kawasdk.Utils.LocationSearchAdapter$ViewHolder
+com/kawasdk/Model/PolygonModel.java
+ com.kawasdk.Model.PolygonModel
 com/kawasdk/Model/Geometry.java
  com.kawasdk.Model.Geometry
 com/kawasdk/Utils/InterfaceKawaEvents.java
@@ -38,12 +32,18 @@ com/kawasdk/Model/DeviveBounderyModel.java
  com.kawasdk.Model.DeviveBounderyModel
 com/kawasdk/Model/ResponseKawa.java
  com.kawasdk.Model.ResponseKawa
-com/kawasdk/Utils/AddressServiceManager.java
- com.kawasdk.Utils.AddressServiceManager
-com/kawasdk/Model/PolygonModel.java
- com.kawasdk.Model.PolygonModel
-com/kawasdk/Model/Geojson.java
- com.kawasdk.Model.Geojson
+com/kawasdk/Utils/LocationSearchAdapter.java
+ com.kawasdk.Utils.LocationSearchAdapter
+ com.kawasdk.Utils.LocationSearchAdapter$ItemClickListener
+ com.kawasdk.Utils.LocationSearchAdapter$ViewHolder
+com/kawasdk/Utils/LocationAdapter.java
+ com.kawasdk.Utils.LocationAdapter
+ com.kawasdk.Utils.LocationAdapter$LocationItemClickListener
+ com.kawasdk.Utils.LocationAdapter$ViewHolder
+com/kawasdk/Utils/Common.java
+ com.kawasdk.Utils.Common
+ com.kawasdk.Utils.Common$1
+ com.kawasdk.Utils.Common$2
 com/kawasdk/Utils/PlaceSearchAdapter.java
  com.kawasdk.Utils.PlaceSearchAdapter
  com.kawasdk.Utils.PlaceSearchAdapter$PlaceSearchItemClickListener

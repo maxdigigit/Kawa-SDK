@@ -514,7 +514,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:layout_marginLeft="10dp"
-                android:text="India"
+                android:text=""
                 android:textStyle="bold"
                 android:textColor="@color/mapboxWhite"
                 android:textSize="14sp" />

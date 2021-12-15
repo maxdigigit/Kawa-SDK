@@ -13,6 +13,7 @@ color mapboxGrayLight
 color mapboxPink
 color mapboxWhite
 color whitePressed
+drawable close_icon
 drawable dottedline
 drawable ic_add
 drawable ic_area
@@ -49,6 +50,7 @@ drawable style_rounded_corner_small
 drawable style_rounded_corner_top
 drawable symbol_blue
 drawable symbol_yellow
+drawable x_icon
 drawable zoomin
 drawable zoomout
 id GET_FARMSBtn
@@ -60,6 +62,7 @@ id areaTv
 id areaiconIv
 id backBtn
 id border2
+id button_search_clear
 id combinePlotBtn
 id completeMarkingBtn
 id correctBoundryBtn

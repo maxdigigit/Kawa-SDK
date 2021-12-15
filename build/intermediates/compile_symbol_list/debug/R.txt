@@ -1994,6 +1994,7 @@ int drawable btn_radio_off_mtrl 0x0
 int drawable btn_radio_off_to_on_mtrl_animation 0x0
 int drawable btn_radio_on_mtrl 0x0
 int drawable btn_radio_on_to_off_mtrl_animation 0x0
+int drawable close_icon 0x0
 int drawable com_mixpanel_android_close_new 0x0
 int drawable com_mixpanel_android_logo 0x0
 int drawable com_mixpanel_android_mini_inapp_rounded 0x0
@@ -2160,6 +2161,7 @@ int drawable symbol_yellow 0x0
 int drawable test_custom_background 0x0
 int drawable tooltip_frame_dark 0x0
 int drawable tooltip_frame_light 0x0
+int drawable x_icon 0x0
 int drawable zoomin 0x0
 int drawable zoomout 0x0
 int id BOTTOM_END 0x0
